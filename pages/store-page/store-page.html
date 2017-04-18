@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>store-page</ion-title>
+    <ion-title>附近店铺</ion-title>
+        <ion-buttons end>
+      <button ion-button icon-only 
+        (click)="navPush(childPage.searchStorePage)">
+        <ion-icon name="search"></ion-icon>
+      </button>
+</ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item style="padding:0"  *ngFor="let storeList of store">
+      <ion-thumbnail item-left>
+        <img src="{{ storeList.picture }}">
+      </ion-thumbnail>
+      <h2 style="margin:0">{{ storeList.label }}</h2>
+      <h3>{{ storeList.distance }}m</h3>
+      <p>{{ storeList.address }}</p>
+    </button>
+  </ion-list>
+  <div style="text-align: center">更多</div>
 </ion-content>
