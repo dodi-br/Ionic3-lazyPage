@@ -5,14 +5,78 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>rank-page</ion-title>
-  </ion-navbar>
-
+  <ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="main">
+      今日
+    </ion-segment-button>
+    <ion-segment-button value="level">
+      评级
+    </ion-segment-button>
+    <ion-segment-button value="game">
+      比赛
+    </ion-segment-button>
+    <ion-segment-button value="battle">
+      对战
+    </ion-segment-button>
+    <ion-segment-button value="award">
+      奖励
+    </ion-segment-button>
+    <ion-segment-button value="mainStore">
+      主店
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
+<ion-content>
+  <ion-slides #rankSlider (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide *ngFor="let slide of rankSlides">
+      <div>
+        <ion-item-group>
+          <ion-item-divider style="text-align: left; color: black">
+            <h2>排名第一</h2>
+          </ion-item-divider>
+          <ion-item *ngFor="let item of [0, 1, 2]">
+            <ion-thumbnail item-left>
+              <img src="img/thumbnail-totoro.png">
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>View</button>
+          </ion-item>
+        </ion-item-group>
 
-<ion-content padding>
+        <ion-item-group>
+          <ion-item-divider style="text-align: left; color: black">
+            <h2>比赛排名</h2>
+          </ion-item-divider>
+          <ion-item *ngFor="let item of [0, 1, 2]">
+            <ion-thumbnail item-left>
+              <img src="img/thumbnail-totoro.png">
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>View</button>
+          </ion-item>
+        </ion-item-group>
 
+        <ion-item-group>
+          <ion-item-divider style="text-align: left; color: black">
+            <h2>比赛排名</h2>
+          </ion-item-divider>
+          <ion-item *ngFor="let item of [0, 1, 2]">
+            <ion-thumbnail item-left>
+              <img src="img/thumbnail-totoro.png">
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>View</button>
+          </ion-item>
+        </ion-item-group>
+
+
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+
+

@@ -15,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'store-page.html',
 })
 export class StorePage {
+  childPage = {
+    onSearchStorePage: { title: '搜索店铺', page: 'onSearchStorePage' }
+  }
   store = [
     {
       label: "理想咖啡店",
@@ -53,5 +56,7 @@ export class StorePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StorePage');
   }
-
+  navPush(target) {
+    this.navCtrl.push(target.page, {title: target.title});
+  }
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 /**
  * Generated class for the RankPage page.
@@ -15,12 +15,53 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'rank-page.html',
 })
 export class RankPage {
-
+  
+  rankTab: any;
+  
+  
+  @ViewChild('rankSlider') slider: Slides;
+  rankSegment: string;
+  rankSlides: any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.rankSegment = 'main';
+    this.rankSlides = [
+      {
+        id: "main",
+        title: "First Slide"
+      },
+      {
+        id: "level",
+        title: "Second Slide"
+      },
+      {
+        id: "game",
+        title: "Third Slide"
+      },
+      {
+        id: "battle",
+        title: ""
+      }
+    ];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RankPage');
+  }
+  
+  onSegmentChanged(segmentButton) {
+    console.log("Segment changed to", segmentButton.value);
+    const selectedIndex = this.rankSlides.findIndex((slide) => {
+      return slide.id === segmentButton.value;
+    });
+    this.slider.slideTo(selectedIndex);
+  }
+
+  onSlideChanged(slider) {
+    console.log('Slide changed');
+    // const currentSlide = this.rankSlides[slider.getActiveIndex];
+    const currentIndex = slider.getActiveIndex();
+    this.rankSegment = this.rankSlides[currentIndex].id;
   }
 
 }

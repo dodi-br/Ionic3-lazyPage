@@ -7,12 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>mine-page</ion-title>
+    <ion-title style="text-align: center">我的</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background: #f4f4f4">
+  <ion-item-group>
+    <ion-item (click)="navPush(childPage.personInformationPage)" detail-push>
+      <ion-avatar item-left>
+        <img src="assets/portrait.png">
+      </ion-avatar>
+      <h2>Zhangsan</h2>
+      <p>个人中心:详细，编辑...</p>
+    </ion-item>
+    <ion-item-divider color="light"></ion-item-divider>
+  </ion-item-group>
+  <!--<ion-list>-->
+  <!--  <button ion-item *ngFor="let item of items" (click)="navPush(item)" icon-left>-->
+  <!--    {{ item.title }}-->
+  <!--  </button>-->
+  <!--</ion-list>-->
 
+  <ion-item-group>
+    <button ion-item (click)="navPush(childPage.cardInformationPage)">
+      <!--{{ childPage.cardInformationPage.title }}-->
+      我的点卡
+    </button>
+    <button ion-item (click)="navPush(childPage.mainStroePage)">
+      主店
+    </button>
+    <button ion-item (click)="navPush(childPage.gameHistoryPage)">
+      <!--{{ childPage.gameHistoryPage.title }}-->
+      游戏数据
+    </button>
+    <button ion-item (click)="navPush(childPage.gameRankPage)">
+      我的排名
+    </button>
+    <ion-item-divider color="light"></ion-item-divider>
+  </ion-item-group>
+
+  <ion-item-group>
+    <button ion-item (click)="navPush(childPage.settingPage)">
+      设置
+    </button>
+  </ion-item-group>
 </ion-content>

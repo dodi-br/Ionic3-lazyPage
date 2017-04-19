@@ -10,7 +10,7 @@
     <ion-title>附近店铺</ion-title>
         <ion-buttons end>
       <button ion-button icon-only 
-        (click)="navPush(childPage.searchStorePage)">
+        (click)="navPush(childPage.onSearchStorePage)">
         <ion-icon name="search"></ion-icon>
       </button>
 </ion-buttons>
@@ -30,5 +30,4 @@
       <p>{{ storeList.address }}</p>
     </button>
   </ion-list>
-  <div style="text-align: center">更多</div>
 </ion-content>

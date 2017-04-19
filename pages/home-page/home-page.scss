@@ -21,6 +21,10 @@ button.swiper-pagination-bullet {
     content: url("../assets/CN.bmp") !important;
 }
 
+.ion-md-title-logo::before {
+    content: url("../assets/phoenixdarts.jpg") !important;
+}
+
 #rank .label {
     margin: 0 !important;
 }
