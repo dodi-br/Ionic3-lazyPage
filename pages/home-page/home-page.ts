@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 })
 export class HomePage {
   childPage = {
-    cardRechargePage : { title: '充值', page: 'CardRechargePage' },
+    rechargePage : { title: '充值', page: 'RechargePage' },
     noticePage: { title: '公告', page: 'NoticePage' },
     mapPage: { title: '地图', page: 'MapPage' },
     storeDetailPage: { title: '店铺详情', page: 'StoreDetailPage' },
@@ -75,6 +75,10 @@ export class HomePage {
     // const currentSlide = this.rankSlides[slider.getActiveIndex];
     const currentIndex = slider.getActiveIndex();
     this.rankSegment = this.rankSlides[currentIndex].id;
+  }
+  
+  navPush(target) {
+    this.navCtrl.push(target.page, {title: target.title});
   }
 
 }

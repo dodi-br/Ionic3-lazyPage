@@ -1,0 +1,32 @@
+<!--
+  Generated template for the NoticePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>notice</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-searchbar (ionInput)="getItems($event)" placeholder="搜索区域"></ion-searchbar>
+	<ion-card *ngFor="let item of [1, 2 ,3]">
+
+		<ion-card-header>
+			国庆期间５折优惠
+		</ion-card-header>
+
+		<ion-card-content>
+		<!-- Add card content here! -->
+			国庆节法定假期期间在商用机消费５折。<br/>
+			xxxxxxxxxxxxxxxxxx<br />
+			xxxxxxxxxxxxxxxxxx
+		</ion-card-content>
+	</ion-card>
+</ion-content>

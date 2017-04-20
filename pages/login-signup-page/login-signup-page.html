@@ -1,0 +1,71 @@
+<!--
+  Generated template for the LoginSignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-buttons left>
+      <button ion-button (click)="cancel()">
+      <ion-icon name="close"></ion-icon>
+      </button>
+      </ion-buttons>
+        <ion-title>
+            登录
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div padding>
+  <ion-segment [(ngModel)]="selectedTab">
+    <ion-segment-button value="Login">
+      登录
+    </ion-segment-button>
+    <ion-segment-button value="SignUp">
+      注册
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="selectedTab">
+  <ion-list *ngSwitchCase="'Login'">
+      <ion-item>
+        <ion-label color="primary">
+          <ion-icon name="person" color="primary"></ion-icon>
+        </ion-label>
+        <ion-input placeholder="Username"  [(ngModel)]="oLogin.account"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">
+          <ion-icon name="md-lock" color="primary"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="oLogin.password"></ion-input>
+      </ion-item>
+    <button ion-button class="btn-login" (click)="btnLoginClick($event)"> Login </button>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'SignUp'">
+    <ion-item>
+      <ion-label color="primary">
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Username" [(ngModel)]="oSignUp.account"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">
+        <ion-icon name="md-lock"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="oSignUp.password"></ion-input>
+    </ion-item>
+    <ion-item>
+    	<ion-label color="primary">
+    		<ion-icon name="md-phone-portrait"></ion-icon>
+    	</ion-label>
+    	<ion-input type="tel" placeholder="Phone number" [(ngModel)]="oSignUp.mobile"></ion-input>
+    </ion-item>
+    <button ion-button class="btn-login" (click)="btnLoginClick($event)"> Sign up </button>
+  </ion-list>
+</div>
+</ion-content>
