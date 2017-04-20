@@ -9,8 +9,14 @@
   <ion-navbar>
     <ion-icon name="title-logo"></ion-icon>
     <!--<ion-title>Darts</ion-title>-->
-  </ion-navbar>
+    
+      <ion-buttons end>
+      <button ion-button icon-only (click)="btnCountry()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
 
+  </ion-navbar>
 </ion-header>
 
 
@@ -47,7 +53,7 @@
   </button>
     <button ion-button clear class="three-button" (click)="navPush(childPage.mapPage)">
     <div>
-      <ion-icon name="navigate" class="icon-size"></ion-icon>
+      <ion-icon name="ios-game-controller-b" class="icon-size"></ion-icon>
       <br>
       <label>{{ childPage.mapPage.title }}</label>
     </div>
@@ -108,7 +114,7 @@
       </div>
 
       <!--<ion-slides #rankSlider (ionDidChange)="onSlideChanged($event)">-->
-      <ion-slides #rankSlider (ionSlideDidChange)="onSlideChanged($event)">
+      <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
         <ion-slide *ngFor="let slide of rankSlides">
           <!--<h1>{{ slide.title }}</h1>-->
 
@@ -158,8 +164,5 @@
       <ion-label><b>滨江</b>&nbsp;&nbsp;滨兴家园咖啡观</ion-label>
     </ion-item>
   </ion-list>
-
-
-
 
 </ion-content>

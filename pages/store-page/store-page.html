@@ -22,8 +22,8 @@
 <ion-content padding>
   <ion-list>
     <button ion-item style="padding:0"  *ngFor="let storeList of store">
-      <ion-thumbnail item-left>
-        <img src="{{ storeList.picture }}">
+      <ion-thumbnail >
+        <ion-img src="{{ storeList.picture }}"></ion-img>
       </ion-thumbnail>
       <h2 style="margin:0">{{ storeList.label }}</h2>
       <h3>{{ storeList.distance }}m</h3>

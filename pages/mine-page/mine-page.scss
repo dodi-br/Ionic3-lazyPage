@@ -1,7 +1,18 @@
 page-mine-page {
-
-}
-
-ion-avatar + div.item-inner {
-    padding: 10px 0;
+    ion-item-group.detail ion-item {
+        padding: 8px 0 8px 16px;
+        border-bottom: 1px solid #dedede;
+    }
+    ion-item-group.detail .item-inner {
+        border-bottom: none !important;
+    }
+    ion-item-group.mainGroup button.btnRank .item-inner {
+        border-bottom: none !important;
+    }
+    ion-item-group.mainGroup button.btnRank {
+        border-bottom: 1px solid #dedede;
+    }
+    .btnSetting {
+        border-bottom: 1px solid #dedede;
+    }
 }

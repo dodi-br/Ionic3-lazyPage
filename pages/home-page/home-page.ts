@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, PopoverController } from 'ionic-angular';
 
 /**
  * Generated class for the HomePage page.
@@ -18,7 +18,7 @@ export class HomePage {
   childPage = {
     rechargePage : { title: '充值', page: 'RechargePage' },
     noticePage: { title: '公告', page: 'NoticePage' },
-    mapPage: { title: '地图', page: 'MapPage' },
+    mapPage: { title: '游戏', page: 'GameDataPage' },
     storeDetailPage: { title: '店铺详情', page: 'StoreDetailPage' },
     loginSignupPage: { page: 'LoginSignupPage' },  // Login/signup or person information page
     personInformationPage: { page: 'PersonInformationPage' },
@@ -39,7 +39,8 @@ export class HomePage {
   rankSegment: string;
   rankSlides: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public popoverCtrl: PopoverController) {
     // this.rankTab = 'game1';
     this.rankSegment = 'game1';
     this.rankSlides = [
@@ -81,4 +82,8 @@ export class HomePage {
     this.navCtrl.push(target.page, {title: target.title});
   }
 
+  btnCountry() {
+    let popover = this.popoverCtrl.create('SelectCountry');
+    popover.present();
+  }
 }

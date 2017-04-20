@@ -59,7 +59,6 @@ export class RankPage {
 
   onSlideChanged(slider) {
     console.log('Slide changed');
-    // const currentSlide = this.rankSlides[slider.getActiveIndex];
     const currentIndex = slider.getActiveIndex();
     this.rankSegment = this.rankSlides[currentIndex].id;
   }

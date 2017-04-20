@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>person-detail-page</ion-title>
+    <ion-title>个人资料</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navPush(childPage.settingPage)">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+   <ion-list>
+    <button ion-item (click)="btnPortrait()" [style.color]="black" detail-none>
+      <ion-label>头像</ion-label>
+        <img item-right src="assets/portrait.png" />
+    </button>
+    <button ion-item *ngFor="let item of keys" (click)="btnPersonInfor(item)" icon-left [style.color]='this.styleObj[item].fontColor' detail-none>
+      <span style="text-align: left"> {{ personObj[item][0] }} </span>
+      <span style="text-align: right; float: right;"> {{ personObj[item][1] }} </span>
+    </button>
+  </ion-list>
 </ion-content>

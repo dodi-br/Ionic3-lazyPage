@@ -1,0 +1,17 @@
+page-select-country {
+    .select-icon {
+        display: none;
+    }
+}
+
+.popover-content {
+    top: 56px !important;
+    right: 10px !important;
+    // width: 100px !important;
+    left: auto !important;
+    transform-origin: right top 0px !important;
+}
+
+.popover-content ion-list {
+    margin-bottom: 0;
+}

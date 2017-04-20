@@ -22,7 +22,7 @@ export class MinePage {
   	gameRankPage : { title: '我的榜单', page: 'GameRankPage' },
   	settingPage : { title: '设置', page: 'SettingPage'}
   }
-  isLogin: false;
+  isLogin = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController) {
   }
@@ -35,7 +35,7 @@ export class MinePage {
   }
   btnPerson() {
     if (this.isLogin) {
-      this.navCtrl.push('PersonInformationPage');
+      this.navCtrl.push('PersonDetailPage');
     }
     else {
       let modal;

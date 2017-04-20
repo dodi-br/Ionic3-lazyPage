@@ -10,6 +10,9 @@ page-rank-page {
     div.scroll-content {
         overflow-y: hidden;
     }
+    .header-md::after {
+        height:0;
+    }
 }
 
 ion-thumbnail img {

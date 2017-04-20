@@ -43,7 +43,7 @@
         </ion-label>
         <ion-input type="password" placeholder="Password" [(ngModel)]="oLogin.password"></ion-input>
       </ion-item>
-    <button ion-button class="btn-login" (click)="btnLoginClick($event)"> Login </button>
+    <button ion-button class="btn-login" (click)="btnLoginClick($event)">登录</button>
   </ion-list>
 
   <ion-list *ngSwitchCase="'SignUp'">
@@ -65,7 +65,7 @@
     	</ion-label>
     	<ion-input type="tel" placeholder="Phone number" [(ngModel)]="oSignUp.mobile"></ion-input>
     </ion-item>
-    <button ion-button class="btn-login" (click)="btnLoginClick($event)"> Sign up </button>
+    <button ion-button class="btn-login" (click)="btnLoginClick($event)">注册</button>
   </ion-list>
 </div>
 </ion-content>

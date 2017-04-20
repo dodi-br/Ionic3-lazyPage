@@ -1,30 +1,20 @@
 page-home-page {
-
+    .three-button {
+        margin: 12px 0;
+        // padding: 10px;
+        width: 32%;
+        height: auto;
+    }
+    .icon-size {
+        font-size: 30px;
+    }
+    button.swiper-pagination-bullet {
+        background: red;
+    }
+    .ion-md-country::before {
+        content: url("../assets/CN.bmp") !important;
+    }
+    .ion-md-title-logo::before {
+        content: url("../assets/phoenixdarts.jpg") !important;
+    }
 }
-
-.three-button {
-    margin:12px 0;
-    // padding: 10px;
-    width:32%;
-    height:auto;
-}
-
-.icon-size {
-    font-size: 30px;
-}
-
-button.swiper-pagination-bullet {
-    background: red;
-}
-
-.ion-md-country::before {
-    content: url("../assets/CN.bmp") !important;
-}
-
-.ion-md-title-logo::before {
-    content: url("../assets/phoenixdarts.jpg") !important;
-}
-
-// #rank .label {
-//     margin: 0 !important;
-// }
