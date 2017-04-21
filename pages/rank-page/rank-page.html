@@ -33,47 +33,157 @@
   <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
     <ion-slide *ngFor="let slide of rankSlides">
       <div>
+        
+        <!--排名第一-->
         <ion-item-group>
           <ion-item-divider style="text-align: left; color: black">
             <h2>排名第一</h2>
           </ion-item-divider>
-          <ion-item *ngFor="let item of [0, 1, 2]">
-            <ion-thumbnail item-left>
-              <img src="img/thumbnail-totoro.png">
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>View</button>
-          </ion-item>
-        </ion-item-group>
+            <ion-list>
+              <button ion-item style="padding-left: 10px"  *ngFor="let item of no1">
+                  <ion-img item-left style="width:80px; height: 60px" src="" ></ion-img>
+                <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
+                <h3>{{ item.store }}</h3>
+                <p>{{ item.level}} {{ item.name }}</p>
+              </button>
+            </ion-list>
+          </ion-item-group>
 
+<!--比赛排名-->
         <ion-item-group>
           <ion-item-divider style="text-align: left; color: black">
-            <h2>比赛排名</h2>
+            <h2>奖励排名</h2>
           </ion-item-divider>
-          <ion-item *ngFor="let item of [0, 1, 2]">
-            <ion-thumbnail item-left>
-              <img src="img/thumbnail-totoro.png">
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>View</button>
-          </ion-item>
+              <div>
+                <ion-segment [(ngModel)]="gameRankSegment">
+                  <ion-segment-button value="gaofen">
+                    高分赛
+                  </ion-segment-button>
+                  <ion-segment-button value="game01">
+                    01游戏
+                  </ion-segment-button>
+                  <ion-segment-button value="milaoshu">
+                    米老鼠
+                  </ion-segment-button>
+                </ion-segment>
+              </div>
+        
+              <div [ngSwitch]="gameRankSegment">
+                <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">
+                  <ion-list *ngSwitchCase="item">
+                 <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">1</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">2</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">3</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                 </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">4</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                 </ion-item>
+                </ion-list>
+              </div>
+              </div>
         </ion-item-group>
 
+
+<!--奖励排名-->
         <ion-item-group>
           <ion-item-divider style="text-align: left; color: black">
-            <h2>比赛排名</h2>
+            <h2>奖励排名</h2>
           </ion-item-divider>
-          <ion-item *ngFor="let item of [0, 1, 2]">
-            <ion-thumbnail item-left>
-              <img src="img/thumbnail-totoro.png">
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>View</button>
-          </ion-item>
+              <div>
+                <ion-segment [(ngModel)]="rewardSegment">
+                  <ion-segment-button value="gaofen">
+                    Hat Trick
+                  </ion-segment-button>
+                  <ion-segment-button value="game01">
+                    PHONENIX EYE
+                  </ion-segment-button>
+                  <ion-segment-button value="milaoshu">
+                    WHITE HORSE
+                  </ion-segment-button>
+                </ion-segment>
+              </div>
+        
+              <div [ngSwitch]="rewardSegment">
+                <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">
+                  <ion-list *ngSwitchCase="item">
+                 <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">1</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">2</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">3</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                 </ion-item>
+                  <ion-item>
+                  <div class="row" >
+                    <div class="col" style="text-align:center">4</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                 </ion-item>
+                </ion-list>
+              </div>
+              </div>
         </ion-item-group>
+
 
 
       </div>

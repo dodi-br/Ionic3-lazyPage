@@ -15,9 +15,32 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   templateUrl: 'rank-page.html',
 })
 export class RankPage {
-  
+  gameRankSegment = 'gaofen';
+  rewardSegment = 'gaofen';
   rankTab: any;
-  
+  no1 = [
+    {
+      'game': '高分赛',
+      'score': '1022',
+      'store': 'Aloha',
+      'level': 'AA20',
+      'name': 'Sa Sa'
+    },
+    {
+      'game': '01游戏',
+      'score': '26.72',
+      'store': 'Lucky Darts',
+      'level': 'A14',
+      'name': '柒到貳零肆陸'
+    },
+    {
+      'game': '米老鼠',
+      'score': '3.19',
+      'store': '白马',
+      'level': 'BBB3',
+      'name': '0046'
+    }
+  ];
   
   @ViewChild('rankSlider') slider: Slides;
   rankSegment: string;

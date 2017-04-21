@@ -9,10 +9,10 @@
   <ion-navbar>
     <ion-title>附近店铺</ion-title>
         <ion-buttons end>
-      <button ion-button icon-only 
-        (click)="navPush(childPage.onSearchStorePage)">
-        <ion-icon name="search"></ion-icon>
-      </button>
+      <!--<button ion-button icon-only -->
+      <!--  (click)="navPush(childPage.onSearchStorePage)">-->
+      <!--  <ion-icon name="search"></ion-icon>-->
+      <!--</button>-->
 </ion-buttons>
   </ion-navbar>
 
@@ -20,11 +20,33 @@
 
 
 <ion-content padding>
+  <ion-searchbar placeholder="店铺搜索"></ion-searchbar>
+  <h1>
+  <ion-chip (click)="chip[0] = (chip[0] == 'clicked') ? 'notclicked':'clicked'"
+   [ngClass]="chip[0]">
+    <ion-label>独立房间</ion-label>
+  </ion-chip> 
+  <ion-chip (click)="chip[1] = (chip[1] == 'clicked') ? 'notclicked':'clicked'"
+   [ngClass]="chip[1]">
+    <ion-label>停车位</ion-label>
+  </ion-chip> 
+  <ion-chip (click)="chip[2] = (chip[2] == 'clicked') ? 'notclicked':'clicked'"
+   [ngClass]="chip[2]">
+    <ion-label>信用卡</ion-label>
+  </ion-chip> 
+  <ion-chip (click)="chip[3] = (chip[3] == 'clicked') ? 'notclicked':'clicked'"
+   [ngClass]="chip[3]">
+    <ion-label>配件销售</ion-label>
+  </ion-chip> 
+  </h1>
+
+
+
+
   <ion-list>
-    <button ion-item style="padding:0"  *ngFor="let storeList of store">
-      <ion-thumbnail >
-        <ion-img src="{{ storeList.picture }}"></ion-img>
-      </ion-thumbnail>
+    <button ion-item style="padding:0"  *ngFor="let storeList of store"
+     (click)="navPush(childPage.storeDetailPage, storeList)">
+        <ion-img item-left style="width:80px; height: 60px" src="{{ storeList.picture }}" ></ion-img>
       <h2 style="margin:0">{{ storeList.label }}</h2>
       <h3>{{ storeList.distance }}m</h3>
       <p>{{ storeList.address }}</p>

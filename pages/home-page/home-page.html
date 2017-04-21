@@ -59,7 +59,9 @@
     </div>
   </button>
   </div>
-  <ion-list></ion-list>
+  <ion-list>
+  <!--<ion-item></ion-item>-->
+  </ion-list>
 
   <!-- 个人重要信息 评级，ppd, MPR (登录后) 。。。-->
   <ion-list>
@@ -80,15 +82,39 @@
     <!-- 今日游戏数据(登录后) -->
   <ion-list>
     <ion-item>
-      <ion-icon class="title" item-left name="outlet" style="float:left"></ion-icon>
-      <span class="title" style="float:left;">今日游戏数据</span>
+      <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>
+      <h2 class="title" style="float:left">今日游戏数据</h2>
       <h3 style="float:right">更多</h3>
     </ion-item>
-    <ion-item>
-      <ion-label><b>重庆</b>&nbsp;|&nbsp;下沙白杨人文会所</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label><b>湖北</b>&nbsp;|&nbsp;滨兴家园咖啡观</ion-label>
+
+    <ion-item id="rank">
+      <div>
+        <ion-segment [(ngModel)]="gameSegment" (ionChange)="onGameSegmentChanged($event, 'gameSlider')">
+          <ion-segment-button value="game1">
+            01游戏
+          </ion-segment-button>
+          <ion-segment-button value="game2">
+            板球
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <ion-slides class="rank" style="margin-top:8px;" 
+        #gameSlider (ionSlideWillChange)="onGameSlideChanged($event)">
+        <ion-slide *ngFor="let slide of gameSlides">
+
+
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}
+          </ion-item>
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}
+          </ion-item>
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}
+          </ion-item>
+        </ion-slide>
+      </ion-slides>
     </ion-item>
   </ion-list>
 
@@ -107,7 +133,7 @@
     </ion-item>
   </ion-list>
 
-  <!-- 排名 -->
+   <!--排名 -->
   <ion-list>
     <ion-item>
       <ion-icon item-left name="country" style="float:left;"></ion-icon>
@@ -116,47 +142,44 @@
     </ion-item>
     <ion-item id="rank">
       <div>
-        <ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)">
-          <ion-segment-button value="game1">
+        <ion-segment [(ngModel)]="rankSegment" (ionChange)="onRankSegmentChanged($event)">
+          <ion-segment-button value="rank1">
             高分赛
           </ion-segment-button>
-          <ion-segment-button value="game2">
+          <ion-segment-button value="rank2">
             01游戏
           </ion-segment-button>
-          <ion-segment-button value="game3">
+          <ion-segment-button value="rank3">
             米老鼠
           </ion-segment-button>
         </ion-segment>
       </div>
 
-      <!--<ion-slides #rankSlider (ionDidChange)="onSlideChanged($event)">-->
-      <ion-slides class="rank" style="margin-top:6px;" 
-        #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
+      <ion-slides class="rank" style="margin-top:8px;" 
+        #rankSlider (ionSlideWillChange)="onRankSlideChanged($event)">
         <ion-slide *ngFor="let slide of rankSlides">
-          <!--<h1>{{ slide.title }}</h1>-->
 
 
           <ion-item>
             <ion-icon item-left color="primary">1</ion-icon>
               <img item-left style="height: 50px; margin-left: 24px" src="../assets/No1.jpeg">
-              <span style="color:darkred; border: solid 1px darkred; font-size: small; padding: 2px">{{slide.evaluate}}</span> 1500
+              <div style="position: relative; top: 2px">
+              <span style=";color: darkred; border: solid 1px darkred;font-size: small; padding: 3px">{{slide.evaluate}}</span> 1500
               <h3 style="color: black; margin-top: 8px">Lv33 [CN]Ruby</h3>
+              </div>
           </ion-item>
           <ion-item>
-            <!--<span style="color:darkred; font-size:large; float:left; padding: 0 6px">2</span>-->
-            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 15px;">2</ion-icon>
+            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px;">2</ion-icon>
             <span style="text-align: left; float:left"> Because of you </span>
             <span style="text-align: right; float: right;"> 1200 </span>
           </ion-item>
           <ion-item>
-            <!--<span style="color:darkred; font-size:large; float:left; padding: 0 6px">3</span>-->
-            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 15px">3</ion-icon>
+            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px">3</ion-icon>
             <span style="text-align: left; float:left"> 钉町 </span>
             <span style="text-align: right; float: right;"> 1000 </span>
           </ion-item>
           <ion-item>
-            <!--<span style="font-size:large; float:left; padding: 0 6px">4</span>-->
-            <ion-icon item-left color="primary" style="font-size: larger;color: black;margin-top: 15px">4</ion-icon>
+            <ion-icon item-left color="primary" style="font-size: larger;color: black;margin-top: 25px">4</ion-icon>
             <span style="text-align: left; float:left"> 阿菲 </span>
             <span style="text-align: right; float: right;"> 1000 </span>
           </ion-item>
@@ -176,8 +199,8 @@
       <h3 style="float:right">更多</h3>
     </ion-item>
     <ion-item>
-    &nbsp;&nbsp;滨江游戏城店铺周六维护，停止运营。下周一恢复营业。
     <p>
+    滨江游戏城飞镖周六维护，停止运营。下周一恢复营业。
       由于前日不法分子对我店造成的破坏和损失，我们将对店铺进行维修和改造。
       <br />请谅解。
     </p>

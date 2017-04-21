@@ -18,8 +18,8 @@ export class MinePage {
 	childPage = {
   	personInformationPage: { title: '个人资料', page: 'LoginSignupPage' },
   	cardInformationPage : { title: '我的点卡', page: 'CardInformationPage' },
-  	gameDataPage : { title: '游戏历史', page: 'GameHistoryPage' },
-  	gameRankPage : { title: '我的榜单', page: 'GameRankPage' },
+  	gameDataPage : { title: '游戏数据', page: 'GameDataPage' },
+  	gameRankPage : { title: '我的排名', page: 'GameRankPage' },
   	settingPage : { title: '设置', page: 'SettingPage'}
   }
   isLogin = true;

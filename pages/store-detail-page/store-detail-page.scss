@@ -1,0 +1,16 @@
+page-store-detail-page {
+    ion-slide div.slide-zoom {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ion-slide.swiper-slide {
+        overflow-y: scroll;
+    }
+    div.scroll-content {
+        overflow-y: hidden;
+    }
+    ion-slide ion-select {
+        // float:left;
+    }
+}

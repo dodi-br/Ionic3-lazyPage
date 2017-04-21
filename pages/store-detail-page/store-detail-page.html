@@ -1,0 +1,143 @@
+<!--
+  Generated template for the StoreDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>店铺详情</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="btnMore()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <!--<ion-segment [(ngModel)]="storeDetailSegment" (ionChange)="onRankSegmentChanged($event)">-->
+    <ion-segment [(ngModel)]="storeDetailSegment">
+      <ion-segment-button value="detail">
+        详情
+      </ion-segment-button>
+      <ion-segment-button value="rank">
+        排名
+      </ion-segment-button>
+      <ion-segment-button value="player">
+        玩家
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!--<ion-slides #storeSlider (ionSlideWillChange)="onSlideChanged($event)" padding>-->
+  <ion-slides [ngSwitch]="storeDetailSegment" >
+
+    <!--详情-->
+    <ion-slide *ngSwitchCase="'detail'">
+      <ion-list>
+        <ion-item>
+          <b>{{ store.label }} </b>
+        </ion-item>
+        <button ion-item (click)="navPush('MapNavPage')">
+          <ion-icon small item-right name="md-navigate" style="color:gray"></ion-icon>
+          详细地址: {{ store.address }}
+        </button>
+        <button ion-item (click)="btnPhone()">
+          <ion-icon small item-right name="call" style="color:gray"> </ion-icon>
+           联系电话: {{ store.phone }}
+          </button>
+        <ion-item>
+          <ion-icon small name="time" style=:color: gray></ion-icon>
+          营业时间: {{ store.operationTime }}
+        </ion-item>
+        <a ion-item class="item" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
+          网址: {{ store.url }}
+        </a>
+        <ion-item style="font-size: small; color: gray">
+          独立房间、支持信用卡、配件销售、有停车位
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <!--店铺排名-->
+    <ion-slide *ngSwitchCase="'rank'">
+      <ion-list>
+        <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
+        <ion-item>
+          <ion-label>游戏</ion-label>
+          <ion-select [(ngModel)]="game">
+            <ion-option value="game01">01游戏</ion-option>
+            <ion-option value="gaofen">高分赛</ion-option>
+            <ion-option value="milaoshu">米老鼠</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>日期</ion-label>
+          <ion-select [(ngModel)]="date">
+            <ion-option value="yesterday">昨日</ion-option>
+            <ion-option value="today">今日</ion-option>
+            <ion-option value="thisMonth">本月</ion-option>
+            <ion-option value="lastMonth">上个月</ion-option>
+          </ion-select>
+          </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item-divider color="light" style="text-align: left">榜单</ion-item-divider>
+        <ion-item>
+        <div class="row header">
+          <div class="col">排名</div>
+          <div class="col">分</div>
+          <div class="col">玩家</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row">
+          <div class="col">1</div>
+          <div class="col">82</div>
+          <div class="col">jasdf</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row">
+          <div class="col">2</div>
+          <div class="col">82</div>
+          <div class="col">jasdf</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row">
+          <div class="col">3</div>
+          <div class="col">82</div>
+          <div class="col">jasdf</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row">
+          <div class="col">4</div>
+          <div class="col">82</div>
+          <div class="col">jasdf</div>
+        </div>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <!--店铺玩家-->
+    <ion-slide *ngSwitchCase="'player'">
+      <ion-list>
+        <button ion-item style="padding:0"  *ngFor="let storeList of [0, 1, 2, 3 ,4 ]">
+            <ion-img item-left style="width:80px; height: 60px" src="" ></ion-img>
+          <h2 style="margin:0">等级: AA20</h2>
+          <h3>张三</h3>
+          <p>注册日期: 2017-4-21</p>
+        </button>
+      </ion-list>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

@@ -13,6 +13,20 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+<ion-segment [(ngModel)]="gameDataSegment" (ionChange)="onSegmentChanged($event)">
+  <ion-segment-button value="general">
+    整体结果
+  </ion-segment-button>
+  <ion-segment-button value="recent">
+    近期结果
+  </ion-segment-button>
+  <ion-segment-button value="month">
+    每月数据
+  </ion-segment-button>
+  <ion-segment-button value="award">
+    奖励记录
+  </ion-segment-button>
+</ion-segment>
 
 </ion-content>
