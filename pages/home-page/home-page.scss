@@ -1,7 +1,7 @@
 page-home-page {
     .three-button {
-        margin: 12px 0;
-        // padding: 10px;
+        margin: auto 0;
+        padding: 20px 0;
         width: 32%;
         height: auto;
     }
@@ -12,9 +12,18 @@ page-home-page {
         background: red;
     }
     .ion-md-country::before {
-        content: url("../assets/CN.bmp") !important;
+        content: url("../assets/CN.png") !important;
     }
     .ion-md-title-logo::before {
-        content: url("../assets/phoenixdarts.jpg") !important;
+        content: url("../assets/phoenixdarts.png") !important;
+    }
+    ion-item {
+        color: #505050 !important;
+    }
+    .title {
+        color: black !important;
+    }
+    .rank ion-icon {
+        margin-right: 0 !important;
     }
 }

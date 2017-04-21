@@ -18,7 +18,7 @@ export class HomePage {
   childPage = {
     rechargePage : { title: '充值', page: 'RechargePage' },
     noticePage: { title: '公告', page: 'NoticePage' },
-    mapPage: { title: '游戏', page: 'GameDataPage' },
+    gameDataPage: { title: '游戏', page: 'GameDataPage' },
     storeDetailPage: { title: '店铺详情', page: 'StoreDetailPage' },
     loginSignupPage: { page: 'LoginSignupPage' },  // Login/signup or person information page
     personInformationPage: { page: 'PersonInformationPage' },
@@ -46,15 +46,18 @@ export class HomePage {
     this.rankSlides = [
       {
         id: "game1",
-        title: "First Slide"
+        title: "First Slide",
+        evaluate: "SCORE"
       },
       {
         id: "game2",
-        title: "Second Slide"
+        title: "Second Slide",
+        evaluate: "PPD"
       },
       {
         id: "game3",
-        title: "Third Slide"
+        title: "Third Slide",
+        evaluate: "MPR"
       }
     ];
   }
