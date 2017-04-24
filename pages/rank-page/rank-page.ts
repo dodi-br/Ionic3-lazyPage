@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   templateUrl: 'rank-page.html',
 })
 export class RankPage {
+  levelRank = [];
   gameRankSegment = 'gaofen';
   rewardSegment = 'gaofen';
   rankTab: any;
@@ -47,6 +48,9 @@ export class RankPage {
   rankSlides: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    for (let i = 0; i < 40; i++) {
+      this.levelRank[i] = i + 1;
+    }
     this.rankSegment = 'main';
     this.rankSlides = [
       {

@@ -14,7 +14,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GameDataPage {
 
+  // @ViewChild('gameSlider') gameSlider: Slides;
+  // gameSegment: any;
+  gameData: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // this.gameSegment = "game01";
+    this.gameData = [
+      {
+        id: "game01",
+        total: 27.63,
+        versus: 28.45,
+        rating: 15.24,
+        versusRating: 15.85
+      }]
   }
 
   ionViewDidLoad() {

@@ -15,7 +15,7 @@
 
 <ion-content style="background: #f4f4f4">
   <ion-list>
-    <ion-item (click)="btnPerson()">
+    <ion-item (click)="btnPerson()" style="padding: 10px">
       <ion-avatar item-left>
         <img src="assets/portrait.png">
       </ion-avatar>
@@ -26,16 +26,21 @@
 
   <ion-list class="mainGroup">
     <button ion-item (click)="navPush(childPage.cardInformationPage)">
-      <!--{{ childPage.cardInformationPage.title }}-->
       我的点卡
     </button>
     <button ion-item (click)="navPush(childPage.mainStroePage)">
       主店
     </button>
+  </ion-list>
+  
+  <ion-list>
     <button ion-item (click)="navPush(childPage.gameDataPage)">
-      <!--{{ childPage.gameHistoryPage.title }}-->
       游戏数据
     </button>
+    <button ion-item (click)="navPush(childPage.gameDataPage)">
+      游戏历史
+    </button>
+
     <button ion-item (click)="navPush(childPage.gameRankPage)" class="btnRank">
       我的排名
     </button>

@@ -26,4 +26,10 @@ page-home-page {
     .rank ion-icon {
         margin-right: 0 !important;
     }
+    
+    ion-item.border-bottom-none div.item-inner{
+        border-bottom: none !important;
+    }
 }
+
+

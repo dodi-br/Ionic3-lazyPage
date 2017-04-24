@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ActionSheetController,
+  Slides } from 'ionic-angular';
 
 /**
  * Generated class for the StoreDetailPage page.
@@ -19,6 +20,18 @@ export class StoreDetailPage {
   date = "yesterday";
   game = "gaofen";
   storeDetailSegment: any
+  storeDetailSlides = [
+    {
+      id: 'detail'
+    }, {
+      id: 'rank'
+    }, {
+      id: 'player'
+    }
+  ]
+  
+  @ViewChild('storeDetailSlider') storeDetailSlider: Slides;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController) {
     this.store = navParams.data.store;
@@ -82,4 +95,17 @@ export class StoreDetailPage {
     });
     actionSheet.present();
   }
+  onStoreDetailSegmentChanged(segmentButton) {
+    const selectedIndex = this.storeDetailSlides.findIndex((slide) => {
+      return slide.id === segmentButton.value;
+    });
+    this.storeDetailSlider.slideTo(selectedIndex);
+  }
+
+  onStoreDetailSlideChanged(slider) {
+    const currentIndex = slider.getActiveIndex();
+    if (currentIndex > 2) { return; }
+    this.storeDetailSegment = this.storeDetailSlides[currentIndex].id;
+  }
+
 }

@@ -11,7 +11,7 @@ page-rank-page {
         overflow-y: hidden;
     }
     .header-md::after {
-        height:0;
+        content: none;
     }
 }
 
