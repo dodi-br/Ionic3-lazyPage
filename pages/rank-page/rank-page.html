@@ -5,7 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-<ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)"
+<!--<ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)"-->
+<ion-segment [(ngModel)]="rankSegment" 
   style="height: 61px;">
   <ion-segment-button value="main">
     今日
@@ -30,8 +31,10 @@
 
 
 <ion-content>
-  <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
-    <ion-slide *ngFor="let slide of rankSlides">
+  <!--<ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)" [ngSwitch]="rankSegment">-->
+  <ion-slides [ngSwitch]="rankSegment">
+    <div *ngFor="let slide of rankSlides">
+    <ion-slide *ngSwitchCase="slide.id">
       <div>
         
         <!--排名第一-->
@@ -188,6 +191,7 @@
 
       </div>
     </ion-slide>
+    </div>
   </ion-slides>
 </ion-content>
 

@@ -64,6 +64,14 @@ export class RankPage {
       {
         id: "battle",
         title: ""
+      },
+      {
+        id: "award",
+        title: "奖励"
+      },
+      {
+        id: "mainStore",
+        title: "主店"
       }
     ];
   }

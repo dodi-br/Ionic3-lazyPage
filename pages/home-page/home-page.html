@@ -36,6 +36,8 @@
   </ion-slides>
 
   <!-- 三格按钮 -->
+  <ion-list>
+  <ion-item>
   <div style="background:white">
     <button ion-button clear class="three-button" (click)="navPush(childPage.rechargePage)">
     <div>
@@ -59,13 +61,12 @@
     </div>
   </button>
   </div>
-  <ion-list>
-  <!--<ion-item></ion-item>-->
+  </ion-item>
   </ion-list>
 
   <!-- 个人重要信息 评级，ppd, MPR (登录后) 。。。-->
   <ion-list>
-    <ion-item no-lines>
+    <ion-item>
       <ion-avatar item-left>
         <img src="assets/portrait.png">
       </ion-avatar>
@@ -94,7 +95,7 @@
             01游戏
           </ion-segment-button>
           <ion-segment-button value="game2">
-            板球
+            米老鼠
           </ion-segment-button>
         </ion-segment>
       </div>

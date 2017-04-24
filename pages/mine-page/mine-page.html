@@ -7,30 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title style="text-align: center">我的</ion-title>
+    <ion-title>我的</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content style="background: #f4f4f4">
-  <ion-item-group class="detail">
-    <ion-item (click)="btnPerson()" detail-push>
+  <ion-list>
+    <ion-item (click)="btnPerson()">
       <ion-avatar item-left>
         <img src="assets/portrait.png">
       </ion-avatar>
       <h2>Zhangsan</h2>
       <p>个人中心:详细，编辑...</p>
     </ion-item>
-    <ion-item-divider color="light"></ion-item-divider>
-  </ion-item-group>
-  <!--<ion-list>-->
-  <!--  <button ion-item *ngFor="let item of items" (click)="navPush(item)" icon-left>-->
-  <!--    {{ item.title }}-->
-  <!--  </button>-->
-  <!--</ion-list>-->
+  </ion-list>
 
-  <ion-item-group class="mainGroup">
+  <ion-list class="mainGroup">
     <button ion-item (click)="navPush(childPage.cardInformationPage)">
       <!--{{ childPage.cardInformationPage.title }}-->
       我的点卡
@@ -45,12 +39,11 @@
     <button ion-item (click)="navPush(childPage.gameRankPage)" class="btnRank">
       我的排名
     </button>
-    <ion-item-divider color="light"></ion-item-divider>
-  </ion-item-group>
+  </ion-list>
 
-  <ion-item-group>
+  <ion-list>
     <button ion-item (click)="navPush(childPage.settingPage)" class="btnSetting">
       设置
     </button>
-  </ion-item-group>
+  </ion-list>
 </ion-content>
