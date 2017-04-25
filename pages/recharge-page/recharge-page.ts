@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
 
 /**
  * Generated class for the RechargePage page.
@@ -25,7 +26,7 @@ export class RechargePage {
 		fontColor : 'black'
 	}
 	constructor(public navCtrl: NavController, public params: NavParams,
-		public alertCtrl: AlertController) {
+		public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController ) {
 		this.card.number = params.data.number;
 		this.card.bool = params.data.bool;
 		this.card.fontColor = params.data.fontColor;
@@ -77,4 +78,40 @@ export class RechargePage {
 	navPush(target) {
 	this.navCtrl.push(target.page, { title: target.title });
   }
+  
+  btnRecharge() {
+     let actionSheet = this.actionSheetCtrl.create({
+     title: '充值方式',
+     buttons: [
+       {
+         text: '支付宝',
+         role: 'zhifubao',
+         handler: () => {
+           console.log('Destructive clicked');
+         }
+       },
+       {
+         text: '微信支付',
+         handler: () => {
+           console.log('Archive clicked');
+         }
+       },
+       {
+         text: '银联',
+         role: '',
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       },
+       {
+       		text: '取消',
+       		role: 'Cancel',
+       		handler: () => {
+       		}
+       }
+     ]
+   });
+
+   actionSheet.present();
+ }
 }

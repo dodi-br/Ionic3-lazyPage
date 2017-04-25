@@ -116,8 +116,10 @@ export class HomePage {
     this.navCtrl.push(target.page, {title: target.title});
   }
 
-  btnCountry() {
+  btnCountry(myEvent) {
     let popover = this.popoverCtrl.create('SelectCountry');
-    popover.present();
+    popover.present({
+      ev: myEvent
+    });
   }
 }

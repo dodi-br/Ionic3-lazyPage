@@ -7,21 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>附近店铺</ion-title>
-        <ion-buttons end>
-      <!--<button ion-button icon-only -->
-      <!--  (click)="navPush(childPage.onSearchStorePage)">-->
-      <!--  <ion-icon name="search"></ion-icon>-->
-      <!--</button>-->
-</ion-buttons>
+      <ion-searchbar placeholder="店铺搜索" 
+        (click)="navPush(childPage.onSearchStorePage)"></ion-searchbar>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-searchbar placeholder="店铺搜索"></ion-searchbar>
-  <h1>
+  <h1 style="margin-top: 20px">
   <ion-chip (click)="chip[0] = (chip[0] == 'clicked') ? 'notclicked':'clicked'"
    [ngClass]="chip[0]">
     <ion-label>独立房间</ion-label>

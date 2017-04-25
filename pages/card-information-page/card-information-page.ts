@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, PopoverController } from 'ionic-angular';
 
 /**
  * Generated class for the CardInformationPage page.
@@ -18,7 +18,7 @@ export class CardInformationPage {
   title: string;
 	items = [];
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-	  public alertCtrl: AlertController) {
+	  public alertCtrl: AlertController, public popoverCtrl: PopoverController) {
 	  this.title = navParams.data.title;
   	this.items = [
     	{
@@ -45,8 +45,11 @@ export class CardInformationPage {
      	}
    	]
   }
-  btnCardsClick(item) {
-  	this.navCtrl.push('CardDetailPage', { item: item });
+  btnCardsClick() {
+    let popover = this.popoverCtrl.create('CardPopover', {}, {cssClass: "card-menu"});
+    popover.present({
+      // ev: myEvent
+    });
   }
   btnAddCard() {
      this.navCtrl.push('AddCardPage');

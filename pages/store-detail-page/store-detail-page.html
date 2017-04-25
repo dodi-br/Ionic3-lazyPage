@@ -7,12 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>店铺详情</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="btnMore()">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
+      <ion-title>店铺详情</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="btnMore()">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
   
   <ion-segment [(ngModel)]="storeDetailSegment" 
@@ -36,29 +36,27 @@
 
     <!--详情-->
     <ion-slide style="padding-top: 10px">
-      <ion-list>
-        <ion-item style="margin-top: 30px;">
-          <b>{{ store.label }} </b>
-        </ion-item>
-        <button ion-item (click)="navPush('MapNavPage')">
-          <ion-icon small item-right name="md-navigate" style="color:gray"></ion-icon>
-          详细地址: {{ store.address }}
+      <ion-item style="margin-top: 30px;">
+        <b>{{ store.label }} </b>
+      </ion-item>
+      <button ion-item (click)="navPush('MapNavPage')">
+        <ion-icon small item-right name="md-navigate" style="color:gray"></ion-icon>
+        详细地址: {{ store.address }}
+      </button>
+      <button ion-item (click)="btnPhone()">
+        <ion-icon small item-right name="call" style="color:gray"> </ion-icon>
+         联系电话: {{ store.phone }}
         </button>
-        <button ion-item (click)="btnPhone()">
-          <ion-icon small item-right name="call" style="color:gray"> </ion-icon>
-           联系电话: {{ store.phone }}
-          </button>
-        <ion-item>
-          <ion-icon small name="time" style=:color: gray></ion-icon>
-          营业时间: {{ store.operationTime }}
-        </ion-item>
-        <a ion-item class="item" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
-          网址: {{ store.url }}
-        </a>
-        <ion-item style="font-size: small; color: gray">
-          独立房间、支持信用卡、配件销售、有停车位
-        </ion-item>
-      </ion-list>
+      <ion-item>
+        <ion-icon small name="time" style=:color: gray></ion-icon>
+        营业时间: {{ store.operationTime }}
+      </ion-item>
+      <a ion-item class="item" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
+        网址: {{ store.url }}
+      </a>
+      <ion-item style="font-size: small; color: gray">
+        独立房间、支持信用卡、配件销售、有停车位
+      </ion-item>
     </ion-slide>
 
     <!--店铺排名-->

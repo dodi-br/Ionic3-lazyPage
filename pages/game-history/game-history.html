@@ -10,74 +10,87 @@
     <ion-title>游戏历史</ion-title>
   </ion-navbar>
 
-  <ion-segment [(ngModel)]="storeDetailSegment" 
-    (ionChange)="onStoreDetailSegmentChanged($event)">
-    <ion-segment-button value="game01">
-      01游戏
-    </ion-segment-button>
-    <ion-segment-button value="cricket">
-      米老鼠
-    </ion-segment-button>
-  </ion-segment>
 </ion-header>
 
-
 <ion-content style="background: #f4f4f4">
-    <ion-slides #storeDetailSlider (ionSlideWillChange)="onStoreDetailSlideChanged($event)">
+  <ion-item-divider color="light">
+  </ion-item-divider>
+  <ion-list>
+  <ion-item>
+  <ion-label>排序(逆序)</ion-label>
+  <ion-select [(ngModel)]="gender">
+    <ion-option value="date" selected="true">按日期</ion-option>
+    <ion-option value="PPD">按PPD</ion-option>
+    <ion-option value="MPR">按MPR</ion-option>
+  </ion-select>
+  </ion-item>
+  </ion-list>
+
+<!-- 今日 -->
+  <ion-item-divider color="light">
+    今日 
+  </ion-item-divider>
+    <ion-list>
+      <ion-item no-lines>
+      <div style="float: left">场次: 29 </div>
+      <div class="game-data">
+      <div>2017-04-24</div>
+      <div> 10:01:02</div>
+      </div>
+      </ion-item>
+      <!--01游戏-->
+      <ion-item><b>01游戏</b></ion-item>
+      <ion-item no-lines>
+        <div class="row" style="color: #505050">
+        <div class="col">最高PPD: 20</div>
+        <div class="col">平均PPD: 15</div>
+        <div class="col">最低PPD: 10</div>
+        </div>
+      </ion-item>
       
-    <!-- 01游戏 -->
-    <ion-slide style="padding-top: 10px">
-        <ion-item-divider color="light">
-          今日 
-        </ion-item-divider>
-        <ion-list>
-        <ion-item no-lines>
-        <div style="float: left">场次: 29 </div>
-        <div class="game-data">2017-04-24</div>
-        </ion-item>
-        <ion-item no-lines>评级: 29</ion-item>
-        <ion-item no-lines>最高PDD: 20</ion-item>
-        <ion-item no-lines>平均PDD: 15</ion-item>
-      </ion-list>
-      <ion-item-divider color="light">
-        历史
-      </ion-item-divider>
-      <ion-list>
-        <ion-item no-lines>
-        <div style="float: left">场次: 29 </div>
-        <div class="game-data">2017-04-23</div>
-        </ion-item>
-        <ion-item no-lines>评级: 29</ion-item>
-        <ion-item no-lines>最高PDD: 20</ion-item>
-        <ion-item no-lines>平均PDD: 15</ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item no-lines>
-        <div style="float: left">场次: 29 </div>
-        <div class="game-data">2017-04-20</div>
-        </ion-item>
-        <ion-item no-lines>评级: 29</ion-item>
-        <ion-item no-lines>最高PDD: 20</ion-item>
-        <ion-item no-lines>平均PDD: 15</ion-item>
-      </ion-list>
-    </ion-slide>
+      <!--米老鼠-->
+      <ion-item><b>米老鼠</b></ion-item>
+      <ion-item no-lines>
+        <div class="row" style="color: #505050">
+        <div class="col">最高MPR: 20</div>
+        <div class="col">平均MPR: 15</div>
+        <div class="col">最低MPR: 10</div>
+        </div>
+      </ion-item>
+    </ion-list>
     
-    <!--米老鼠-->
-    <ion-slide style="padding-top: 10px">
-      <ion-list>
-        <ion-item style="margin-top: 30px;">
-          <b>今日</b>
-        </ion-item>
-        <ion-item>2017-04-24</ion-item>
-        <ion-item>评级: 29</ion-item>
-        <ion-item>最高PDD: 20</ion-item>
-        <ion-item>平均PDD: 15</ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item sytle="margin-top: 30px;">
-          <b>历史</b>
-        </ion-item>
-      </ion-list>
-    </ion-slide>
-  </ion-slides>
+    <!--历史-->
+    <ion-item-divider color="light">
+      历史
+    </ion-item-divider>
+    
+    
+      <ion-list *ngFor="let item of [0, 1, 2, 3, 4, 5]">
+      <ion-item no-lines>
+      <div style="float: left">场次: 29 </div>
+      <div class="game-data">
+      <div>2017-04-24</div>
+      <div>19:26:21</div>
+      </div>
+      </ion-item>
+      <ion-item><b>01游戏</b></ion-item>
+      <ion-item no-lines>
+        <div class="row" style="color: #505050">
+        <div class="col">最高PPD: 20</div>
+        <div class="col">平均PPD: 15</div>
+        <div class="col">最低PPD: 10</div>
+        </div>
+      </ion-item>
+      
+      <ion-item><b>米老鼠</b></ion-item>
+
+      <ion-item no-lines>
+        <div class="row" style="color: #505050">
+        <div class="col">最高MPR: 20</div>
+        <div class="col">平均MPR: 15</div>
+        <div class="col">最低MPR: 10</div>
+        </div>
+      </ion-item>
+    </ion-list>
+    
 </ion-content>
