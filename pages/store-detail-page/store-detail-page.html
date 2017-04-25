@@ -15,21 +15,18 @@
     </ion-buttons>
   </ion-navbar>
   
-  <!--<div>-->
-    <ion-segment [(ngModel)]="storeDetailSegment" 
-      (ionChange)="onStoreDetailSegmentChanged($event)">
-    <!--<ion-segment [(ngModel)]="storeDetailSegment">-->
-      <ion-segment-button value="detail">
-        详情
-      </ion-segment-button>
-      <ion-segment-button value="rank">
-        排名
-      </ion-segment-button>
-      <ion-segment-button value="player">
-        玩家
-      </ion-segment-button>
-    </ion-segment>
-  <!--</div>-->
+  <ion-segment [(ngModel)]="storeDetailSegment" 
+    (ionChange)="onStoreDetailSegmentChanged($event)">
+    <ion-segment-button value="detail">
+      详情
+    </ion-segment-button>
+    <ion-segment-button value="rank">
+      排名
+    </ion-segment-button>
+    <ion-segment-button value="player">
+      玩家
+    </ion-segment-button>
+  </ion-segment>
 
 </ion-header>
 

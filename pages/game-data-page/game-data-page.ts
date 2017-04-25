@@ -16,18 +16,27 @@ export class GameDataPage {
 
   // @ViewChild('gameSlider') gameSlider: Slides;
   // gameSegment: any;
-  gameData: any;
+  gameDatas= [
+    {
+      title: "01游戏",
+      data: [
+        ['总PDD', 27.63],
+        ['对战PDD', 28.45],
+        ['等级', 15],
+        ['对战等级', 15]
+      ]
+    }, {
+      title: "米老鼠",
+      data: [
+        ['总MPR', 27.63],
+        ['对战MPR', 28.45],
+        ['等级', 15],
+        ['对战等级', 15]
+      ]
+    }
+  ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // this.gameSegment = "game01";
-    this.gameData = [
-      {
-        id: "game01",
-        total: 27.63,
-        versus: 28.45,
-        rating: 15.24,
-        versusRating: 15.85
-      }]
   }
 
   ionViewDidLoad() {

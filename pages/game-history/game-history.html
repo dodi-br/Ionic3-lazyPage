@@ -1,0 +1,83 @@
+<!--
+  Generated template for the GameHistory page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>游戏历史</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="storeDetailSegment" 
+    (ionChange)="onStoreDetailSegmentChanged($event)">
+    <ion-segment-button value="game01">
+      01游戏
+    </ion-segment-button>
+    <ion-segment-button value="cricket">
+      米老鼠
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+<ion-content style="background: #f4f4f4">
+    <ion-slides #storeDetailSlider (ionSlideWillChange)="onStoreDetailSlideChanged($event)">
+      
+    <!-- 01游戏 -->
+    <ion-slide style="padding-top: 10px">
+        <ion-item-divider color="light">
+          今日 
+        </ion-item-divider>
+        <ion-list>
+        <ion-item no-lines>
+        <div style="float: left">场次: 29 </div>
+        <div class="game-data">2017-04-24</div>
+        </ion-item>
+        <ion-item no-lines>评级: 29</ion-item>
+        <ion-item no-lines>最高PDD: 20</ion-item>
+        <ion-item no-lines>平均PDD: 15</ion-item>
+      </ion-list>
+      <ion-item-divider color="light">
+        历史
+      </ion-item-divider>
+      <ion-list>
+        <ion-item no-lines>
+        <div style="float: left">场次: 29 </div>
+        <div class="game-data">2017-04-23</div>
+        </ion-item>
+        <ion-item no-lines>评级: 29</ion-item>
+        <ion-item no-lines>最高PDD: 20</ion-item>
+        <ion-item no-lines>平均PDD: 15</ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item no-lines>
+        <div style="float: left">场次: 29 </div>
+        <div class="game-data">2017-04-20</div>
+        </ion-item>
+        <ion-item no-lines>评级: 29</ion-item>
+        <ion-item no-lines>最高PDD: 20</ion-item>
+        <ion-item no-lines>平均PDD: 15</ion-item>
+      </ion-list>
+    </ion-slide>
+    
+    <!--米老鼠-->
+    <ion-slide style="padding-top: 10px">
+      <ion-list>
+        <ion-item style="margin-top: 30px;">
+          <b>今日</b>
+        </ion-item>
+        <ion-item>2017-04-24</ion-item>
+        <ion-item>评级: 29</ion-item>
+        <ion-item>最高PDD: 20</ion-item>
+        <ion-item>平均PDD: 15</ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item sytle="margin-top: 30px;">
+          <b>历史</b>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

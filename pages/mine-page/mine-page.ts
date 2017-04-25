@@ -20,6 +20,7 @@ export class MinePage {
   	cardInformationPage : { title: '我的点卡', page: 'CardInformationPage' },
   	gameDataPage : { title: '游戏数据', page: 'GameDataPage' },
   	gameRankPage : { title: '我的排名', page: 'GameRankPage' },
+  	gameHistoryPage: { title: '游戏历史', page: 'GameHistory' },
   	settingPage : { title: '设置', page: 'SettingPage'}
   }
   isLogin = true;

@@ -1,0 +1,24 @@
+page-game-history {
+    ion-slide div.slide-zoom {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ion-slide {
+        overflow-y: scroll;
+    }
+    div.scroll-content {
+        overflow-y: hidden;
+    }
+    ion-header::after {
+        content: none !important;
+    }
+    
+    .game-data {
+        float: right;
+        color:gray;
+        text-align:right; 
+        font-size: small;
+        padding-bottom: 0;
+    }
+}
