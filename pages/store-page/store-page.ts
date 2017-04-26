@@ -75,7 +75,7 @@ export class StorePage {
     console.log('ionViewDidLoad StorePage');
   }
   navPush(target, store) {
-    this.navCtrl.push(target.page, {store: store});
+    this.navCtrl.push(target.page, {store: store, title: '店铺详情'});
   }
 
 }

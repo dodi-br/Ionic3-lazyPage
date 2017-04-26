@@ -16,10 +16,10 @@
 <ion-content style="background: #f4f4f4">
   <ion-list>
     <ion-item (click)="btnPerson()" style="padding: 10px">
-      <ion-avatar item-left>
-        <img src="assets/portrait.png">
+      <ion-avatar item-left style="font-size: 30px">
+        <img [src]="portrait">
       </ion-avatar>
-      <h2>Zhangsan</h2>
+      <h2>{{ personName }}</h2>
       <p>个人中心:详细，编辑...</p>
     </ion-item>
   </ion-list>
@@ -28,9 +28,10 @@
     <button ion-item (click)="navPush(childPage.cardInformationPage)">
       我的点卡
     </button>
-    <button ion-item (click)="navPush(childPage.mainStroePage)">
-      主店
+    <button ion-item (click)="navPush(childPage.idCardPage)">
+      我的身份卡
     </button>
+
   </ion-list>
   
   <ion-list>
@@ -40,9 +41,14 @@
     <button ion-item (click)="navPush(childPage.gameHistoryPage)">
       游戏历史
     </button>
+  </ion-list>
 
+  <ion-list>
     <button ion-item (click)="navPush(childPage.myRankPage)">
       我的排名
+    </button>
+    <button ion-item (click)="btnMainStore()">
+      主店
     </button>
   </ion-list>
 

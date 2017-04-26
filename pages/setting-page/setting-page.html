@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>setting-page</ion-title>
+    <ion-title>设置</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content style="background: #f4f4f4">
+  <ion-list></ion-list>
+  <ion-list>
+    <button ion-item (click)="navPush('Multilanguage')">
+      多语言
+    </button>
+  </ion-list>
+  <ion-list>
+    <button ion-item (click)="navPush('About')">关于</button>
+  </ion-list>
+  <button ion-button full style="margin: 20px 10px 20px 10px"
+    (click)="btnLogOut()">登出</button>
 </ion-content>

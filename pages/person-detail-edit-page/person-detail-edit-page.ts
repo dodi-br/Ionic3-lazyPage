@@ -15,12 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'person-detail-edit-page.html',
 })
 export class PersonDetailEditPage {
-
+  title: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.title = navParams.data.title;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonDetailEditPage');
   }
-
+  
 }

@@ -66,15 +66,15 @@
   <ion-list></ion-list>
 
   <!-- 个人重要信息 评级，ppd, MPR (登录后) 。。。-->
-  <ion-list>
+  <ion-list [style.display]="isLogin">
     <ion-item class="border-bottom-none">
-      <ion-avatar item-left>
+      <ion-avatar item-left (click)="this.navCtrl.push('PersonDetailPage')">
         <img src="assets/portrait.png">
       </ion-avatar>
       <h2 class="title">Zhangsan</h2>
       <!--<p>个人中心:详细，编辑...</p>-->
     </ion-item>
-    <ion-item>
+    <ion-item (click)="this.navCtrl.push('GameDataPage')">
       <ion-label>评级：29 </ion-label>
       <ion-label>PPD：90</ion-label>
       <ion-label>MPR: 80</ion-label>
@@ -82,37 +82,45 @@
   </ion-list>
   
     <!-- 今日游戏数据(登录后) -->
-  <ion-list>
+  <ion-list [style.display]="isLogin">
     <ion-item class="border-bottom-none">
       <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>
       <h2 class="title" style="float:left">今日游戏数据</h2>
-      <h3 style="float:right">更多</h3>
+      <h3 style="float:right" (click)="this.navCtrl.push('GameHistory')">更多</h3>
     </ion-item>
 
     <ion-item id="rank">
       <div>
-        <ion-segment [(ngModel)]="gameSegment" (ionChange)="onGameSegmentChanged($event, 'gameSlider')">
+        <ion-segment [(ngModel)]="gameSegment" (ionChange)="onGameSegmentChanged($event)">
           <ion-segment-button value="game1">
-            01游戏
+            高分赛
           </ion-segment-button>
           <ion-segment-button value="game2">
+            01游戏
+          </ion-segment-button>
+          <ion-segment-button value="game3">
             米老鼠
           </ion-segment-button>
         </ion-segment>
       </div>
 
-      <ion-slides class="rank" style="margin-top:8px;" 
-        #gameSlider (ionSlideWillChange)="onGameSlideChanged($event)">
-        <ion-slide *ngFor="let slide of gameSlides">
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}
-          </ion-item>
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}
-          </ion-item>
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}
-          </ion-item>
+      <ion-slides #gameSlider>
+        <!--<ion-slide *ngFor="let slide of gameSlides">-->
+        <!-- <ion-item>-->
+        <!--    <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}-->
+        <!--  </ion-item>-->
+        <!-- <ion-item>-->
+        <!--    <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}-->
+        <!--  </ion-item>-->
+        <!-- <ion-item>-->
+        <!--    <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}-->
+        <!--  </ion-item>-->
+        <!--</ion-slide>-->
+        <ion-slide>
+          asdfasdf
+        </ion-slide>
+        <ion-slide>
+          12312313
         </ion-slide>
       </ion-slides>
     </ion-item>
@@ -123,7 +131,7 @@
     <ion-item class="border-bottom-none">
       <ion-icon class="title" item-left name="map" style="float:left"></ion-icon>
       <span class="title" style="float:left;">新店铺</span>
-      <h3 style="float:right" onclick="navPush('NewStorePage')">更多</h3>
+      <h3 style="float:right" (click)="this.navPush(childPage.newStorePage)">更多</h3>
     </ion-item>
     <ion-item>
       <ion-label><b>下沙</b>&nbsp;&nbsp;下沙白杨人文会所</ion-label>
@@ -138,7 +146,7 @@
     <ion-item class="border-bottom-none">
       <ion-icon item-left name="country" style="float:left;"></ion-icon>
       <h2 class="title" style="float:left">排名</h2>
-      <h3 style="float:right">更多</h3>
+      <h3 style="float:right" (click)="this.tabs.select(2);">更多</h3>
     </ion-item>
     <ion-item id="rank">
       <div>
@@ -196,7 +204,7 @@
     <ion-item class="border-bottom-none">
       <ion-icon item-left name="alert" style="float:left;"></ion-icon>
       <h2 class="title" style="float:left">近期公告</h2>
-      <h3 style="float:right">更多</h3>
+      <h3 style="float:right" (click)="this.navCtrl.push('NoticePage')">更多</h3>
     </ion-item>
     <ion-item>
     <p>

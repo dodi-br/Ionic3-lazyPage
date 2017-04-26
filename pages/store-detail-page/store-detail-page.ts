@@ -16,6 +16,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController,
   templateUrl: 'store-detail-page.html',
 })
 export class StoreDetailPage {
+  title: any;
   store: any;
   date = "yesterday";
   game = "gaofen";
@@ -34,6 +35,7 @@ export class StoreDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController) {
+    this.title = navParams.data.title;
     this.store = navParams.data.store;
     this.storeDetailSegment = 'detail'
   }

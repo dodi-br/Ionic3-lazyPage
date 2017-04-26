@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ActionSheetController } from 'ionic-angular';
+import { ActionSheetController, ModalController  } from 'ionic-angular';
 
 /**
  * Generated class for the RechargePage page.
@@ -25,11 +25,16 @@ export class RechargePage {
 		bool : false, // is readonly
 		fontColor : 'black'
 	}
+	isNum = "";
 	constructor(public navCtrl: NavController, public params: NavParams,
-		public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController ) {
-		this.card.number = params.data.number;
+		public alertCtrl: AlertController, public modalCtrl: ModalController,
+		public actionSheetCtrl: ActionSheetController ) {
 		this.card.bool = params.data.bool;
 		this.card.fontColor = params.data.fontColor;
+		if (params.data.cardNum) {
+			this.card.number = params.data.cardNum;
+			this.isNum = "none";
+		}
 	}
 	btnRechargeClick(event) {
 	let alert = this.alertCtrl.create({
@@ -44,32 +49,8 @@ export class RechargePage {
 	}
 	
 	selectCard() {
-		let alert = this.alertCtrl.create({
-			message: `
-			<ion-list radio-group>
-		  <ion-list-header>
-		    Language
-		  </ion-list-header>
-		
-		  <ion-item>
-		    <ion-label>Go</ion-label>
-		    <ion-radio checked="true" value="go"></ion-radio>
-		  </ion-item>
-		
-		  <ion-item>
-		    <ion-label>Rust</ion-label>
-		    <ion-radio value="rust"></ion-radio>
-		  </ion-item>
-		
-		  <ion-item>
-		    <ion-label>Python</ion-label>
-		    <ion-radio value="python" disabled="true"></ion-radio>
-		  </ion-item>
-			</ion-list>
-			`
-		});
-    alert.present();
-    
+	    let modal = this.modalCtrl.create('SelectCardPage');
+	    modal.present();    
 	}
 	isReadonly() {
 		return this.card.bool;

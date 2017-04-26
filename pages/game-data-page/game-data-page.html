@@ -33,4 +33,22 @@
     </ion-item>
   </ion-list>
   
+  <ion-list>
+    <ion-item> <b>奖励记录</b></ion-item>
+    <ion-item style="text-align: center">
+      <div class="row header">
+        <div class="col">AWARD</div>
+        <div class="col">本月</div>
+        <div class="col">总次数</div>
+      </div>
+    </ion-item>
+    <ion-item style="text-align: center" *ngFor="let item of awards">
+      <div class="row">
+      <div class="col">{{ item.name }}</div>
+      <div class="col">{{ item.thisMonth }}</div>
+      <div class="col">{{ item.all }}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

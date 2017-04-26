@@ -14,22 +14,18 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   selector: 'page-select-country',
   // templateUrl: 'select-country.html',
   template: `
-    <ion-list>
       <ion-item>
       <ion-label style="color: black">更改语言</ion-label>
         <ion-select [(ngModel)]="Country" selectedText=" ">
         <ion-option *ngFor="let item of language" value="f" selected="true">{{ item.name }}</ion-option>
         </ion-select>
       </ion-item>
-    </ion-list>
-    <ion-list>
       <ion-item>
       <ion-label style="color: black">选择国家</ion-label>
         <ion-select [(ngModel)]="Country" selectedText=" ">
         <ion-option *ngFor="let item of country" value="f" selected="true">{{ item.name }}</ion-option>
         </ion-select>
       </ion-item>
-    </ion-list>
   `
 })
 export class SelectCountry {

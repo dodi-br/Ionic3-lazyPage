@@ -20,12 +20,12 @@
   <ion-segment-button value="battle">
     对战
   </ion-segment-button>
-  <!--<ion-segment-button value="award">-->
-  <!--  奖励-->
-  <!--</ion-segment-button>-->
-  <!--<ion-segment-button value="mainStore">-->
-  <!--  主店-->
-  <!--</ion-segment-button>-->
+  <ion-segment-button value="award">
+    奖励
+  </ion-segment-button>
+  <ion-segment-button value="mainStore">
+    主店
+  </ion-segment-button>
 </ion-segment>
 </ion-header>
 
@@ -40,8 +40,8 @@
         
         <!--排名第一-->
         <ion-item-group>
-          <h4 style="position: relative">
-            <span style="display: inline-block">排名第一</span>
+          <h4 style="position: relative; text-align: left">
+            <span style="display: inline-block; padding-left: 20px">排名第一</span>
             <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
           </h4>
           <hr style="height: 1px" />
@@ -55,8 +55,8 @@
 
         <!--比赛排名-->
         <ion-item-group>
-          <h4 style="position: relative">
-            <span style="display: inline-block">比赛排名</span>
+          <h4 style="position: relative; text-align: left">
+            <span style="display: inline-block; padding-left: 20px">比赛排名</span>
             <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
           </h4>
               <div>
@@ -99,49 +99,49 @@
 
 
         <!--奖励排名-->
-        <!--<ion-item-group>-->
-        <!--  <h4 style="position: relative">-->
-        <!--    <span style="display: inline-block">奖励排名</span>-->
-        <!--    <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>-->
-        <!--  </h4>-->
-        <!--      <div>-->
-        <!--        <ion-segment [(ngModel)]="rewardSegment">-->
-        <!--          <ion-segment-button value="gaofen">-->
-        <!--            Hat Trick-->
-        <!--          </ion-segment-button>-->
-        <!--          <ion-segment-button value="game01">-->
-        <!--            PHONENIX EYE-->
-        <!--          </ion-segment-button>-->
-        <!--          <ion-segment-button value="milaoshu">-->
-        <!--            WHITE HORSE-->
-        <!--          </ion-segment-button>-->
-        <!--        </ion-segment>-->
-        <!--      </div>-->
+        <ion-item-group>
+          <h4 style="position: relative; text-align: left">
+            <span style="display: inline-block; padding-left: 20px">奖励排名</span>
+            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+          </h4>
+              <div>
+                <ion-segment [(ngModel)]="rewardSegment">
+                  <ion-segment-button value="gaofen">
+                    Hat Trick
+                  </ion-segment-button>
+                  <ion-segment-button value="game01">
+                    PHONENIX EYE
+                  </ion-segment-button>
+                  <ion-segment-button value="milaoshu">
+                    WHITE HORSE
+                  </ion-segment-button>
+                </ion-segment>
+              </div>
         
-        <!--      <div [ngSwitch]="rewardSegment">-->
-        <!--        <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">-->
-        <!--          <div *ngSwitchCase="item">-->
-        <!--         <ion-item>-->
-        <!--          <div class="row header">-->
-        <!--            <div class="col" style="text-align:center">排名</div>-->
-        <!--            <div class="col">国家</div>-->
-        <!--            <div class="col" style="text-align:center">分</div>-->
-        <!--            <div class="col" style="text-align:center">玩家</div>-->
-        <!--          </div>-->
-        <!--          </ion-item>-->
-        <!--          <ion-item *ngFor="let item of [1, 2, 3, 4]">-->
-        <!--          <div class="row" >-->
-        <!--            <div class="col" style="text-align:center">{{item}}</div>-->
-        <!--            <div class="col">中国</div>-->
-        <!--            <div class="col" style="text-align:center">82</div>-->
-        <!--            <div class="col" style="text-align:center">jasdf</div>-->
-        <!--          </div>-->
-        <!--          </ion-item>-->
-        <!--        </div>-->
+              <div [ngSwitch]="rewardSegment">
+                <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">
+                  <div *ngSwitchCase="item">
+                 <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                  <ion-item *ngFor="let item of [1, 2, 3, 4]">
+                  <div class="row" >
+                    <div class="col" style="text-align:center">{{item}}</div>
+                    <div class="col">中国</div>
+                    <div class="col" style="text-align:center">82</div>
+                    <div class="col" style="text-align:center">jasdf</div>
+                  </div>
+                  </ion-item>
+                </div>
                 
-        <!--      </div>-->
-        <!--      </div>-->
-        <!--</ion-item-group>-->
+              </div>
+              </div>
+        </ion-item-group>
 
 
 
@@ -280,8 +280,91 @@
     
     <!-- 对战-->
     <ion-slide *ngSwitchCase="'battle'" style="background: #f4f4f4">
-      <ion-item-divider color="light" style="text-align: left">排行榜</ion-item-divider>
+      <!--<ion-item-divider></ion-item-divider>-->
     <ion-list>
+      <ion-item>
+        我的排名: 120
+      </ion-item>
+    </ion-list>
+      <!--<ion-item-divider color="light" style="text-align: left">排行榜</ion-item-divider>-->
+      <ion-item>排行榜</ion-item>
+    <ion-list>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">排名</div>
+          <div class="col">国家</div>
+          <div class="col">得分</div>
+          <div class="col">玩家</div>
+          <div class="col">主店</div>
+        </div>
+        </ion-item>
+        <ion-item *ngFor="let item of levelRank">
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">{{item}}</div>
+          <div class="col"><ion-img src="assets/CN.png"></ion-img></div>
+          <div class="col">22</div>
+          <div class="col">谢小新</div>
+          <div class="col">干杯清羽</div>
+        </div>
+        </ion-item>
+      </ion-list>
+      </ion-slide>
+
+    <!--奖励-->
+    <ion-slide *ngSwitchCase="'award'" style="background: #f4f4f4">
+      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
+      <ion-list>
+      <ion-item>
+      <ion-label>时间</ion-label>
+      <ion-select [(ngModel)]="date">
+        <ion-option value="today" selected="true">今日</ion-option>
+        <ion-option value="yesterday">昨日</ion-option>
+        <ion-option value="thisMonth">本月</ion-option>
+        <ion-option value="lastMonth">上个月</ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+      <ion-label>类型</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-option value="hatTrick" selected="true">Hat Trick</ion-option>
+        <ion-option value="whiteHorse">WHITE HORSE</ion-option>
+        <ion-option value="bed">3 IN BED</ion-option>
+        <ion-option value="bed">3 IN BLACK</ion-option>
+        <ion-option value="lowTon">LOW TON</ion-option>
+        <ion-option value="highTon">HIGH TON</ion-option>
+        <ion-option value="ton80">TON 80</ion-option>
+        <ion-option value="mark9">9MARK</ion-option>
+        <ion-option value="mark8">8MARK</ion-option>
+        <ion-option value="mark7">7MARK</ion-option>
+        <ion-option value="mark6">6MARK</ion-option>
+        <ion-option value="mark5">5MARK</ion-option>
+      </ion-select>
+      </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          我的排名
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">全球</div>
+          <div class="col">全国</div>
+          <!--<div class="col">区域</div>-->
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">9999</div>
+          <div class="col">8000</div>
+          <!--<div class="col">200</div>-->
+        </div>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          排行榜
+        </ion-item>
         <ion-item>
         <div class="row" style="text-align: center">
           <div class="col">排名</div>
@@ -302,140 +385,65 @@
         </div>
         </ion-item>
       </ion-list>
-      </ion-slide>
+      <ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>
 
-    <!--奖励-->
-    <!--<ion-slide *ngSwitchCase="'award'" style="background: #f4f4f4">-->
-    <!--  <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>-->
-    <!--  <ion-list>-->
-    <!--  <ion-item>-->
-    <!--  <ion-label>时间</ion-label>-->
-    <!--  <ion-select [(ngModel)]="date">-->
-    <!--    <ion-option value="today" selected="true">今日</ion-option>-->
-    <!--    <ion-option value="yesterday">昨日</ion-option>-->
-    <!--    <ion-option value="thisMonth">本月</ion-option>-->
-    <!--    <ion-option value="lastMonth">上个月</ion-option>-->
-    <!--  </ion-select>-->
-    <!--  </ion-item>-->
-    <!--  <ion-item>-->
-    <!--  <ion-label>类型</ion-label>-->
-    <!--  <ion-select [(ngModel)]="type">-->
-    <!--    <ion-option value="hatTrick" selected="true">Hat Trick</ion-option>-->
-    <!--    <ion-option value="phoenixEye">PHOENIX EYE</ion-option>-->
-    <!--    <ion-option value="whiteHorse">WHITE HORSE</ion-option>-->
-    <!--    <ion-option value="ton80">TON 80</ion-option>-->
-    <!--    <ion-option value="bed">3 IN A BED</ion-option>-->
-    <!--    <ion-option value="highTon">HIGH TON</ion-option>-->
-    <!--    <ion-option value="mark9">9MARK</ion-option>-->
-    <!--    <ion-option value="mark8">8MARK</ion-option>-->
-    <!--    <ion-option value="mark7">7MARK</ion-option>-->
-    <!--    <ion-option value="mark6">6MARK</ion-option>-->
-    <!--    <ion-option value="mark5">5MARK</ion-option>-->
-    <!--  </ion-select>-->
-    <!--  </ion-item>-->
-    <!--  </ion-list>-->
-    <!--  <ion-list>-->
-    <!--    <ion-item>-->
-    <!--      我的排名-->
-    <!--    </ion-item>-->
-    <!--    <ion-item>-->
-    <!--    <div class="row" style="text-align: center">-->
-    <!--      <div class="col">全球</div>-->
-    <!--      <div class="col">全国</div>-->
-    <!--      <div class="col">区域</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--    <ion-item>-->
-    <!--    <div class="row" style="text-align: center">-->
-    <!--      <div class="col">9999</div>-->
-    <!--      <div class="col">8000</div>-->
-    <!--      <div class="col">200</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--  </ion-list>-->
-    <!--  <ion-list>-->
-    <!--    <ion-item>-->
-    <!--      排行榜-->
-    <!--    </ion-item>-->
-    <!--    <ion-item>-->
-    <!--    <div class="row" style="text-align: center">-->
-    <!--      <div class="col">排名</div>-->
-    <!--      <div class="col">国家</div>-->
-    <!--      <div class="col">得分</div>-->
-    <!--      <div class="col">玩家</div>-->
-    <!--      <div class="col">主店</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--    <ion-item *ngFor="let item of levelRank">-->
-    <!--    <div class="row" style="text-align: center;-->
-    <!--    display: flex; ">-->
-    <!--      <div class="col">{{item}}</div>-->
-    <!--      <div class="col">中国</div>-->
-    <!--      <div class="col">22</div>-->
-    <!--      <div class="col">谢小新</div>-->
-    <!--      <div class="col">干杯清羽</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--  </ion-list>-->
-      <!--<ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>-->
-
-    <!--</ion-slide>-->
+    </ion-slide>
     
-    <!-- 主店 -->
-    <!--<ion-slide *ngSwitchCase="'mainStore'" style="background: #f4f4f4">-->
-    <!--  <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>-->
-    <!--  <ion-list>-->
-    <!--  <ion-item>-->
-    <!--  <ion-label>时间</ion-label>-->
-    <!--  <ion-select [(ngModel)]="date">-->
-    <!--    <ion-option value="today" selected="true">今日</ion-option>-->
-    <!--    <ion-option value="yesterday">昨日</ion-option>-->
-    <!--    <ion-option value="thisMonth">本月</ion-option>-->
-    <!--    <ion-option value="lastMonth">上个月</ion-option>-->
-    <!--  </ion-select>-->
-    <!--  </ion-item>-->
-    <!--  <ion-item>-->
-    <!--  <ion-label>类型</ion-label>-->
-    <!--  <ion-select [(ngModel)]="type">-->
-    <!--    <ion-option value="gaofen" selected="true">高分赛AVG</ion-option>-->
-    <!--    <ion-option value="hongxin" selected="true">总红心</ion-option>-->
-    <!--    <ion-option value="award" selected="true">总奖励数</ion-option>-->
+     <!--主店 -->
+    <ion-slide *ngSwitchCase="'mainStore'" style="background: #f4f4f4">
+      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
+      <ion-list>
+      <ion-item>
+      <ion-label>时间</ion-label>
+      <ion-select [(ngModel)]="date">
+        <ion-option value="today" selected="true">今日</ion-option>
+        <ion-option value="yesterday">昨日</ion-option>
+        <ion-option value="thisMonth">本月</ion-option>
+        <ion-option value="lastMonth">上个月</ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+      <ion-label>类型</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-option value="gaofen" selected="true">高分赛AVG</ion-option>
+        <ion-option value="hongxin" selected="true">总红心</ion-option>
+        <ion-option value="award" selected="true">总奖励数</ion-option>
 
-    <!--  </ion-select>-->
-    <!--  </ion-item>-->
-    <!--  </ion-list>-->
-    <!--  <ion-list>-->
-    <!--    <ion-item>-->
-    <!--      我的排名: 50-->
-    <!--    </ion-item>-->
-    <!--  </ion-list>-->
-    <!--  <ion-list>-->
-    <!--    <ion-item>-->
-    <!--      排行榜-->
-    <!--    </ion-item>-->
-    <!--    <ion-item>-->
-    <!--    <div class="row" style="text-align: center">-->
-    <!--      <div class="col">排名</div>-->
-    <!--      <div class="col">国家</div>-->
-    <!--      <div class="col">得分</div>-->
-    <!--      <div class="col">玩家</div>-->
-    <!--      <div class="col">主店</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--    <ion-item *ngFor="let item of levelRank">-->
-    <!--    <div class="row" style="text-align: center;-->
-    <!--    display: flex; ">-->
-    <!--      <div class="col">{{item}}</div>-->
-    <!--      <div class="col">中国</div>-->
-    <!--      <div class="col">22</div>-->
-    <!--      <div class="col">谢小新</div>-->
-    <!--      <div class="col">干杯清羽</div>-->
-    <!--    </div>-->
-    <!--    </ion-item>-->
-    <!--  </ion-list>-->
-      <!--<ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>-->
+      </ion-select>
+      </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          我的排名: 50
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          排行榜
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">排名</div>
+          <div class="col">国家</div>
+          <div class="col">得分</div>
+          <div class="col">玩家</div>
+          <div class="col">主店</div>
+        </div>
+        </ion-item>
+        <ion-item *ngFor="let item of levelRank">
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">{{item}}</div>
+          <div class="col">中国</div>
+          <div class="col">22</div>
+          <div class="col">谢小新</div>
+          <div class="col">干杯清羽</div>
+        </div>
+        </ion-item>
+      </ion-list>
+      <ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>
 
-    <!--</ion-slide>-->
+    </ion-slide>
     
 
   </ion-slides>

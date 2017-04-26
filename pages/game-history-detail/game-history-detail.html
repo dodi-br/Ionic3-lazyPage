@@ -1,0 +1,51 @@
+<!--
+  Generated template for the GameHistoryDetail page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>游戏详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      游戏类型 <span style="float:right">{{ item.type }}</span>
+    </ion-item>
+    <ion-item>
+      游戏结果 <span style="float:right">{{ item.result }}</span>
+    </ion-item>
+    <ion-item>
+      {{ item.scoreType }} <span style="float: right">{{ item.score }}</span>
+    </ion-item>
+    <ion-item>
+      总局数 <span style="float:right">{{ item.count }}</span>
+    </ion-item>
+    <ion-item>
+      结束时间 <span style="float:right">{{ item.time }}</span>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      使用机器: <span style="float: right">{{ item.machine }}</span>
+    </ion-item>
+    <ion-item>
+      所在店铺: <span style="float: right">{{ item.store }}</span>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      奖励情况:
+    </ion-item>
+    <ion-item *ngFor="let award of item.award">
+      <span> {{ award.type }}</span>
+      <span style="float:right"> {{ award.count }}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>

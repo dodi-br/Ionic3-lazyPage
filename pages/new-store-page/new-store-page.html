@@ -1,0 +1,26 @@
+<!--
+  Generated template for the NewStorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>新店铺</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div style="padding-top: 10px">
+        <button ion-item style="padding:0"  *ngFor="let storeList of store"
+         (click)="navPush(childPage.storeDetailPage, storeList)">
+            <ion-img item-left style="width:80px; height: 60px" src="{{ storeList.picture }}" ></ion-img>
+          <h2 style="margin:0">{{ storeList.label }}</h2>
+          <h3>{{ storeList.distance }}m</h3>
+          <p>{{ storeList.address }}</p>
+        </button>
+    </div>
+</ion-content>

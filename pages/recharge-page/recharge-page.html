@@ -9,7 +9,7 @@
     <ion-title>点卡充值</ion-title>
     <ion-buttons end>
       <button ion-button outline color="primary" 
-        (click)="navPush(childPage.cardInformationPage)">管理</button>
+        (click)="navPush(childPage.cardInformationPage)" [style.display]="isNum">管理</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -18,7 +18,7 @@
   <ion-item>
     <ion-label item-left color="primary">卡号</ion-label>
     <ion-input item-center placeholder="Card number" type="text" [style.color]="this.card.fontColor" [value]="card.number" [readonly]="isReadonly()"></ion-input>
-    <button ion-button item-right (click)="selectCard()">
+    <button ion-button item-right (click)="selectCard()" [style.display]="isNum">
       <ion-icon name="card"></ion-icon>
     </button>
   </ion-item>
@@ -29,45 +29,45 @@
         <div class="price">9.98元</div>
       </div>
     </button>
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">20点</div>
         <div class="price">19.01元</div>
       </div>
     </button>
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">30点</div>
         <div class="price">28.9元</div>
       </div>
     </button>
 
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">40点</div>
         <div class="price">37元</div>
       </div>
     </button>
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">50点</div>
         <div class="price">45元</div>
       </div>
     </button>
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">60点</div>
         <div class="price">53元</div>
       </div>
     </button>
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">100点</div>
         <div class="price">80元</div>
       </div>
     </button>
 
-    <button ion-button outline>
+    <button ion-button outline (click)="btnRecharge()">
       <div>
         <div style="font-size: large">200点</div>
         <div class="price">150元</div>

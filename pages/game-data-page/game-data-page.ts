@@ -35,6 +35,21 @@ export class GameDataPage {
       ]
     }
   ];
+  
+  awards = [
+    { name: "hatTrick", thisMonth: 3, all: 789 },
+    { name: "5mark", thisMonth: 45, all: 334 },
+    { name: "6mark", thisMonth: 43, all: 79 },
+    { name: "7mark", thisMonth: 34, all: 78 },
+    { name: "8mark", thisMonth: 13, all: 78 },
+    { name: "9mark", thisMonth: 23, all: 79 },
+    { name: "3inBlack", thisMonth: 55, all: 89 },
+    { name: "3inBed", thisMonth: 93, all: 789 },
+    { name: "whiteHouse", thisMonth: 1, all: 789 },
+    { name: "lowTon", thisMonth: 11, all: 700 },
+    { name: "highTon", thisMonth: 22, all: 56 },
+    { name: "Ton80", thisMonth: 3, all: 1 }
+  ]
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

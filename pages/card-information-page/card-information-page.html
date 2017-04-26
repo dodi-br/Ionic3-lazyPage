@@ -17,36 +17,29 @@
 </ion-header>
 
 <ion-content>
-    <ion-list-header>
-        主卡
-    </ion-list-header>
-    <ion-list>
-    <ion-card style="border: solid darkred 1px;" (click)="btnCardsClick()">
+    <!--<ion-list>-->
+    <!--<ion-card style="border: solid darkred 1px;" (click)="btnCardsClick()">-->
 
-        <ion-card-header style="color: darkred">
-            卡号: A123899623BFF
-        </ion-card-header>
+    <!--    <ion-card-header style="color: darkred">-->
+    <!--        卡号: A123899623BFF-->
+    <!--    </ion-card-header>-->
 
-        <ion-card-content>
-            剩余点数: 50 <br /> Rating|29
-            &nbsp;&nbsp; PPD|20 &nbsp;&nbsp; MPR|7
-        </ion-card-content>
-    </ion-card>
-    </ion-list>
-
-    <ion-list-header>
-        已绑定
-    </ion-list-header>
-    <ion-list>
-    <ion-card style="border: solid black 1px;" *ngFor="let item of items" (click)="btnCardsClick(item)">
+    <!--    <ion-card-content>-->
+    <!--        剩余点数: 50 <br /> Rating|29-->
+    <!--        &nbsp;&nbsp; PPD|20 &nbsp;&nbsp; MPR|7-->
+    <!--    </ion-card-content>-->
+    <!--</ion-card>-->
+    <!--</ion-list>-->
+    
+    <ion-list style="margin-top: 30px">
+    <ion-card style="border: solid darkred 1px;" *ngFor="let item of items" (click)="btnCardsClick(item)">
 
         <ion-card-header style="color: darkred">
             卡号: {{ item.number }}
         </ion-card-header>
 
         <ion-card-content>
-            剩余点数: {{ item.point }} <br /> Rating|{{ item.record.rating }} 
-            &nbsp;&nbsp; PPD|{{item.record.ppd}} &nbsp;&nbsp; MPR|{{item.record.mpr}}
+            剩余点数: {{ item.point }} 
         </ion-card-content>
     </ion-card>
     </ion-list>
@@ -54,15 +47,14 @@
         已挂失
     </ion-list-header>
     <ion-list>
-    <ion-card style="border: solid gray 1px" (click)="btnCardsClick(item)">
+    <ion-card style="border: solid gray 1px" (click)="btnCardsClick(guashi[0])">
 
         <ion-card-header style="color: darkred">
             卡号: SCDD3382
         </ion-card-header>
 
         <ion-card-content>
-            剩余点数: 50 <br /> Rating|29
-            &nbsp;&nbsp; PPD|20 &nbsp;&nbsp; MPR|7
+            剩余点数: 5 
         </ion-card-content>
     </ion-card>
     </ion-list>

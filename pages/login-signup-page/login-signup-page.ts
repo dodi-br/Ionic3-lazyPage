@@ -41,9 +41,6 @@ export class LoginSignupPage {
   // 	}, error => {
   // 		this.notice("请检查您的网络");
   // 	}); 
-  
-  
-   this.storage.ready().then(() => {
 
      // set a key/value
     this.storage.set('isLogin', true);
@@ -54,8 +51,9 @@ export class LoginSignupPage {
       
       // this.isLogin = val;
     // });
-   });
-    this.navCtrl.push('HomePage');
+    this.navCtrl.pop();
+      //keep all your codes inside here
+
   }
 
   notice(message) {

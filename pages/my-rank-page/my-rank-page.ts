@@ -15,7 +15,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'my-rank-page.html',
 })
 export class MyRankPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
