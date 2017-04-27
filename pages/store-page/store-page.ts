@@ -78,4 +78,13 @@ export class StorePage {
     this.navCtrl.push(target.page, {store: store, title: '店铺详情'});
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+  
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 1000);
+  }
+
 }

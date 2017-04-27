@@ -216,5 +216,12 @@ export class HomePage {
     let modal = this.modalCtrl.create('PlayerInfoPage');
     modal.present();
   }
-
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+  
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 1000);
+  }
 }

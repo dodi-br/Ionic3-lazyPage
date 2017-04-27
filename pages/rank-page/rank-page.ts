@@ -71,18 +71,18 @@ export class RankPage {
         id: "game",
         title: "Third Slide"
       },
-      {
-        id: "battle",
-        title: ""
-      },
+      // {
+      //   id: "battle",
+      //   title: ""
+      // },
       {
         id: "award",
         title: "奖励"
-      },
-      {
-        id: "mainStore",
-        title: "主店"
       }
+      // {
+      //   id: "mainStore",
+      //   title: "主店"
+      // }
     ];
   }
 
@@ -110,4 +110,13 @@ export class RankPage {
     let modal = this.modalCtrl.create('PlayerInfoPage');
     modal.present();
   }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+  
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 1000);
+  }
+
 }

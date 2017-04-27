@@ -7,8 +7,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-icon name="title-logo" style="margin: 0 10px"></ion-icon>
-    <!--<ion-title>Darts</ion-title>-->
+    <!--<ion-icon name="title-logo" style="margin: 0 10px"></ion-icon>-->
+    <ion-title>Asia Darts Association</ion-title>
     
       <ion-buttons end>
       <button ion-button icon-only (click)="btnCountry($event)">
@@ -21,6 +21,9 @@
 
 
 <ion-content style="background:#f4f4f4">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <!-- 轮播广告 -->
   <ion-slides pager style="height: 30%; " autoplay="2000" loop>
@@ -64,6 +67,7 @@
   <!--</ion-item>-->
   <!--</ion-list>-->
   <ion-list></ion-list>
+
 
   <!-- 个人重要信息 评级，ppd, MPR (登录后) 。。。-->
   <ion-list [style.display]="isLogin">

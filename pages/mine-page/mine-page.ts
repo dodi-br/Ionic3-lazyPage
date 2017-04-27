@@ -97,4 +97,5 @@ export class MinePage {
   btnMainStore() {
     this.navCtrl.push('StoreDetailPage', { store: this.mainStore, title: '我的主店' } );
   }
+
 }
