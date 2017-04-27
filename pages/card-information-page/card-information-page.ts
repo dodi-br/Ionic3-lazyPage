@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController, PopoverController } from 'ionic-angular';
+import { AlertController, PopoverController, ActionSheetController } from 'ionic-angular';
 
 /**
  * Generated class for the CardInformationPage page.
@@ -20,7 +20,8 @@ export class CardInformationPage {
 	items = [];
 	guashi = [];
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-	  public alertCtrl: AlertController, public popoverCtrl: PopoverController) {
+	  public alertCtrl: AlertController, public popoverCtrl: PopoverController,
+	  public actionSheetCtrl: ActionSheetController) {
 	  this.title = navParams.data.title;
   	this.items = [
     	{
@@ -73,10 +74,46 @@ export class CardInformationPage {
 
   }
   btnCardsClick(item) {
-    let popover = this.popoverCtrl.create('CardPopover', {cardNum: item.number }, {cssClass: "card-menu"});
-    popover.present({
-      // ev: myEvent
-    });
+  //   let popover = this.popoverCtrl.create('CardPopover', {cardNum: item.number }, {cssClass: "card-menu"});
+  //   popover.present({
+  //     // ev: myEvent
+  //   });
+     let actionSheet = this.actionSheetCtrl.create({
+     buttons: [
+       {
+         text: '充值',
+         handler: () => {
+           this.navCtrl.push('RechargePage', { cardNum: item.number });
+         }
+       },
+       {
+         text: '点数转移',
+         handler: () => {
+           this.navCtrl.push('TransferPointPage', { cardNum: item.number })
+         }
+       },
+       {
+         text: '挂失',
+         role: 'zhifubao',
+         handler: () => {
+          // console.log('Destructive clicked');
+         }
+       },
+       {
+         text: '解绑',
+         handler: () => {
+           console.log('Archive clicked');
+         }
+       },
+       {
+       		text: '取消',
+       		role: 'Cancel',
+       		handler: () => {
+       		}
+       }
+     ]
+   });
+   actionSheet.present();
   }
   btnAddCard() {
      this.navCtrl.push('AddCardPage', { title: '添加点卡'});

@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
+import { ModalController } from 'ionic-angular';
+
 /**
  * Generated class for the RankPage page.
  *
@@ -15,6 +17,9 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   templateUrl: 'rank-page.html',
 })
 export class RankPage {
+  ratingSelector = "today";
+  gameSelector = { time: "today", type: "game01" };
+  awardSelector = { time: "today", type: "hatTrick" };
   levelRank = [];
   gameRankSegment = 'gaofen';
   rewardSegment = 'gaofen';
@@ -50,7 +55,8 @@ export class RankPage {
   rankSegment: string;
   rankSlides: any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl: ModalController) {
     this.rankSegment = 'main';
     this.rankSlides = [
       {
@@ -96,9 +102,12 @@ export class RankPage {
   onSlideChanged(slider) {
     console.log('Slide changed');
     const currentIndex = slider.getActiveIndex();
-    if (currentIndex > 5) { return; }
+    if (currentIndex > 3) { return; }
     this.rankSegment = this.rankSlides[currentIndex].id;
   console.log(currentIndex);
   }
-
+  btnPlayer() {
+    let modal = this.modalCtrl.create('PlayerInfoPage');
+    modal.present();
+  }
 }

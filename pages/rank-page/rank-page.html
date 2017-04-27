@@ -5,6 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar>
+    <ion-title>
+      榜单
+    </ion-title>
+  </ion-navbar>
 <ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)"
   style="height: 61px;">
   <ion-segment-button value="main">
@@ -16,15 +21,15 @@
   <ion-segment-button value="game">
     比赛
   </ion-segment-button>
-  <ion-segment-button value="battle">
-    对战
-  </ion-segment-button>
+  <!--<ion-segment-button value="battle">-->
+  <!--  对战-->
+  <!--</ion-segment-button>-->
   <ion-segment-button value="award">
     奖励
   </ion-segment-button>
-  <ion-segment-button value="mainStore">
-    主店
-  </ion-segment-button>
+  <!--<ion-segment-button value="mainStore">-->
+  <!--  主店-->
+  <!--</ion-segment-button>-->
 </ion-segment>
 </ion-header>
 
@@ -44,7 +49,7 @@
             <!--<span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>-->
           </h4>
           <hr style="height: 1px" />
-          <button ion-item style="padding-left: 10px;"  *ngFor="let item of no1">
+          <button ion-item style="padding-left: 10px;"  *ngFor="let item of no1" detail-none (click)="btnPlayer()">
               <ion-img item-left style="width:80px; height: 60px" [src]="item.img" ></ion-img>
             <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
             <h3>{{ item.store }}</h3>
@@ -88,7 +93,7 @@
                     <div class="col">1</div>
                     <div class="col"><img src="assets/CN.png"/></div>
                     <div class="col">22</div>
-                    <div class="col">谢小新</div>
+                    <div class="col" (click)="btnPlayer()">谢小新</div>
                   </div>
                   </ion-item>
                   <ion-item>
@@ -97,7 +102,7 @@
                       <div class="col">2</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">20</div>
-                      <div class="col">王小二</div>
+                      <div class="col" (click)="btnPlayer()">王小二</div>
                     </div>
                     </ion-item>
                     <ion-item>
@@ -106,7 +111,7 @@
                       <div class="col">3</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">19</div>
-                      <div class="col">大卫</div>
+                      <div class="col" (click)="btnPlayer()">大卫</div>
                     </div>
                     </ion-item>
                     <ion-item>
@@ -115,7 +120,7 @@
                       <div class="col">4</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">15</div>
-                      <div class="col">Yearh</div>
+                      <div class="col" (click)="btnPlayer()">Yearh</div>
                     </div>
                   </ion-item>
                 </div>
@@ -179,7 +184,7 @@
                     <div class="col">1</div>
                     <div class="col"><img src="assets/CN.png"/></div>
                     <div class="col">22</div>
-                    <div class="col">谢小新</div>
+                    <div class="col" (click)="btnPlayer()">谢小新</div>
                   </div>
                   </ion-item>
                   <ion-item>
@@ -188,7 +193,7 @@
                       <div class="col">2</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">20</div>
-                      <div class="col">王小二</div>
+                      <div class="col" (click)="btnPlayer()">王小二</div>
                     </div>
                     </ion-item>
                     <ion-item>
@@ -197,7 +202,7 @@
                       <div class="col">3</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">19</div>
-                      <div class="col">大卫</div>
+                      <div class="col" (click)="btnPlayer()">大卫</div>
                     </div>
                     </ion-item>
                     <ion-item>
@@ -206,7 +211,7 @@
                       <div class="col">4</div>
                       <div class="col"><img src="assets/CN.png"/></div>
                       <div class="col">15</div>
-                      <div class="col">Yearh</div>
+                      <div class="col" (click)="btnPlayer()">Yearh</div>
                     </div>
                   </ion-item>
                 </div>
@@ -245,7 +250,7 @@
       <ion-list>
       <ion-item>
       <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="gender">
+      <ion-select [(ngModel)]="ratingSelector">
         <ion-option value="today" selected="true">今日</ion-option>
         <ion-option value="yesterday">昨日</ion-option>
         <ion-option value="thisMonth">本月</ion-option>
@@ -336,7 +341,7 @@
       <ion-list>
       <ion-item>
       <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="date">
+      <ion-select [(ngModel)]="gameSelector.time">
         <ion-option value="today" selected="true">今日</ion-option>
         <ion-option value="yesterday">昨日</ion-option>
         <ion-option value="thisMonth">本月</ion-option>
@@ -345,10 +350,10 @@
       </ion-item>
       <ion-item>
       <ion-label>游戏类型</ion-label>
-      <ion-select [(ngModel)]="type">
-        <ion-option value="today" selected="true">米老鼠</ion-option>
-        <ion-option value="yesterday">01游戏</ion-option>
-        <ion-option value="thisMonth">高分赛</ion-option>
+      <ion-select [(ngModel)]="gameSelector.type">
+        <ion-option value="milaoshu" selected="true">米老鼠</ion-option>
+        <ion-option value="game01">01游戏</ion-option>
+        <ion-option value="gaofen">高分赛</ion-option>
       </ion-select>
       </ion-item>
       </ion-list>
@@ -430,67 +435,67 @@
     </ion-slide>
     
     <!-- 对战-->
-    <ion-slide style="background: #f4f4f4">
+    <!--<ion-slide style="background: #f4f4f4">-->
       <!--<ion-item-divider></ion-item-divider>-->
-    <ion-list>
-      <ion-item>
-        我的排名: 120
-      </ion-item>
-    </ion-list>
+    <!--<ion-list>-->
+    <!--  <ion-item>-->
+    <!--    我的排名: 120-->
+    <!--  </ion-item>-->
+    <!--</ion-list>-->
       <!--<ion-item-divider color="light" style="text-align: left">排行榜</ion-item-divider>-->
-      <ion-item>排行榜</ion-item>
-    <ion-list>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">排名</div>
-          <div class="col">国家</div>
-          <div class="col">得分</div>
-          <div class="col">玩家</div>
-          <div class="col">主店</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">1</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">22</div>
-          <div class="col">谢小新</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">2</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">20</div>
-          <div class="col">王小二</div>
-          <div class="col">田堂..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">3</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">19</div>
-          <div class="col">大棚</div>
-          <div class="col">清刘..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">4</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">15</div>
-          <div class="col">Yearh</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-      </ion-list>
-      </ion-slide>
+    <!--  <ion-item>排行榜</ion-item>-->
+    <!--<ion-list>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center">-->
+    <!--      <div class="col">排名</div>-->
+    <!--      <div class="col">国家</div>-->
+    <!--      <div class="col">得分</div>-->
+    <!--      <div class="col">玩家</div>-->
+    <!--      <div class="col">主店</div>-->
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center;-->
+    <!--    display: flex; ">-->
+    <!--      <div class="col">1</div>-->
+    <!--      <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--      <div class="col">22</div>-->
+    <!--      <div class="col">谢小新</div>-->
+    <!--      <div class="col">干杯..</div>-->
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center;-->
+    <!--    display: flex; ">-->
+    <!--      <div class="col">2</div>-->
+    <!--      <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--      <div class="col">20</div>-->
+    <!--      <div class="col">王小二</div>-->
+    <!--      <div class="col">田堂..</div>-->
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center;-->
+    <!--    display: flex; ">-->
+    <!--      <div class="col">3</div>-->
+    <!--      <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--      <div class="col">19</div>-->
+    <!--      <div class="col">大棚</div>-->
+    <!--      <div class="col">清刘..</div>-->
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center;-->
+    <!--    display: flex; ">-->
+    <!--      <div class="col">4</div>-->
+    <!--      <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--      <div class="col">15</div>-->
+    <!--      <div class="col">Yearh</div>-->
+    <!--      <div class="col">干杯..</div>-->
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--  </ion-list>-->
+    <!--  </ion-slide>-->
 
     <!--奖励-->
     <ion-slide style="background: #f4f4f4">
@@ -498,7 +503,7 @@
       <ion-list>
       <ion-item>
       <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="date">
+      <ion-select [(ngModel)]="awardSelector.time">
         <ion-option value="today" selected="true">今日</ion-option>
         <ion-option value="yesterday">昨日</ion-option>
         <ion-option value="thisMonth">本月</ion-option>
@@ -507,7 +512,7 @@
       </ion-item>
       <ion-item>
       <ion-label>类型</ion-label>
-      <ion-select [(ngModel)]="type">
+      <ion-select [(ngModel)]="awardSelector.type">
         <ion-option value="hatTrick" selected="true">Hat Trick</ion-option>
         <ion-option value="whiteHorse">WHITE HORSE</ion-option>
         <ion-option value="bed">3 IN BED</ion-option>
@@ -600,85 +605,85 @@
     </ion-slide>
     
      <!--主店 -->
-    <ion-slide style="background: #f4f4f4">
-      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
-      <ion-list>
-      <ion-item>
-      <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="date">
-        <ion-option value="today" selected="true">今日</ion-option>
-        <ion-option value="yesterday">昨日</ion-option>
-        <ion-option value="thisMonth">本月</ion-option>
-        <ion-option value="lastMonth">上个月</ion-option>
-      </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label>类型</ion-label>
-      <ion-select [(ngModel)]="type">
-        <ion-option value="gaofen" selected="true">高分赛AVG</ion-option>
-        <ion-option value="hongxin" selected="true">总红心</ion-option>
-        <ion-option value="award" selected="true">总奖励数</ion-option>
+    <!--<ion-slide style="background: #f4f4f4">-->
+    <!--  <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>-->
+    <!--  <ion-list>-->
+    <!--  <ion-item>-->
+    <!--  <ion-label>时间</ion-label>-->
+    <!--  <ion-select [(ngModel)]="date">-->
+    <!--    <ion-option value="today" selected="true">今日</ion-option>-->
+    <!--    <ion-option value="yesterday">昨日</ion-option>-->
+    <!--    <ion-option value="thisMonth">本月</ion-option>-->
+    <!--    <ion-option value="lastMonth">上个月</ion-option>-->
+    <!--  </ion-select>-->
+    <!--  </ion-item>-->
+    <!--  <ion-item>-->
+    <!--  <ion-label>类型</ion-label>-->
+    <!--  <ion-select [(ngModel)]="type">-->
+    <!--    <ion-option value="gaofen" selected="true">高分赛AVG</ion-option>-->
+    <!--    <ion-option value="hongxin" selected="true">总红心</ion-option>-->
+    <!--    <ion-option value="award" selected="true">总奖励数</ion-option>-->
 
-      </ion-select>
-      </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          我的排名: 50
-        </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          排行榜
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">排名</div>
-          <div class="col">国家</div>
-          <div class="col">得分</div>
-          <div class="col">玩家</div>
+    <!--  </ion-select>-->
+    <!--  </ion-item>-->
+    <!--  </ion-list>-->
+    <!--  <ion-list>-->
+    <!--    <ion-item>-->
+    <!--      我的排名: 50-->
+    <!--    </ion-item>-->
+    <!--  </ion-list>-->
+    <!--  <ion-list>-->
+    <!--    <ion-item>-->
+    <!--      排行榜-->
+    <!--    </ion-item>-->
+    <!--    <ion-item>-->
+    <!--    <div class="row" style="text-align: center">-->
+    <!--      <div class="col">排名</div>-->
+    <!--      <div class="col">国家</div>-->
+    <!--      <div class="col">得分</div>-->
+    <!--      <div class="col">玩家</div>-->
           <!--<div class="col">主店</div>-->
-        </div>
-        </ion-item>
-                  <ion-item>
-          <div class="row" style="text-align: center;
-          display: flex; ">
-            <div class="col">1</div>
-            <div class="col"><img src="assets/CN.png"/></div>
-            <div class="col">22</div>
-            <div class="col">谢小新</div>
-          </div>
-          </ion-item>
-          <ion-item>
-          <div class="row" style="text-align: center;
-          display: flex; ">
-              <div class="col">2</div>
-              <div class="col"><img src="assets/CN.png"/></div>
-              <div class="col">20</div>
-              <div class="col">王小二</div>
-            </div>
-            </ion-item>
-            <ion-item>
-            <div class="row" style="text-align: center;
-            display: flex; ">
-              <div class="col">3</div>
-              <div class="col"><img src="assets/CN.png"/></div>
-              <div class="col">19</div>
-              <div class="col">大卫</div>
-            </div>
-            </ion-item>
-            <ion-item>
-            <div class="row" style="text-align: center;
-            display: flex; ">
-              <div class="col">4</div>
-              <div class="col"><img src="assets/CN.png"/></div>
-              <div class="col">15</div>
-              <div class="col">Yearh</div>
-            </div>
-          </ion-item>
-      </ion-list>
+    <!--    </div>-->
+    <!--    </ion-item>-->
+    <!--              <ion-item>-->
+    <!--      <div class="row" style="text-align: center;-->
+    <!--      display: flex; ">-->
+    <!--        <div class="col">1</div>-->
+    <!--        <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--        <div class="col">22</div>-->
+    <!--        <div class="col">谢小新</div>-->
+    <!--      </div>-->
+    <!--      </ion-item>-->
+    <!--      <ion-item>-->
+    <!--      <div class="row" style="text-align: center;-->
+    <!--      display: flex; ">-->
+    <!--          <div class="col">2</div>-->
+    <!--          <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--          <div class="col">20</div>-->
+    <!--          <div class="col">王小二</div>-->
+    <!--        </div>-->
+    <!--        </ion-item>-->
+    <!--        <ion-item>-->
+    <!--        <div class="row" style="text-align: center;-->
+    <!--        display: flex; ">-->
+    <!--          <div class="col">3</div>-->
+    <!--          <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--          <div class="col">19</div>-->
+    <!--          <div class="col">大卫</div>-->
+    <!--        </div>-->
+    <!--        </ion-item>-->
+    <!--        <ion-item>-->
+    <!--        <div class="row" style="text-align: center;-->
+    <!--        display: flex; ">-->
+    <!--          <div class="col">4</div>-->
+    <!--          <div class="col"><img src="assets/CN.png"/></div>-->
+    <!--          <div class="col">15</div>-->
+    <!--          <div class="col">Yearh</div>-->
+    <!--        </div>-->
+    <!--      </ion-item>-->
+    <!--  </ion-list>-->
 
-    </ion-slide>
+    <!--</ion-slide>-->
     
 
   </ion-slides>

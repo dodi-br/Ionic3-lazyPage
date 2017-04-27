@@ -91,13 +91,35 @@
           <div class="col">玩家</div>
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+        <ion-item>
         <div class="row" style="text-align: center">
-          <div class="col">{{item}}</div>
-          <div class="col">82</div>
+          <div class="col">1</div>
+          <div class="col">83</div>
           <div class="col">jasdf</div>
         </div>
         </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">2</div>
+          <div class="col">80</div>
+          <div class="col">6666</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">3</div>
+          <div class="col">70</div>
+          <div class="col">剑圣</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center">
+          <div class="col">4</div>
+          <div class="col">60</div>
+          <div class="col">小学生</div>
+        </div>
+        </ion-item>
+
 
       <!--</ion-list>-->
     </ion-slide>
@@ -105,8 +127,8 @@
     <!--店铺玩家-->
     <ion-slide >
       <ion-list>
-        <button ion-item style="padding:0"  *ngFor="let storeList of [0, 1, 2, 3 ,4 ]">
-            <ion-img item-left style="width:80px; height: 60px" src="" ></ion-img>
+        <button ion-item style="padding:0" (click)="btnPlayer()">
+            <ion-img item-left style="width:80px; height: 60px" src="assets/No1.jpeg" ></ion-img>
           <h2 style="margin:0">等级: AA20</h2>
           <h3>张三</h3>
           <p>注册日期: 2017-4-21</p>

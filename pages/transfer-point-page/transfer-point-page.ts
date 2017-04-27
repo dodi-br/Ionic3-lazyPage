@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ModalController } from 'ionic-angular';
+
 /**
  * Generated class for the TransferPointPage page.
  *
@@ -16,12 +18,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TransferPointPage {
   cardNum: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl: ModalController) {
     this.cardNum = navParams.data.cardNum;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransferPointPage');
   }
-
+	selectCard() {
+	    let modal = this.modalCtrl.create('SelectCardPage');
+	    modal.present();    
+	}
 }

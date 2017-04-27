@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>select-country</ion-title>
+    <ion-buttons left>
+    <button ion-button (click)="this.navCtrl.pop()">
+    <ion-icon name="close"></ion-icon>
+    </button>
+    </ion-buttons>
+
+    <ion-title>选择国家</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+<ion-list>
+  <button ion-item *ngFor="let item of country" (click)="this.navCtrl.pop()">
+    {{ item.name }}
+  </button>
+</ion-list>
 
 </ion-content>

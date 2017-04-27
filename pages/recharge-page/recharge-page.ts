@@ -83,12 +83,6 @@ export class RechargePage {
          handler: () => {
            console.log('Cancel clicked');
          }
-       },
-       {
-       		text: '取消',
-       		role: 'Cancel',
-       		handler: () => {
-       		}
        }
      ]
    });

@@ -12,21 +12,21 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 @Component({
   selector: 'page-select-country',
-  // templateUrl: 'select-country.html',
-  template: `
-      <ion-item>
-      <ion-label style="color: black">更改语言</ion-label>
-        <ion-select [(ngModel)]="Country" selectedText=" ">
-        <ion-option *ngFor="let item of language" value="f" selected="true">{{ item.name }}</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label style="color: black">选择国家</ion-label>
-        <ion-select [(ngModel)]="Country" selectedText=" ">
-        <ion-option *ngFor="let item of country" value="f" selected="true">{{ item.name }}</ion-option>
-        </ion-select>
-      </ion-item>
-  `
+  templateUrl: 'select-country.html',
+  // template: `
+  //     <ion-item>
+  //     <ion-label style="color: black">更改语言</ion-label>
+  //       <ion-select [(ngModel)]="Country" selectedText=" ">
+  //       <ion-option *ngFor="let item of language" value="f" selected="true">{{ item.name }}</ion-option>
+  //       </ion-select>
+  //     </ion-item>
+  //     <ion-item>
+  //     <ion-label style="color: black">选择国家</ion-label>
+  //       <ion-select [(ngModel)]="Country" selectedText=" ">
+  //       <ion-option *ngFor="let item of country" value="f" selected="true">{{ item.name }}</ion-option>
+  //       </ion-select>
+  //     </ion-item>
+  // `
 })
 export class SelectCountry {
   country = [{
@@ -45,16 +45,6 @@ export class SelectCountry {
       name: '日本',
     },{
       name: '韩国',
-    }
-  ];
-  language = [{
-      name: '简体中文',
-    },{
-      name: '繁体中文',
-    },{
-      name: '英语',
-    },{
-      name: '法语',
     }
   ];
 

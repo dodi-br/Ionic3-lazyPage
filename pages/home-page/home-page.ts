@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, PopoverController } from 'ionic-angular';
-import { Tabs } from 'ionic-angular';
+import { Tabs, ActionSheetController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -49,7 +49,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public popoverCtrl: PopoverController, public tabs: Tabs,
-    public storage: Storage) {
+    public storage: Storage, public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
       
 
       
@@ -79,9 +80,9 @@ export class HomePage {
         player: { name: 'Ruby', score: 1500 },
         img: 'assets/No1.jpeg',
         players: [
-          { name: 'Because of you', score: 1200 },
-          { name: '丁听', score: 1000 },
-          { name: '阿菲', score: 1000 }
+          { name: 'Because of you', score: 1200, num: 2 },
+          { name: '丁听', score: 1000, num: 3 },
+          { name: '阿菲', score: 1000, num: 4 }
         ]
       },
       {
@@ -90,9 +91,9 @@ export class HomePage {
         player: { name: 'Jessie', score: 29 },
         img: 'assets/member1.jpeg',
         players: [
-          { name: 'Because of you', score: 25 },
-          { name: 'Month', score: 20 },
-          { name: '阿菲', score: 11 }
+          { name: 'Because of you', score: 25, num: 2 },
+          { name: 'Month', score: 20, num: 3 },
+          { name: '阿菲', score: 11, num: 4 }
         ]
       },
       {
@@ -101,9 +102,9 @@ export class HomePage {
         player : { name: '林医生', score: 20 },
         img: 'assets/member2.jpeg',
         players: [
-          { name: '丁听', score: 19 },
-          { name: 'Year', score: 15 },
-          { name: 'Son', score: 9 }
+          { name: '丁听', score: 19, num: 2 },
+          { name: 'Year', score: 15, num: 3 },
+          { name: 'Son', score: 9, num: 4 }
         ]
       }
     ];
@@ -156,9 +157,9 @@ export class HomePage {
   }
 
   onRankSlideChanged(slider) {
-    // const currentIndex = slider.getActiveIndex();
-    // if (currentIndex > 2) { return };
-    // this.rankSegment = this.rankSlides[currentIndex].id;
+    const currentIndex = slider.getActiveIndex();
+    if (currentIndex > 2) { return };
+    this.rankSegment = this.rankSlides[currentIndex].id;
   }
   
   onGameSegmentChanged(segmentButton) {
@@ -170,9 +171,9 @@ export class HomePage {
   }
 
   onGameSlideChanged(slider) {
-    // const currentIndex = slider.getActiveIndex();
-    // if (currentIndex > 2) { return };
-    // this.gameSegment = this.gameSlides[currentIndex].id;
+    const currentIndex = slider.getActiveIndex();
+    if (currentIndex > 2) { return };
+    this.gameSegment = this.gameSlides[currentIndex].id;
   }
 
   
@@ -181,9 +182,39 @@ export class HomePage {
   }
 
   btnCountry(myEvent) {
-    let popover = this.popoverCtrl.create('SelectCountry');
-    popover.present({
-      ev: myEvent
+    // let popover = this.popoverCtrl.create('SelectCountry');
+    // popover.present({
+    //   ev: myEvent
+    // });
+    let actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+        //   text: '收藏',
+        //   role: 'destructive',
+        //   handler: () => {
+        //     console.log('Destructive clicked');
+        //   }
+        // },{
+          text: '选择国家',
+          handler: () => {
+            // console.log('Archive clicked');
+            let modal = this.modalCtrl.create('SelectCountry');
+            modal.present();
+          }
+        },{
+          text: '选择语言',
+          handler: () => {
+            let modal = this.modalCtrl.create('SelectLanguagePage');
+            modal.present();
+          }
+        }
+      ]
     });
+    actionSheet.present();
   }
+  btnPlayer() {
+    let modal = this.modalCtrl.create('PlayerInfoPage');
+    modal.present();
+  }
+
 }

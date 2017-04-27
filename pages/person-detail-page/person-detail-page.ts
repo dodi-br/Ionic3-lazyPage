@@ -81,12 +81,6 @@ export class PersonDetailPage {
          handler: () => {
            console.log('Destructive clicked');
          }
-       },
-       {
-       		text: '取消',
-       		role: 'Cancel',
-       		handler: () => {
-       		}
        }
      ]
    });

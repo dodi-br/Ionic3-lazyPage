@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the Multilanguage page.
+ * Generated class for the SelectLanguagePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage({
-  name: 'Multilanguage'
+  name: 'SelectLanguagePage'
 })
 @Component({
-  selector: 'page-multilanguage',
-  templateUrl: 'multilanguage.html',
+  selector: 'page-select-language-page',
+  templateUrl: 'select-language-page.html',
 })
-export class Multilanguage {
+export class SelectLanguagePage {
   languages = [{
       name: '简体中文',
     },{
@@ -30,7 +30,7 @@ export class Multilanguage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Multilanguage');
+    console.log('ionViewDidLoad SelectLanguagePage');
   }
 
 }

@@ -82,42 +82,53 @@
   </ion-list>
   
     <!-- 今日游戏数据(登录后) -->
-  <ion-list>
+  <ion-list class="today-game">
     <ion-item class="border-bottom-none">
       <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>
       <h2 class="title" style="float:left">今日游戏数据</h2>
       <h3 style="float:right" (click)="this.navCtrl.push('GameHistory')">更多</h3>
     </ion-item>
 
-    <ion-item id="rank">
-      <div>
-        <ion-segment [(ngModel)]="gameSegment" (ionChange)="onGameSegmentChanged($event)">
-          <ion-segment-button value="game1">
-            高分赛
-          </ion-segment-button>
-          <ion-segment-button value="game2">
-            01游戏
-          </ion-segment-button>
-          <ion-segment-button value="game3">
-            米老鼠
-          </ion-segment-button>
-        </ion-segment>
-      </div>
-
-      <ion-slides #gameSlider>
-        <ion-slide *ngFor="let slide of gameSlides">
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}
-          </ion-item>
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}
-          </ion-item>
-         <ion-item>
-            <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}
-          </ion-item>
-        </ion-slide>
-      </ion-slides>
+    <ion-item>
+      Count-up <span style="float: right">232</span>
     </ion-item>
+    <ion-item>
+      PPD <span style="float: right">32</span>
+    </ion-item>
+    <ion-item>
+      MPR <span style="float: right">15</span>
+    </ion-item>
+
+
+    <!--<ion-item id="rank">-->
+    <!--  <div>-->
+    <!--    <ion-segment [(ngModel)]="gameSegment" (ionChange)="onGameSegmentChanged($event)">-->
+    <!--      <ion-segment-button value="game1">-->
+    <!--        高分赛-->
+    <!--      </ion-segment-button>-->
+    <!--      <ion-segment-button value="game2">-->
+    <!--        01游戏-->
+    <!--      </ion-segment-button>-->
+    <!--      <ion-segment-button value="game3">-->
+    <!--        米老鼠-->
+    <!--      </ion-segment-button>-->
+    <!--    </ion-segment>-->
+    <!--  </div>-->
+
+    <!--  <ion-slides #gameSlider (ionSlideWillChange)="onGameSlideChanged($event)">-->
+    <!--    <ion-slide *ngFor="let slide of gameSlides">-->
+    <!--     <ion-item>-->
+    <!--        <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}-->
+    <!--      </ion-item>-->
+    <!--     <ion-item>-->
+    <!--        <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}-->
+    <!--      </ion-item>-->
+    <!--     <ion-item>-->
+    <!--        <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}-->
+    <!--      </ion-item>-->
+    <!--    </ion-slide>-->
+    <!--  </ion-slides>-->
+    <!--</ion-item>-->
   </ion-list>
 
   <!-- 新店铺 -->
@@ -128,10 +139,10 @@
       <h3 style="float:right" (click)="this.navPush(childPage.newStorePage)">更多</h3>
     </ion-item>
     <ion-item>
-      <ion-label><b>下沙</b>&nbsp;&nbsp;下沙白杨人文会所</ion-label>
+      <ion-label><b>杭州</b>&nbsp;&nbsp;下沙白杨人文会所</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label><b>滨江</b>&nbsp;&nbsp;滨兴家园咖啡观</ion-label>
+      <ion-label><b>上海</b>&nbsp;&nbsp;东方明珠银河旅</ion-label>
     </ion-item>
   </ion-list>
 
@@ -143,7 +154,7 @@
       <h3 style="float:right" (click)="this.tabs.select(2);">更多</h3>
     </ion-item>
     <ion-item id="rank">
-      <div>
+      <div style="margin: 5px; margin-bottom: 15px">
         <ion-segment [(ngModel)]="rankSegment" (ionChange)="onRankSegmentChanged($event)">
           <ion-segment-button value="rank1">
             高分赛
@@ -161,19 +172,19 @@
         #rankSlider (ionSlideWillChange)="onRankSlideChanged($event)">
         <ion-slide *ngFor="let slide of rankSlides">
 
-          <ion-item>
+          <button ion-item (click)="btnPlayer()" detail-none>
             <ion-icon item-left color="primary">1</ion-icon>
               <img item-left style="height: 50px; margin-left: 24px" [src]="slide.img">
               <div style="position: relative; top: 2px">
               <span style="color: darkred;">{{slide.evaluate}}</span> {{ slide.player.score }}
               <h3 style="color: black; margin-top: 8px">Lv33 [CN] {{slide.player.name }}</h3>
               </div>
-          </ion-item>
-          <ion-item *ngFor="let item of slide.players">
-            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px;">2</ion-icon>
-            <span style="text-align: left; float:left"> {{ item.name }} </span>
+          </button>
+          <button ion-item *ngFor="let item of slide.players" detail-none (click)="btnPlayer()">
+            <!--<ion-icon item-left color="primary">{{ item.num }}</ion-icon>-->
+            <span style="text-align: left; float:left">{{ item.num }}&nbsp; {{ item.name }} </span>
             <span style="text-align: right; float: right;"> {{ item.score }}</span>
-          </ion-item>
+          </button>
           <!--<ion-item>-->
           <!--  <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px">3</ion-icon>-->
           <!--  <span style="text-align: left; float:left"> 钉町 </span>-->

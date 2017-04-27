@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController,
-  Slides } from 'ionic-angular';
+  Slides, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the StoreDetailPage page.
@@ -34,7 +34,8 @@ export class StoreDetailPage {
   @ViewChild('storeDetailSlider') storeDetailSlider: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
     this.title = navParams.data.title;
     this.store = navParams.data.store;
     this.storeDetailSegment = 'detail'
@@ -76,12 +77,12 @@ export class StoreDetailPage {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: '收藏',
-          role: 'destructive',
-          handler: () => {
-            console.log('Destructive clicked');
-          }
-        },{
+        //   text: '收藏',
+        //   role: 'destructive',
+        //   handler: () => {
+        //     console.log('Destructive clicked');
+        //   }
+        // },{
           text: '分享',
           handler: () => {
             console.log('Archive clicked');
@@ -108,5 +109,9 @@ export class StoreDetailPage {
     const currentIndex = slider.getActiveIndex();
     if (currentIndex > 2) { return; }
     this.storeDetailSegment = this.storeDetailSlides[currentIndex].id;
+  }
+  btnPlayer() {
+    let modal = this.modalCtrl.create('PlayerInfoPage');
+    modal.present();
   }
 }
