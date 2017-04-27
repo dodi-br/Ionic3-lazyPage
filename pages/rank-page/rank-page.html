@@ -5,8 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-<!--<ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)"-->
-<ion-segment [(ngModel)]="rankSegment" 
+<ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)"
   style="height: 61px;">
   <ion-segment-button value="main">
     今日
@@ -31,22 +30,22 @@
 
 
 <ion-content>
-  <!--<ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)" [ngSwitch]="rankSegment">-->
-  <ion-slides [ngSwitch]="rankSegment">
+  <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
+  <!--<ion-slides [ngSwitch]="rankSegment">-->
     <!--<div *ngFor="let slide of rankSlides">-->
     <!--今日-->
-    <ion-slide *ngSwitchCase="'main'">
+    <ion-slide>
       <div>
         
         <!--排名第一-->
         <ion-item-group>
           <h4 style="position: relative; text-align: left">
             <span style="display: inline-block; padding-left: 20px">排名第一</span>
-            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+            <!--<span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>-->
           </h4>
           <hr style="height: 1px" />
           <button ion-item style="padding-left: 10px;"  *ngFor="let item of no1">
-              <ion-img item-left style="width:80px; height: 60px" src="" ></ion-img>
+              <ion-img item-left style="width:80px; height: 60px" [src]="item.img" ></ion-img>
             <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
             <h3>{{ item.store }}</h3>
             <p>{{ item.level}} {{ item.name }}</p>
@@ -57,7 +56,7 @@
         <ion-item-group>
           <h4 style="position: relative; text-align: left">
             <span style="display: inline-block; padding-left: 20px">比赛排名</span>
-            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+            <!--<span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>-->
           </h4>
               <div>
                 <ion-segment [(ngModel)]="gameRankSegment">
@@ -74,8 +73,7 @@
               </div>
         
               <div [ngSwitch]="gameRankSegment">
-                <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">
-                  <div *ngSwitchCase="item">
+                <div *ngSwitchCase="'gaofen'" style="height: 300px">
                  <ion-item>
                   <div class="row header">
                     <div class="col" style="text-align:center">排名</div>
@@ -84,16 +82,63 @@
                     <div class="col" style="text-align:center">玩家</div>
                   </div>
                   </ion-item>
-                  <ion-item *ngFor="let item of [1, 2, 3, 4]">
-                  <div class="row">
-                    <div class="col" style="text-align:center">{{item}}</div>
-                    <div class="col">中国</div>
-                    <div class="col" style="text-align:center">82</div>
-                    <div class="col" style="text-align:center">jasdf</div>
+                  <ion-item>
+                  <div class="row" style="text-align: center;
+                  display: flex; ">
+                    <div class="col">1</div>
+                    <div class="col"><img src="assets/CN.png"/></div>
+                    <div class="col">22</div>
+                    <div class="col">谢小新</div>
+                  </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" style="text-align: center;
+                  display: flex; ">
+                      <div class="col">2</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">20</div>
+                      <div class="col">王小二</div>
+                    </div>
+                    </ion-item>
+                    <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                      <div class="col">3</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">19</div>
+                      <div class="col">大卫</div>
+                    </div>
+                    </ion-item>
+                    <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                      <div class="col">4</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">15</div>
+                      <div class="col">Yearh</div>
+                    </div>
+                  </ion-item>
+                </div>
+                <div *ngSwitchCase="'game01'" style="height: 300px">
+                 <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
                   </div>
                   </ion-item>
                 </div>
-              </div>
+                <div *ngSwitchCase="'milaoshu'" style="height: 300px">
+                  <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                </div>
               </div>
         </ion-item-group>
 
@@ -102,7 +147,7 @@
         <ion-item-group>
           <h4 style="position: relative; text-align: left">
             <span style="display: inline-block; padding-left: 20px">奖励排名</span>
-            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+            <!--<span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>-->
           </h4>
               <div>
                 <ion-segment [(ngModel)]="rewardSegment">
@@ -119,8 +164,7 @@
               </div>
         
               <div [ngSwitch]="rewardSegment">
-                <div *ngFor="let item of ['gaofen', 'game01', 'milaoshu']">
-                  <div *ngSwitchCase="item">
+                  <div *ngSwitchCase="'gaofen'">
                  <ion-item>
                   <div class="row header">
                     <div class="col" style="text-align:center">排名</div>
@@ -129,17 +173,64 @@
                     <div class="col" style="text-align:center">玩家</div>
                   </div>
                   </ion-item>
-                  <ion-item *ngFor="let item of [1, 2, 3, 4]">
-                  <div class="row" >
-                    <div class="col" style="text-align:center">{{item}}</div>
-                    <div class="col">中国</div>
-                    <div class="col" style="text-align:center">82</div>
-                    <div class="col" style="text-align:center">jasdf</div>
+                  <ion-item>
+                  <div class="row" style="text-align: center;
+                  display: flex; ">
+                    <div class="col">1</div>
+                    <div class="col"><img src="assets/CN.png"/></div>
+                    <div class="col">22</div>
+                    <div class="col">谢小新</div>
                   </div>
+                  </ion-item>
+                  <ion-item>
+                  <div class="row" style="text-align: center;
+                  display: flex; ">
+                      <div class="col">2</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">20</div>
+                      <div class="col">王小二</div>
+                    </div>
+                    </ion-item>
+                    <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                      <div class="col">3</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">19</div>
+                      <div class="col">大卫</div>
+                    </div>
+                    </ion-item>
+                    <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                      <div class="col">4</div>
+                      <div class="col"><img src="assets/CN.png"/></div>
+                      <div class="col">15</div>
+                      <div class="col">Yearh</div>
+                    </div>
                   </ion-item>
                 </div>
                 
-              </div>
+                <div *ngSwitchCase="'game01'" style="height: 300px">
+                 <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                </div>
+                <div *ngSwitchCase="'milaoshu'" style="height: 300px">
+                  <ion-item>
+                  <div class="row header">
+                    <div class="col" style="text-align:center">排名</div>
+                    <div class="col">国家</div>
+                    <div class="col" style="text-align:center">分</div>
+                    <div class="col" style="text-align:center">玩家</div>
+                  </div>
+                  </ion-item>
+                </div>
               </div>
         </ion-item-group>
 
@@ -149,7 +240,7 @@
     </ion-slide>
     
     <!--评级-->
-    <ion-slide *ngSwitchCase="'level'" style="background: #f4f4f4">
+    <ion-slide style="background: #f4f4f4">
       <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
       <ion-list>
       <ion-item>
@@ -194,14 +285,44 @@
           <div class="col">主店</div>
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of levelRank">
+          <ion-item>
         <div class="row" style="text-align: center;
         display: flex; ">
-          <div class="col">{{item}}</div>
-          <div class="col">中国</div>
+          <div class="col">1</div>
+          <div class="col"><img src="assets/CN.png"/></div>
           <div class="col">22</div>
           <div class="col">谢小新</div>
-          <div class="col">干杯清羽</div>
+          <div class="col">干杯..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">2</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">20</div>
+          <div class="col">王小二</div>
+          <div class="col">田堂..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">3</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">19</div>
+          <div class="col">大棚</div>
+          <div class="col">清刘..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">4</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">15</div>
+          <div class="col">Yearh</div>
+          <div class="col">干杯..</div>
         </div>
         </ion-item>
       </ion-list>
@@ -210,7 +331,7 @@
     </ion-slide>
     
     <!--比赛-->
-    <ion-slide *ngSwitchCase="'game'" style="background: #f4f4f4">
+    <ion-slide style="background: #f4f4f4">
       <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
       <ion-list>
       <ion-item>
@@ -263,14 +384,44 @@
           <div class="col">主店</div>
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of levelRank">
+                <ion-item>
         <div class="row" style="text-align: center;
         display: flex; ">
-          <div class="col">{{item}}</div>
-          <div class="col">中国</div>
+          <div class="col">1</div>
+          <div class="col"><img src="assets/CN.png"/></div>
           <div class="col">22</div>
           <div class="col">谢小新</div>
-          <div class="col">干杯清羽</div>
+          <div class="col">干杯..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">2</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">20</div>
+          <div class="col">王小二</div>
+          <div class="col">田堂..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">3</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">19</div>
+          <div class="col">大棚</div>
+          <div class="col">清刘..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">4</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">15</div>
+          <div class="col">Yearh</div>
+          <div class="col">干杯..</div>
         </div>
         </ion-item>
       </ion-list>
@@ -279,7 +430,7 @@
     </ion-slide>
     
     <!-- 对战-->
-    <ion-slide *ngSwitchCase="'battle'" style="background: #f4f4f4">
+    <ion-slide style="background: #f4f4f4">
       <!--<ion-item-divider></ion-item-divider>-->
     <ion-list>
       <ion-item>
@@ -298,21 +449,51 @@
           <div class="col">主店</div>
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of levelRank">
+        <ion-item>
         <div class="row" style="text-align: center;
         display: flex; ">
-          <div class="col">{{item}}</div>
-          <div class="col"><ion-img src="assets/CN.png"></ion-img></div>
+          <div class="col">1</div>
+          <div class="col"><img src="assets/CN.png"/></div>
           <div class="col">22</div>
           <div class="col">谢小新</div>
-          <div class="col">干杯清羽</div>
+          <div class="col">干杯..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">2</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">20</div>
+          <div class="col">王小二</div>
+          <div class="col">田堂..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">3</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">19</div>
+          <div class="col">大棚</div>
+          <div class="col">清刘..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">4</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">15</div>
+          <div class="col">Yearh</div>
+          <div class="col">干杯..</div>
         </div>
         </ion-item>
       </ion-list>
       </ion-slide>
 
     <!--奖励-->
-    <ion-slide *ngSwitchCase="'award'" style="background: #f4f4f4">
+    <ion-slide style="background: #f4f4f4">
       <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
       <ion-list>
       <ion-item>
@@ -374,23 +555,52 @@
           <div class="col">主店</div>
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of levelRank">
+        <ion-item>
         <div class="row" style="text-align: center;
         display: flex; ">
-          <div class="col">{{item}}</div>
-          <div class="col">中国</div>
+          <div class="col">1</div>
+          <div class="col"><img src="assets/CN.png"/></div>
           <div class="col">22</div>
           <div class="col">谢小新</div>
-          <div class="col">干杯清羽</div>
+          <div class="col">干杯..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">2</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">20</div>
+          <div class="col">王小二</div>
+          <div class="col">田堂..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">3</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">19</div>
+          <div class="col">大棚</div>
+          <div class="col">清刘..</div>
+        </div>
+        </ion-item>
+        <ion-item>
+        <div class="row" style="text-align: center;
+        display: flex; ">
+          <div class="col">4</div>
+          <div class="col"><img src="assets/CN.png"/></div>
+          <div class="col">15</div>
+          <div class="col">Yearh</div>
+          <div class="col">干杯..</div>
         </div>
         </ion-item>
       </ion-list>
-      <ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>
 
     </ion-slide>
     
      <!--主店 -->
-    <ion-slide *ngSwitchCase="'mainStore'" style="background: #f4f4f4">
+    <ion-slide style="background: #f4f4f4">
       <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
       <ion-list>
       <ion-item>
@@ -427,21 +637,46 @@
           <div class="col">国家</div>
           <div class="col">得分</div>
           <div class="col">玩家</div>
-          <div class="col">主店</div>
+          <!--<div class="col">主店</div>-->
         </div>
         </ion-item>
-        <ion-item *ngFor="let item of levelRank">
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">{{item}}</div>
-          <div class="col">中国</div>
-          <div class="col">22</div>
-          <div class="col">谢小新</div>
-          <div class="col">干杯清羽</div>
-        </div>
-        </ion-item>
+                  <ion-item>
+          <div class="row" style="text-align: center;
+          display: flex; ">
+            <div class="col">1</div>
+            <div class="col"><img src="assets/CN.png"/></div>
+            <div class="col">22</div>
+            <div class="col">谢小新</div>
+          </div>
+          </ion-item>
+          <ion-item>
+          <div class="row" style="text-align: center;
+          display: flex; ">
+              <div class="col">2</div>
+              <div class="col"><img src="assets/CN.png"/></div>
+              <div class="col">20</div>
+              <div class="col">王小二</div>
+            </div>
+            </ion-item>
+            <ion-item>
+            <div class="row" style="text-align: center;
+            display: flex; ">
+              <div class="col">3</div>
+              <div class="col"><img src="assets/CN.png"/></div>
+              <div class="col">19</div>
+              <div class="col">大卫</div>
+            </div>
+            </ion-item>
+            <ion-item>
+            <div class="row" style="text-align: center;
+            display: flex; ">
+              <div class="col">4</div>
+              <div class="col"><img src="assets/CN.png"/></div>
+              <div class="col">15</div>
+              <div class="col">Yearh</div>
+            </div>
+          </ion-item>
       </ion-list>
-      <ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>
 
     </ion-slide>
     

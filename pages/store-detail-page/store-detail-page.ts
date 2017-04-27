@@ -109,5 +109,4 @@ export class StoreDetailPage {
     if (currentIndex > 2) { return; }
     this.storeDetailSegment = this.storeDetailSlides[currentIndex].id;
   }
-
 }

@@ -75,21 +75,39 @@ export class HomePage {
     this.rankSlides = [
       {
         id: "rank1",
-        title: "First Slide",
-        evaluate: "SCORE"
+        evaluate: "SCORE",
+        player: { name: 'Ruby', score: 1500 },
+        img: 'assets/No1.jpeg',
+        players: [
+          { name: 'Because of you', score: 1200 },
+          { name: '丁听', score: 1000 },
+          { name: '阿菲', score: 1000 }
+        ]
       },
       {
         id: "rank2",
-        title: "Second Slide",
-        evaluate: "PPD"
+        evaluate: "PPD",
+        player: { name: 'Jessie', score: 29 },
+        img: 'assets/member1.jpeg',
+        players: [
+          { name: 'Because of you', score: 25 },
+          { name: 'Month', score: 20 },
+          { name: '阿菲', score: 11 }
+        ]
       },
       {
         id: "rank3",
-        title: "Third Slide",
-        evaluate: "MPR"
+        evaluate: "MPR",
+        player : { name: '林医生', score: 20 },
+        img: 'assets/member2.jpeg',
+        players: [
+          { name: '丁听', score: 19 },
+          { name: 'Year', score: 15 },
+          { name: 'Son', score: 9 }
+        ]
       }
     ];
-    this.gameSegment = 'game2';
+    this.gameSegment = 'game1';
     this.gameSlides = [
       {
         id: "game1",
@@ -121,10 +139,10 @@ export class HomePage {
       this.storage.get('isLogin').then((val) => {
         // console.log('Your age is', val);
         if (val) {
-          this.isLogin = "";
+          this.isLogin = "none";
         }
         else {
-          this.isLogin = "none";
+          this.isLogin = "";
         }
     });
 

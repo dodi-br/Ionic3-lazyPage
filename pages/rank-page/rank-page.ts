@@ -25,21 +25,24 @@ export class RankPage {
       'score': '1022',
       'store': 'Aloha',
       'level': 'AA20',
-      'name': 'Sa Sa'
+      'name': 'Sa Sa',
+      img: 'assets/No1.jpeg'
     },
     {
       'game': '01游戏',
       'score': '26.72',
       'store': 'Lucky Darts',
       'level': 'A14',
-      'name': '柒到貳零肆陸'
+      'name': '柒到貳零肆陸',
+      img: 'assets/member1.jpeg'
     },
     {
       'game': '米老鼠',
       'score': '3.19',
       'store': '白马',
       'level': 'BBB3',
-      'name': '0046'
+      'name': '0046',
+      img: 'assets/member2.jpeg'
     }
   ];
   
@@ -48,9 +51,6 @@ export class RankPage {
   rankSlides: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    for (let i = 0; i < 40; i++) {
-      this.levelRank[i] = i + 1;
-    }
     this.rankSegment = 'main';
     this.rankSlides = [
       {
@@ -90,12 +90,15 @@ export class RankPage {
       return slide.id === segmentButton.value;
     });
     this.slider.slideTo(selectedIndex);
+  console.log(selectedIndex);
   }
 
   onSlideChanged(slider) {
     console.log('Slide changed');
     const currentIndex = slider.getActiveIndex();
+    if (currentIndex > 5) { return; }
     this.rankSegment = this.rankSlides[currentIndex].id;
+  console.log(currentIndex);
   }
 
 }

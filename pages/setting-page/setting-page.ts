@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Tabs } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -16,7 +17,7 @@ import { Storage } from '@ionic/storage';
 export class SettingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public storage: Storage) {
+    public storage: Storage, public tabs: Tabs) {
   }
 
   ionViewDidLoad() {
@@ -26,7 +27,8 @@ export class SettingPage {
     this.navCtrl.push(target);
   }
   btnLogOut() {
-    this.storage.set('isLogin', false);
-    this.navCtrl.pop();
+    this.storage.set('isLogin', true);
+    // this.navCtrl.pop();
+    this.tabs.select(3);
   }
 }

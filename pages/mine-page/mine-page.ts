@@ -62,7 +62,7 @@ export class MinePage {
   ionViewDidEnter() {
       this.storage.get('isLogin').then((val) => {
         // console.log('Your age is', val);
-        if (val) {
+        if (!val) {
           this.personName = "zhangsan";
           this.portrait = 'assets/portrait.png';
         }
@@ -82,7 +82,7 @@ export class MinePage {
   }
   btnPerson() {
    this.storage.get('isLogin').then((val) => {
-    if (val) {
+    if (!val) {
       this.navCtrl.push('PersonDetailPage');
     }
     else {

@@ -82,7 +82,7 @@
   </ion-list>
   
     <!-- 今日游戏数据(登录后) -->
-  <ion-list [style.display]="isLogin">
+  <ion-list>
     <ion-item class="border-bottom-none">
       <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>
       <h2 class="title" style="float:left">今日游戏数据</h2>
@@ -105,22 +105,16 @@
       </div>
 
       <ion-slides #gameSlider>
-        <!--<ion-slide *ngFor="let slide of gameSlides">-->
-        <!-- <ion-item>-->
-        <!--    <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}-->
-        <!--  </ion-item>-->
-        <!-- <ion-item>-->
-        <!--    <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}-->
-        <!--  </ion-item>-->
-        <!-- <ion-item>-->
-        <!--    <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}-->
-        <!--  </ion-item>-->
-        <!--</ion-slide>-->
-        <ion-slide>
-          asdfasdf
-        </ion-slide>
-        <ion-slide>
-          12312313
+        <ion-slide *ngFor="let slide of gameSlides">
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.average[0] }}</span> {{ slide.average[1] }}
+          </ion-item>
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.highest[0] }}</span> {{ slide.highest[1] }}
+          </ion-item>
+         <ion-item>
+            <span style="padding-right: 25px">{{ slide.lowest[0] }}</span> {{ slide.lowest[1] }}
+          </ion-item>
         </ion-slide>
       </ion-slides>
     </ion-item>
@@ -167,30 +161,29 @@
         #rankSlider (ionSlideWillChange)="onRankSlideChanged($event)">
         <ion-slide *ngFor="let slide of rankSlides">
 
-
           <ion-item>
             <ion-icon item-left color="primary">1</ion-icon>
-              <img item-left style="height: 50px; margin-left: 24px" src="../assets/No1.jpeg">
+              <img item-left style="height: 50px; margin-left: 24px" [src]="slide.img">
               <div style="position: relative; top: 2px">
-              <span style=";color: darkred; border: solid 1px darkred;font-size: small; padding: 3px">{{slide.evaluate}}</span> 1500
-              <h3 style="color: black; margin-top: 8px">Lv33 [CN]Ruby</h3>
+              <span style="color: darkred;">{{slide.evaluate}}</span> {{ slide.player.score }}
+              <h3 style="color: black; margin-top: 8px">Lv33 [CN] {{slide.player.name }}</h3>
               </div>
           </ion-item>
-          <ion-item>
+          <ion-item *ngFor="let item of slide.players">
             <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px;">2</ion-icon>
-            <span style="text-align: left; float:left"> Because of you </span>
-            <span style="text-align: right; float: right;"> 1200 </span>
+            <span style="text-align: left; float:left"> {{ item.name }} </span>
+            <span style="text-align: right; float: right;"> {{ item.score }}</span>
           </ion-item>
-          <ion-item>
-            <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px">3</ion-icon>
-            <span style="text-align: left; float:left"> 钉町 </span>
-            <span style="text-align: right; float: right;"> 1000 </span>
-          </ion-item>
-          <ion-item>
-            <ion-icon item-left color="primary" style="font-size: larger;color: black;margin-top: 25px">4</ion-icon>
-            <span style="text-align: left; float:left"> 阿菲 </span>
-            <span style="text-align: right; float: right;"> 1000 </span>
-          </ion-item>
+          <!--<ion-item>-->
+          <!--  <ion-icon item-left color="primary" style="font-size: larger; margin-top: 25px">3</ion-icon>-->
+          <!--  <span style="text-align: left; float:left"> 钉町 </span>-->
+          <!--  <span style="text-align: right; float: right;"> 1000 </span>-->
+          <!--</ion-item>-->
+          <!--<ion-item>-->
+          <!--  <ion-icon item-left color="primary" style="font-size: larger;color: black;margin-top: 25px">4</ion-icon>-->
+          <!--  <span style="text-align: left; float:left"> 阿菲 </span>-->
+          <!--  <span style="text-align: right; float: right;"> 1000 </span>-->
+          <!--</ion-item>-->
 
 
 

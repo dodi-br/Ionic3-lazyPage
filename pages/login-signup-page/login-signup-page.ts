@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { App, IonicPage, ToastController, NavController } from 'ionic-angular';
+import { Tabs } from 'ionic/angular';
 // import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
@@ -43,7 +44,7 @@ export class LoginSignupPage {
   // 	}); 
 
      // set a key/value
-    this.storage.set('isLogin', true);
+    this.storage.set('isLogin', false);
 
      // Or to get a key/value pair
     // storage.get('isLogin').then((val) => {
