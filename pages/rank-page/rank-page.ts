@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 import { ModalController } from 'ionic-angular';
+import { MyTitle } from '../../components/my-title/my-title';
 
 /**
  * Generated class for the RankPage page.
@@ -14,9 +15,16 @@ import { ModalController } from 'ionic-angular';
 })
 @Component({
   selector: 'page-rank-page',
-  templateUrl: 'rank-page.html',
+  templateUrl: 'rank-page.html'
 })
 export class RankPage {
+  mypage: any = 'AboutPage';
+  topSegment = [
+    { value: 'main', title: '今日' },
+    { value: 'level', title: '评级' },
+    { value: 'game', title: '比赛' },
+    { value: 'award', title: '奖励' }
+  ];
   ratingSelector = "today";
   gameSelector = { time: "today", type: "game01" };
   awardSelector = { time: "today", type: "hatTrick" };
@@ -71,18 +79,10 @@ export class RankPage {
         id: "game",
         title: "Third Slide"
       },
-      // {
-      //   id: "battle",
-      //   title: ""
-      // },
       {
         id: "award",
         title: "奖励"
       }
-      // {
-      //   id: "mainStore",
-      //   title: "主店"
-      // }
     ];
   }
 
@@ -112,11 +112,6 @@ export class RankPage {
   }
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
-  
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 1000);
   }
 
 }

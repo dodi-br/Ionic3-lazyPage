@@ -1,0 +1,202 @@
+<!-- Generated template for the MyTitle component -->
+
+<div>
+    <!--排名第一-->
+    <ion-item-group>
+        <h4 style="position: relative;">
+            <span style="padding-left: 20px">排名第一</span>
+        </h4>
+        <hr style="height: 1px" />
+        <button ion-item style="padding-left: 10px;" *ngFor="let item of no1" detail-none (click)="btnPlayer()">
+              <ion-img item-left style="width:80px; height: 60px" [src]="item.img" ></ion-img>
+            <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
+            <h3>{{ item.store }}</h3>
+            <p>{{ item.level}} {{ item.name }}</p>
+          </button>
+    </ion-item-group>
+
+    <!--比赛排名-->
+    <ion-item-group>
+        <h4 style="position: relative; text-align: left">
+            <span style="display: inline-block; padding-left: 20px">比赛排名</span>
+            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+        </h4>
+        <div>
+            <ion-segment [(ngModel)]="gameRankSegment">
+                <ion-segment-button value="gaofen">
+                    高分赛
+                </ion-segment-button>
+                <ion-segment-button value="game01">
+                    01游戏
+                </ion-segment-button>
+                <ion-segment-button value="milaoshu">
+                    米老鼠
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+
+        <div [ngSwitch]="gameRankSegment">
+            <div *ngSwitchCase="'gaofen'" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col" style="text-align:center">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                  display: flex; ">
+                        <div class="col">1</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">22</div>
+                        <div class="col" (click)="btnPlayer()">谢小新</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                  display: flex; ">
+                        <div class="col">2</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">20</div>
+                        <div class="col" (click)="btnPlayer()">王小二</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                        <div class="col">3</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">19</div>
+                        <div class="col" (click)="btnPlayer()">大卫</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                        <div class="col">4</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">15</div>
+                        <div class="col" (click)="btnPlayer()">Yearh</div>
+                    </div>
+                </ion-item>
+            </div>
+            <div *ngSwitchCase="'game01'" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col" style="text-align:center">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+            </div>
+            <div *ngSwitchCase="'milaoshu'" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col" style="text-align:center">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+    </ion-item-group>
+
+
+    奖励排名
+    <ion-item-group>
+        <h4 style="position: relative; text-align: left">
+            <span style="display: inline-block; padding-left: 20px">奖励排名</span>
+            <span style="font-size: small; position: absolute; right: 20px; bottom: 0px">更 多</span>
+        </h4>
+        <div>
+            <ion-segment [(ngModel)]="rewardSegment">
+                <ion-segment-button value="gaofen">
+                    Hat Trick
+                </ion-segment-button>
+                <ion-segment-button value="game01">
+                    HIGH TON
+                </ion-segment-button>
+                <ion-segment-button value="milaoshu">
+                    WHITE HORSE
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+
+        <div [ngSwitch]="rewardSegment">
+            <div *ngSwitchCase="'gaofen'">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col" style="text-align:center">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                  display: flex; ">
+                        <div class="col">1</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">22</div>
+                        <div class="col" (click)="btnPlayer()">谢小新</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                  display: flex; ">
+                        <div class="col">2</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">20</div>
+                        <div class="col" (click)="btnPlayer()">王小二</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                        <div class="col">3</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">19</div>
+                        <div class="col" (click)="btnPlayer()">大卫</div>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="row" style="text-align: center;
+                    display: flex; ">
+                        <div class="col">4</div>
+                        <div class="col"><img src="assets/CN.png" /></div>
+                        <div class="col">15</div>
+                        <div class="col" (click)="btnPlayer()">Yearh</div>
+                    </div>
+                </ion-item>
+            </div>
+
+            <div *ngSwitchCase="'game01'" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+            </div>
+            <div *ngSwitchCase="'milaoshu'" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col" style="text-align:center">排名</div>
+                        <div class="col">国家</div>
+                        <div class="col" style="text-align:center">分</div>
+                        <div class="col" style="text-align:center">玩家</div>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+    </ion-item-group>
+
+
+
+</div>

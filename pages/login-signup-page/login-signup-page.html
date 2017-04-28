@@ -18,7 +18,7 @@
 </ion-header>
 
 <ion-content padding-top>
-<div padding>
+<div padding style="position:absolute; width: 100%">
   <ion-segment [(ngModel)]="selectedTab">
     <ion-segment-button value="Login">
       登录
@@ -27,7 +27,6 @@
       注册
     </ion-segment-button>
   </ion-segment>
-</div>
 
 <div [ngSwitch]="selectedTab">
   <ion-list *ngSwitchCase="'Login'">
@@ -67,5 +66,6 @@
     </ion-item>
     <button ion-button class="btn-login" (click)="btnLoginClick($event)">注册</button>
   </ion-list>
+</div>
 </div>
 </ion-content>

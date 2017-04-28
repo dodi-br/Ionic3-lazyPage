@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { App, IonicPage, ToastController, NavController } from 'ionic-angular';
-import { Tabs } from 'ionic/angular';
 // import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
