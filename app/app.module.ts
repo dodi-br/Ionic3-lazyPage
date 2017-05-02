@@ -16,7 +16,12 @@ import { StorePage } from '../pages/store-page/store-page';
 import { RankPage } from '../pages/rank-page/rank-page';
 import { MinePage } from '../pages/mine-page/mine-page';
 
-import { MyTitle } from '../components/my-title/my-title';
+import { RankTabToday } from '../components/rank-tab-today/rank-tab-today';
+import { RankTabRating } from '../components/rank-tab-rating/rank-tab-rating';
+import { RankTabMatch } from '../components/rank-tab-match/rank-tab-match';
+import { RankTabAward } from '../components/rank-tab-award/rank-tab-award';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +31,10 @@ import { MyTitle } from '../components/my-title/my-title';
     StorePage,
     RankPage,
     MinePage,
-    MyTitle
+    RankTabToday,
+    RankTabRating,
+    RankTabMatch,
+    RankTabAward
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -43,7 +51,10 @@ import { MyTitle } from '../components/my-title/my-title';
     StorePage,
     RankPage,
     MinePage,
-    MyTitle
+    RankTabToday,
+    RankTabRating,
+    RankTabMatch,
+    RankTabAward
   ],
   providers: [
     StatusBar,

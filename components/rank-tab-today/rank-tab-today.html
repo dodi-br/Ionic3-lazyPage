@@ -1,0 +1,86 @@
+<!-- Generated template for the MyTitle component -->
+
+<div style="text-align: left">
+    <!--排名第一-->
+    <ion-item-group>
+        <h4>排名第一</h4>
+        <hr />
+        <button ion-item style="padding-left: 10px;" *ngFor="let item of no1" detail-none (click)="btnPlayer()">
+            <ion-img item-left style="width:80px; height: 60px" [src]="item.img" ></ion-img>
+            <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
+            <h3>{{ item.store }}</h3>
+            <p>{{ item.level}} {{ item.name }}</p>
+          </button>
+    </ion-item-group>
+
+    <!--比赛排名-->
+    <ion-item-group>
+        <h4>比赛排名 </h4>
+        <hr />
+        <ion-segment [(ngModel)]="gameRankSegment">
+            <ion-segment-button *ngFor="let item of gameRankSegmentItems"
+                [value]="item.value">
+                {{ item.name }}
+            </ion-segment-button>
+        </ion-segment>
+
+        <div [ngSwitch]="gameRankSegment">
+            <div *ngFor="let item of gameRankSegmentItems">
+            <div  *ngSwitchCase="item.value" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col">排名</div>
+                        <div class="col">国家</div>
+                        <div class="col">分</div>
+                        <div class="col">玩家</div>
+                    </div>
+                </ion-item>
+                <ion-item *ngFor="let subItem of item.list">
+                    <div class="row">
+                        <div class="col">{{ subItem.rank }}</div>
+                        <div class="col"><img [src]="subItem.img" /></div>
+                        <div class="col">{{ subItem.score }}</div>
+                        <div class="col" (click)="btnPlayer()">{{ subItem.name }}</div>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+        </div>
+    </ion-item-group>
+
+
+    <!--奖励排名-->
+    <ion-item-group>
+        <h4>奖励排名</h4>
+        <hr />
+        <ion-segment [(ngModel)]="awardSegment">
+            <ion-segment-button *ngFor="let item of awardRankSegmentItems"
+                [value]="item.value">
+                {{ item.name }}
+            </ion-segment-button>
+        </ion-segment>
+
+        <div [ngSwitch]="awardSegment">
+            <div *ngFor="let item of awardRankSegmentItems">
+            <div  *ngSwitchCase="item.value" style="height: 300px">
+                <ion-item>
+                    <div class="row header">
+                        <div class="col">排名</div>
+                        <div class="col">国家</div>
+                        <div class="col">分</div>
+                        <div class="col">玩家</div>
+                    </div>
+                </ion-item>
+                <ion-item *ngFor="let subItem of item.list">
+                    <div class="row">
+                        <div class="col">{{ subItem.rank }}</div>
+                        <div class="col"><img [src]="subItem.img" /></div>
+                        <div class="col">{{ subItem.score }}</div>
+                        <div class="col" (click)="btnPlayer()">{{ subItem.name }}</div>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+        </div>
+    </ion-item-group>
+</div>

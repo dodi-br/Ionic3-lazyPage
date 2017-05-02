@@ -24,6 +24,15 @@ page-rank-page {
         background-position: 0 -2px;
         content: "";
     }
+    
+    ion-item-divider {
+        text-align: left
+    }
+    div.row div.col {
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 ion-thumbnail img {

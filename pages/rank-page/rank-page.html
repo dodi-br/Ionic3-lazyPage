@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title (click)="this.navCtrl.push(MyTitle)">
+    <ion-title>
       榜单
     </ion-title>
   </ion-navbar>
@@ -10,309 +10,27 @@
     </ion-segment-button>
   </ion-segment>
 </ion-header>
+
 <ion-content>
   <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
     <!--今日-->
-    <ion-slide #mainSlidePage>
-    <my-title></my-title>
-
+    <ion-slide #todaySlidePage>
+      <rank-tab-today></rank-tab-today>
     </ion-slide>
     
     <!--评级-->
-    <ion-slide style="background: #f4f4f4">
-      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
-      <ion-list>
-      <ion-item>
-      <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="ratingSelector">
-        <ion-option value="today" selected="true">今日</ion-option>
-        <ion-option value="yesterday">昨日</ion-option>
-        <ion-option value="thisMonth">本月</ion-option>
-        <ion-option value="lastMonth">上个月</ion-option>
-      </ion-select>
-      </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          我的排名
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">全球</div>
-          <div class="col">全国</div>
-          <!--<div class="col">区域</div>-->
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">9999</div>
-          <div class="col">8000</div>
-          <!--<div class="col">200</div>-->
-        </div>
-        </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          排行
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">排名</div>
-          <div class="col">国家</div>
-          <div class="col">评级</div>
-          <div class="col">玩家</div>
-          <div class="col">主店</div>
-        </div>
-        </ion-item>
-          <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">1</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">22</div>
-          <div class="col">谢小新</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">2</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">20</div>
-          <div class="col">王小二</div>
-          <div class="col">田堂..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">3</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">19</div>
-          <div class="col">大棚</div>
-          <div class="col">清刘..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">4</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">15</div>
-          <div class="col">Yearh</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-      </ion-list>
-      <!--<ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>-->
-
+    <ion-slide #ratingSlidePage style="background: #f4f4f4">
+      <rank-tab-rating *ngIf="showSlides[1]"></rank-tab-rating>
     </ion-slide>
     
     <!--比赛-->
-    <ion-slide style="background: #f4f4f4">
-      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
-      <ion-list>
-      <ion-item>
-      <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="gameSelector.time">
-        <ion-option value="today" selected="true">今日</ion-option>
-        <ion-option value="yesterday">昨日</ion-option>
-        <ion-option value="thisMonth">本月</ion-option>
-        <ion-option value="lastMonth">上个月</ion-option>
-      </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label>游戏类型</ion-label>
-      <ion-select [(ngModel)]="gameSelector.type">
-        <ion-option value="milaoshu" selected="true">米老鼠</ion-option>
-        <ion-option value="game01">01游戏</ion-option>
-        <ion-option value="gaofen">高分赛</ion-option>
-      </ion-select>
-      </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          我的排名
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">全球</div>
-          <div class="col">全国</div>
-          <!--<div class="col">区域</div>-->
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">300</div>
-          <div class="col">99</div>
-          <!--<div class="col">200</div>-->
-        </div>
-        </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          排行榜
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">排名</div>
-          <div class="col">国家</div>
-          <div class="col">得分</div>
-          <div class="col">玩家</div>
-          <div class="col">主店</div>
-        </div>
-        </ion-item>
-                <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">1</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">22</div>
-          <div class="col">谢小新</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">2</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">20</div>
-          <div class="col">王小二</div>
-          <div class="col">田堂..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">3</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">19</div>
-          <div class="col">大棚</div>
-          <div class="col">清刘..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">4</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">15</div>
-          <div class="col">Yearh</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-      </ion-list>
-      <!--<ion-list-header style="text-align: left;color: black; font-size: medium">我的排名</ion-list-header>-->
-
+    <ion-slide #matchSlidePage style="background: #f4f4f4">
+      <rank-tab-match *ngIf="showSlides[2]"></rank-tab-match>
     </ion-slide>
     
     <!--奖励-->
-    <ion-slide style="background: #f4f4f4">
-      <ion-item-divider color="light" style="text-align: left">筛选条件</ion-item-divider>
-      <ion-list>
-      <ion-item>
-      <ion-label>时间</ion-label>
-      <ion-select [(ngModel)]="awardSelector.time">
-        <ion-option value="today" selected="true">今日</ion-option>
-        <ion-option value="yesterday">昨日</ion-option>
-        <ion-option value="thisMonth">本月</ion-option>
-        <ion-option value="lastMonth">上个月</ion-option>
-      </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label>类型</ion-label>
-      <ion-select [(ngModel)]="awardSelector.type">
-        <ion-option value="hatTrick" selected="true">Hat Trick</ion-option>
-        <ion-option value="whiteHorse">WHITE HORSE</ion-option>
-        <ion-option value="bed">3 IN BED</ion-option>
-        <ion-option value="bed">3 IN BLACK</ion-option>
-        <ion-option value="lowTon">LOW TON</ion-option>
-        <ion-option value="highTon">HIGH TON</ion-option>
-        <ion-option value="ton80">TON 80</ion-option>
-        <ion-option value="mark9">9MARK</ion-option>
-        <ion-option value="mark8">8MARK</ion-option>
-        <ion-option value="mark7">7MARK</ion-option>
-        <ion-option value="mark6">6MARK</ion-option>
-        <ion-option value="mark5">5MARK</ion-option>
-      </ion-select>
-      </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          我的排名
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">全球</div>
-          <div class="col">全国</div>
-          <!--<div class="col">区域</div>-->
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">9999</div>
-          <div class="col">8000</div>
-          <!--<div class="col">200</div>-->
-        </div>
-        </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          排行榜
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center">
-          <div class="col">排名</div>
-          <div class="col">国家</div>
-          <div class="col">得分</div>
-          <div class="col">玩家</div>
-          <div class="col">主店</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">1</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">22</div>
-          <div class="col">谢小新</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">2</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">20</div>
-          <div class="col">王小二</div>
-          <div class="col">田堂..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">3</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">19</div>
-          <div class="col">大棚</div>
-          <div class="col">清刘..</div>
-        </div>
-        </ion-item>
-        <ion-item>
-        <div class="row" style="text-align: center;
-        display: flex; ">
-          <div class="col">4</div>
-          <div class="col"><img src="assets/CN.png"/></div>
-          <div class="col">15</div>
-          <div class="col">Yearh</div>
-          <div class="col">干杯..</div>
-        </div>
-        </ion-item>
-      </ion-list>
-
+    <ion-slide #awardSlidePage style="background: #f4f4f4">
+      <rank-tab-award *ngIf="showSlides[3]"></rank-tab-award>
     </ion-slide>
 
   </ion-slides>

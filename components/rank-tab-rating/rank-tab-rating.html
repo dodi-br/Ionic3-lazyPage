@@ -1,0 +1,53 @@
+<!-- Generated template for the RankTabRating component -->
+<ion-item-divider color="light">筛选条件</ion-item-divider>
+<ion-list>
+    <ion-item>
+        <ion-label>时间</ion-label>
+        <ion-select [(ngModel)]="ratingSelector">
+            <ion-option value="today">今日</ion-option>
+            <ion-option value="yesterday">昨日</ion-option>
+            <ion-option value="thisMonth">本月</ion-option>
+            <ion-option value="lastMonth">上个月</ion-option>
+        </ion-select>
+    </ion-item>
+</ion-list>
+<ion-list>
+    <ion-item>
+        我的排名
+    </ion-item>
+    <ion-item>
+        <div class="row">
+            <div class="col">全球</div>
+            <div class="col">全国</div>
+        </div>
+    </ion-item>
+    <ion-item>
+        <div class="row">
+            <div class="col">9999</div>
+            <div class="col">8000</div>
+        </div>
+    </ion-item>
+</ion-list>
+<ion-list>
+    <ion-item>
+        排行
+    </ion-item>
+    <ion-item>
+        <div class="row">
+            <div class="col">排名</div>
+            <div class="col">国家</div>
+            <div class="col">评级</div>
+            <div class="col">玩家</div>
+            <div class="col">主店</div>
+        </div>
+    </ion-item>
+    <ion-item *ngFor="let item of ratingRankList">
+        <div class="row">
+            <div class="col">{{ item.rank }}</div>
+            <div class="col"><img [src]="item.img" /></div>
+            <div class="col">{{ item.rating }}</div>
+            <div class="col">{{ item.player }}</div>
+            <div class="col">{{ item.mainStore }}</div>
+        </div>
+    </ion-item>
+</ion-list>
