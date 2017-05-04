@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, Slides, PopoverController } from 'ionic-angular';
 import { Tabs, ActionSheetController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
@@ -10,9 +10,7 @@ import { Storage } from '@ionic/storage';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage({
-  name: 'HomePage'
-})
+
 @Component({
   selector: 'page-home-page',
   templateUrl: 'home-page.html',

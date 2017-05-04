@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -8,9 +8,7 @@ import { Storage } from '@ionic/storage';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage({
-  name: 'MinePage'
-})
+
 @Component({
   selector: 'page-mine-page',
   templateUrl: 'mine-page.html',
