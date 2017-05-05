@@ -29,20 +29,21 @@
   </ion-segment>
 
 <div [ngSwitch]="selectedTab">
-  <ion-list *ngSwitchCase="'Login'">
+  <ion-list *ngSwitchCase="'Login'" style="text-align: center">
       <ion-item>
         <ion-label color="primary">
           <ion-icon name="person" color="primary"></ion-icon>
         </ion-label>
-        <ion-input placeholder="Username"  [(ngModel)]="oLogin.account"></ion-input>
+        <ion-input placeholder="账号/手机/邮箱"  [(ngModel)]="oLogin.account"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary">
           <ion-icon name="md-lock" color="primary"></ion-icon>
         </ion-label>
-        <ion-input type="password" placeholder="Password" [(ngModel)]="oLogin.password"></ion-input>
+        <ion-input type="password" placeholder="密码" [(ngModel)]="oLogin.password"></ion-input>
       </ion-item>
     <button ion-button class="btn-login" (click)="btnLoginClick($event)">登录</button>
+    <a (click)="this.navCtrl.push('ForgetPassword')">忘记密码</a>
   </ion-list>
 
   <ion-list *ngSwitchCase="'SignUp'">
@@ -64,7 +65,7 @@
     	</ion-label>
     	<ion-input type="tel" placeholder="Phone number" [(ngModel)]="oSignUp.mobile"></ion-input>
     </ion-item>
-    <button ion-button class="btn-login" (click)="btnLoginClick($event)">注册</button>
+    <button ion-button class="btn-login" (click)="btnSignUpClick($event)">注册</button>
   </ion-list>
 </div>
 </div>

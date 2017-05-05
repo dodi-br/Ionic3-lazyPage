@@ -5,6 +5,9 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+// import { HTTP } from '@ionic-native/http';
+// import { Http } from '@angular/http';
+
 
 
 // Storage
@@ -21,7 +24,7 @@ import { RankTabRating } from '../components/rank-tab-rating/rank-tab-rating';
 import { RankTabMatch } from '../components/rank-tab-match/rank-tab-match';
 import { RankTabAward } from '../components/rank-tab-award/rank-tab-award';
 
-
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { RankTabAward } from '../components/rank-tab-award/rank-tab-award';
       tabsHideOnSubPages: true
     }),
     BrowserModule,
+    HttpModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -59,6 +63,7 @@ import { RankTabAward } from '../components/rank-tab-award/rank-tab-award';
   providers: [
     StatusBar,
     SplashScreen,
+    // Http,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

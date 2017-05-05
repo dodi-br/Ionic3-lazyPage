@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { App, IonicPage, ToastController, NavController } from 'ionic-angular';
-// import { Http } from '@angular/http';
+import { IonicPage, ToastController, NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
 @IonicPage({
-  name: 'LoginSignupPage'
 })
 @Component({
   templateUrl: 'login-signup-page.html'
@@ -22,39 +21,45 @@ export class LoginSignupPage {
 	}
 	token = "";
 	selectedTab: any;
-  constructor(private app: App, 
-    // public http: Http, 
+  constructor(
+    public http: Http, 
     public navCtrl: NavController,
     public toastCtrl: ToastController,
     public storage: Storage) {
-  	 // this.http = http;
   	  this.selectedTab = "Login";
   }
-  btnLoginClick(event) {
+  // btnLoginClick(event) {
   // 	let loginJson = JSON.stringify(this.oLogin);
   // 	//let dstUrl = 'http://192.168.1.50:8080/rest/softdart/memberAuth/login';
   // 	let dstUrl = 'http://115.159.75.162:8998';
   // 	//var data = JSON.stringify({account: 645});
-  // 	this.http.post(dstUrl, loginJson).subscribe(loginJson => {
-		// this.token = loginJson._body;
-  // 		alert(this.token);
-  // 	}, error => {
+  // 	this.http.post(dstUrl, loginJson, {}).then(data => {
+  // 		// this.token = loginJson._body;
+  // 		// alert(this.token);
+	 //   console.log(data.status);
+  //     console.log(data.data); // data received by server
+  //     console.log(data.headers);
+  // 	}).catch(error => {
   // 		this.notice("请检查您的网络");
+  //     console.log(error.status);
+  //     console.log(error.error); // error message as string
+  //     console.log(error.headers);
   // 	}); 
-
-     // set a key/value
+  btnLoginClick(event) {
+  	let loginJson = JSON.stringify(this.oLogin);
+  	let dstUrl = 'http://115.159.75.162:8998';
+  	this.http.post(dstUrl, loginJson).subscribe(loginJson => {
+		this.token = loginJson["_body"];
+  		console.log(this.token);
+  	}, error => {
+  		this.notice("请检查您的网络");
+  	}); 
+    // isLogin = false => 代表登录, true 是未登录
     this.storage.set('isLogin', false);
-
-     // Or to get a key/value pair
-    // storage.get('isLogin').then((val) => {
-      // console.log('Your age is', val);
-      
-      // this.isLogin = val;
-    // });
     this.navCtrl.pop();
-      //keep all your codes inside here
+}
 
-  }
+
 
   notice(message) {
     let toast = this.toastCtrl.create({

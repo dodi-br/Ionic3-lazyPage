@@ -4,7 +4,7 @@
     <ion-item>
         <ion-label>时间</ion-label>
         <ion-select [(ngModel)]="awardSelector.time">
-            <ion-option value="today" selected="true">今日</ion-option>
+            <ion-option value="today">今日</ion-option>
             <ion-option value="yesterday">昨日</ion-option>
             <ion-option value="thisMonth">本月</ion-option>
             <ion-option value="lastMonth">上个月</ion-option>
@@ -13,7 +13,18 @@
     <ion-item>
         <ion-label>类型</ion-label>
         <ion-select [(ngModel)]="awardSelector.type">
-            <ion-option *ngFor="let item of awardTypeItems" [value]="item.value">{{ item.name }}</ion-option>
+            <ion-option value="hatTrick">Hat Trick</ion-option>
+            <ion-option value="whiteHorse">White Horse</ion-option>
+            <ion-option value="bed">3 in bed</ion-option>
+            <ion-option value="black">3 in black</ion-option>
+            <ion-option value="lowTon">Low Ton</ion-option>
+            <ion-option value="highTon">High Ton</ion-option>
+            <ion-option value="ton80">Ton 80</ion-option>
+            <ion-option value="mark9">9MARK</ion-option>
+            <ion-option value="mark8">8MARK</ion-option>
+            <ion-option value="mark7">7MARK</ion-option>
+            <ion-option value="mark6">6MARK</ion-option>
+            <ion-option value="mark5">5MARK</ion-option>
         </ion-select>
     </ion-item>
 </ion-list>

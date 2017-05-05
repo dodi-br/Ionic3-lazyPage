@@ -12,20 +12,7 @@ import { Component } from '@angular/core';
 })
 export class RankTabAward {
   awardSelector = { time: "today", type: "hatTrick" };
-  awardTypeItems = [
-    { value: 'hatTrick', name: 'Hat Trick' },
-    { value: 'whiteHorse', name: 'WHITE HORSE' },
-    { value: 'bed', name: "3 IN BED" },
-    { value: 'black', name: "3 IN BLACK" },
-    { value: 'lowTon', name: "LOW TON" },
-    { value: 'highTon', name: "HIGH TON" },
-    { value: 'ton80', name: "TON 80" },
-    { value: 'mark9', name: "9MARK" },
-    { value: 'mark8', name: "8MARK" },
-    { value: 'mark7', name: "7MARK" },
-    { value: 'mark6', name: "6MARK" },
-    { value: 'mark5', name: "5MARK" }
-  ];
+
   awardRankList = [
     {
       rank: 1,
