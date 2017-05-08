@@ -13,39 +13,76 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      游戏类型 <span style="float:right">{{ item.type }}</span>
+<ion-content>
+  <!--<ion-list>-->
+  <!--  <ion-item>-->
+  <!--    游戏类型 <span style="float:right">{{ item.type }}</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    游戏结果 <span style="float:right">{{ item.result }}</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    {{ item.scoreType }} <span style="float: right">{{ item.score }}</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    总局数 <span style="float:right">{{ item.count }}</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    结束时间 <span style="float:right">{{ item.time }}</span>-->
+  <!--  </ion-item>-->
+  <!--</ion-list>-->
+  <!--<ion-list>-->
+  <!--  <ion-item>-->
+  <!--    使用机器: <span style="float: right">{{ item.machine }}</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    所在店铺: <span style="float: right">{{ item.store }}</span>-->
+  <!--  </ion-item>-->
+  <!--</ion-list>-->
+  <!--<ion-list>-->
+  <!--  <ion-item>-->
+  <!--    奖励情况:-->
+  <!--  </ion-item>-->
+  <!--  <ion-item *ngFor="let award of item.award">-->
+  <!--    <span> {{ award.type }}</span>-->
+  <!--    <span style="float:right"> {{ award.count }}</span>-->
+  <!--  </ion-item>-->
+  <!--</ion-list>-->
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item-divider color="light" [style.fontSize]="'medium'">
+    {{ gameDetailData[0].date + ' - ' + gameDetailData[0].store }}
+    </ion-item-divider>
+    <ion-item class="battle">
+      <div style="flex: 1; -webkit-flex: 1;border-right: solid lightgray 1px;" >
+        我是楚留香 <br />
+        PPD:  <ion-badge item-right style="background: lightBlue">20.56</ion-badge>
+      </div>
+      <div style="flex: 1; -webkit-flex: 1;">
+        中原一点红 <br />
+        PPD: <ion-badge item-right>22.46</ion-badge>
+      </div>
     </ion-item>
-    <ion-item>
-      游戏结果 <span style="float:right">{{ item.result }}</span>
-    </ion-item>
-    <ion-item>
-      {{ item.scoreType }} <span style="float: right">{{ item.score }}</span>
-    </ion-item>
-    <ion-item>
-      总局数 <span style="float:right">{{ item.count }}</span>
-    </ion-item>
-    <ion-item>
-      结束时间 <span style="float:right">{{ item.time }}</span>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      使用机器: <span style="float: right">{{ item.machine }}</span>
-    </ion-item>
-    <ion-item>
-      所在店铺: <span style="float: right">{{ item.store }}</span>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      奖励情况:
-    </ion-item>
-    <ion-item *ngFor="let award of item.award">
-      <span> {{ award.type }}</span>
-      <span style="float:right"> {{ award.count }}</span>
-    </ion-item>
-  </ion-list>
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-item-divider color="light" [style.fontSize]="'medium'">奖励</ion-item-divider>
+    
+    <ion-slides pager>
+      <ion-slide>
+        <ion-item *ngFor="let item of [0, 1, 2, 3, 4, 5, 6]">
+          <span> {{ gameDetailData[0].award[item].type }}</span>
+          <span style="float:right"> {{ gameDetailData[0].award[item].count + '次数'}}</span>
+        </ion-item>
+      </ion-slide>
+      <ion-slide>
+        <ion-item *ngFor="let item of [7, 8, 9, 10, 11, 12, 13]">
+          <span> {{ gameDetailData[0].award[item].type }}</span>
+          <span style="float:right"> {{ gameDetailData[0].award[item].count + '次数'}}</span>
+        </ion-item>
+      </ion-slide>
+    </ion-slides>
+    
+  </ion-item-group>
+  <img src="assets/win.png" style="z-index: 999; position: absolute; top: 0; right: 0" />
 </ion-content>

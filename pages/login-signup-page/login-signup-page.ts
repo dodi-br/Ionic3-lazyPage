@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, ToastController, NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Storage } from '@ionic/storage';
-import { URI } from '../../app/myGlobal';
+import { URI, HttpHeader } from '../../app/myGlobal';
 
 @IonicPage({
 })
@@ -32,9 +32,12 @@ export class LoginSignupPage {
   }
   
   btnLoginClick(event) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
   	let jLogin = JSON.stringify(this.oLogin);
     let dstUrl = URI.get('login');
-  	this.http.post(dstUrl, jLogin).subscribe(res => {
+  	this.http.post(dstUrl, jLogin, HttpHeader.jsonContentType()).subscribe(res => {
 		  this.token = res["_body"];
   		console.log(this.token);
   	}, error => {
@@ -47,7 +50,7 @@ export class LoginSignupPage {
   btnSignUpClick() {
     let jSignUP = JSON.stringify(this.oSignUp);
     let dstUrl = URI.get('signUp');
-    this.http.post(dstUrl, jSignUP).subscribe(res => {
+    this.http.post(dstUrl, jSignUP, HttpHeader.jsonContentType()).subscribe(res => {
   		this.getVerificationCodeStatus = JSON.parse(res["_body"]).verificateStatus;
   		console.log(this.getVerificationCodeStatus);
   		if (this.getVerificationCodeStatus) {

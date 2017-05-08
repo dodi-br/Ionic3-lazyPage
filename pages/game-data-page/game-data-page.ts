@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,8 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GameDataPage {
 
-  // @ViewChild('gameSlider') gameSlider: Slides;
-  // gameSegment: any;
+  @ViewChild('layout') canvasRef;
   gameDatas= [
     {
       title: "01游戏",
@@ -51,11 +50,13 @@ export class GameDataPage {
     { name: "Ton80", thisMonth: 3, all: 1 }
   ]
 
+  image = 'http://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad GameDataPage');
   }
+
 
 }

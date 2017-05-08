@@ -1,3 +1,10 @@
 page-game-history-detail {
-
+    .battle ion-label {
+        display: flex;
+        text-align: center;
+    }
+    .battle div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }

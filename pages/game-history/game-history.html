@@ -41,45 +41,26 @@
 
   <!--</ion-card>-->
     
-    <ion-card>
+  <ion-card *ngFor="let daysData of gameWeekData; let i = index" [attr.data-index]="i">
   <ion-card-header>
     <!--<button ion-button detail-none>-->
     <span style="float: left">2017-05-08</span>
-    <button style="float: right; background: transparent; font-size: large">
+    <button style="float: right; background: transparent; font-size: large"
+      (click)="showList[i] = (showList[i] === 'none' ? 'block' : 'none')">
     <ion-icon name="ios-arrow-down" style="color: black;"></ion-icon>
     </button>
   </ion-card-header>
 
-  <ion-list>
-    <button ion-item>
-      <ion-icon name="close" item-left></ion-icon>
-      Shopping
+  <ion-list [style.display]="showList[i]">
+    <button (click)="this.navCtrl.push('GameHistoryDetail')"
+      ion-item *ngFor="let item of daysData">
+      <ion-icon [name]="item.result ? 'close' : 'trophy'"
+        [style.color]="item.result ? 'black' : 'darkred'"
+      item-left></ion-icon>
+      {{ item.type + ": " + item.score }}
+      <span style="float:right; color: gray; font-size: small">{{ item.date }}</span>
     </button>
 
-    <button ion-item>
-      <ion-icon name="trophy" item-left color=primary></ion-icon>
-      Hospital
-    </button>
-
-    <button ion-item>
-      <ion-icon name="cafe" item-left></ion-icon>
-      Cafe
-    </button>
-
-    <button ion-item>
-      <ion-icon name="paw" item-left></ion-icon>
-      Dog Park
-    </button>
-
-    <button ion-item>
-      <ion-icon name="beer" item-left></ion-icon>
-      Pub
-    </button>
-
-    <button ion-item>
-      <ion-icon name="planet" item-left></ion-icon>
-      Space
-    </button>
 
   </ion-list>
 </ion-card>

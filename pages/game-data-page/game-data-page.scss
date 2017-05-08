@@ -1,3 +1,14 @@
 page-game-data-page {
-
+    .segment-num {
+        font-size: 25px !important;
+    }
+    .segment-title {
+        font-size: 5px !important;
+        color: gray;
+    }
+    ion-segment-button {
+        height: auto !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
 }

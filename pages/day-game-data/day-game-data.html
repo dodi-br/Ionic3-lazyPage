@@ -1,0 +1,51 @@
+<!--
+  Generated template for the DayGameData page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>该天游戏数据概要</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item-divider>2017-05-08</ion-item-divider>
+    
+  <ion-item-group class="panel">
+    <ion-item-divider color="light">01GAME
+    <ion-icon name="ios-arrow-down" style="color: black; float:right"></ion-icon>
+    </ion-item-divider>
+    <ion-item>
+      当日最高PDD: 29
+    </ion-item>
+    <ion-item>
+      当日平均PDD: 29
+    </ion-item>
+    <ion-item>
+      游戏总轮数: 1
+    </ion-item>
+  </ion-item-group>
+    
+  <ion-item-group>
+    <ion-item-divider color="light">CRICKET
+    <ion-icon name="ios-arrow-down" style="color: black; float:right"></ion-icon>
+    </ion-item-divider>
+    <ion-item-divider color="light">COUNT-UP
+    <ion-icon name="ios-arrow-down" style="color: black; float:right"></ion-icon>
+    </ion-item-divider>
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-item-divider color="light" [style.fontSize]="'medium'">当天获得奖励</ion-item-divider>
+    <ion-item *ngFor="let item of award">
+      <span> {{ item.type }}</span>
+      <span style="float:right"> {{ item.count + '次数'}}</span>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>
