@@ -6,7 +6,7 @@
         <h4>排名第一</h4>
         <hr />
         <button ion-item style="padding-left: 10px;" *ngFor="let item of no1" detail-none (click)="btnPlayer()">
-            <ion-img item-left style="width:80px; height: 60px" [src]="item.img" ></ion-img>
+            <img item-left style="width:80px; height: 60px" [src]="item.img" />
             <h2 style="margin:0">{{item.game}} {{ item.score}}</h2>
             <h3>{{ item.store }}</h3>
             <p>{{ item.level}} {{ item.name }}</p>

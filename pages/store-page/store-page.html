@@ -19,6 +19,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+<div *ngIf="showContent; else loading">
   <h1 style="margin-top: 20px">
   <ion-chip (click)="chip[0] = (chip[0] == 'clicked') ? 'notclicked':'clicked'"
    [ngClass]="chip[0]">
@@ -44,12 +45,19 @@
   <!--<ion-list>-->
     <div style="padding-top: 10px">
         <button ion-item style="padding:0"  *ngFor="let storeList of store"
-         (click)="navPush(childPage.storeDetailPage, storeList)">
-            <ion-img item-left style="width:80px; height: 60px" src="{{ storeList.picture }}" ></ion-img>
+         (click)="navPush(childPage.storeDetailPage, storeList.label)">
+            <img item-left style="width:80px; height: 60px" 
+                src="{{ storeList.picture }}" />
           <h2 style="margin:0">{{ storeList.label }}</h2>
           <h3>{{ storeList.distance }}m</h3>
           <p>{{ storeList.address }}</p>
         </button>
     </div>
-  <!--</ion-list>-->
+    </div>
 </ion-content>
+
+<ng-template #loading>
+  <div id="loading">
+    Loading...
+  </div>
+</ng-template>

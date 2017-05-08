@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ToastController, NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { URI } from '../../app/myGlobal';
 
 @IonicPage({
 })
@@ -17,9 +18,10 @@ export class LoginSignupPage {
 	oSignUp = {
 		account:'',
 		password:'',
-		mobile:''
+    phone: ''
 	}
-	token = "";
+	getVerificationCodeStatus: boolean;
+	token: string;
 	selectedTab: any;
   constructor(
     public http: Http, 
@@ -28,36 +30,37 @@ export class LoginSignupPage {
     public storage: Storage) {
   	  this.selectedTab = "Login";
   }
-  // btnLoginClick(event) {
-  // 	let loginJson = JSON.stringify(this.oLogin);
-  // 	//let dstUrl = 'http://192.168.1.50:8080/rest/softdart/memberAuth/login';
-  // 	let dstUrl = 'http://115.159.75.162:8998';
-  // 	//var data = JSON.stringify({account: 645});
-  // 	this.http.post(dstUrl, loginJson, {}).then(data => {
-  // 		// this.token = loginJson._body;
-  // 		// alert(this.token);
-	 //   console.log(data.status);
-  //     console.log(data.data); // data received by server
-  //     console.log(data.headers);
-  // 	}).catch(error => {
-  // 		this.notice("请检查您的网络");
-  //     console.log(error.status);
-  //     console.log(error.error); // error message as string
-  //     console.log(error.headers);
-  // 	}); 
+  
   btnLoginClick(event) {
-  	let loginJson = JSON.stringify(this.oLogin);
-  	let dstUrl = 'http://115.159.75.162:8998';
-  	this.http.post(dstUrl, loginJson).subscribe(loginJson => {
-		this.token = loginJson["_body"];
+  	let jLogin = JSON.stringify(this.oLogin);
+    let dstUrl = URI.get('login');
+  	this.http.post(dstUrl, jLogin).subscribe(res => {
+		  this.token = res["_body"];
   		console.log(this.token);
   	}, error => {
   		this.notice("请检查您的网络");
   	}); 
     // isLogin = false => 代表登录, true 是未登录
-    this.storage.set('isLogin', false);
-    this.navCtrl.pop();
-}
+    // this.storage.set('isLogin', false);
+    // this.navCtrl.pop();
+  }
+  btnSignUpClick() {
+    let jSignUP = JSON.stringify(this.oSignUp);
+    let dstUrl = URI.get('signUp');
+    this.http.post(dstUrl, jSignUP).subscribe(res => {
+  		this.getVerificationCodeStatus = JSON.parse(res["_body"]).verificateStatus;
+  		console.log(this.getVerificationCodeStatus);
+  		if (this.getVerificationCodeStatus) {
+        this.navCtrl.push('PhoneVerification');
+  		} 
+  		else {
+  		  this.notice("获取验证码失败");
+  		}
+  	}, error => {
+  		this.notice("请检查您的网络");
+  	}); 
+  }
+  
 
 
 
@@ -74,6 +77,4 @@ export class LoginSignupPage {
   }
   
 }
-
-
 

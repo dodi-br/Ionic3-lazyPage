@@ -12,28 +12,35 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides #rankSlider (ionSlideWillChange)="onSlideChanged($event)">
+  <!--<ion-slides #rankSlider -->
+  <!--  (ionSlideWillChange)="onSlideChangStart($event)"-->
+  <!--  (ionSlideDidChange)="onSlideChangEnd($event)"-->
+  <!--  (ionSlideDrag)="onSlideDrag($event)"-->
+  <!--  (pan)="panEvent($event)">-->
+  <ion-slides #rankSlider *ngIf="showSlider; else loading"
+    (ionSlideDidChange)="onSlideChangEnd($event)" 
+    (ionSlideWillChange)="onSlideChangStart($event)"
+    >
     <!--今日-->
-    <ion-slide #todaySlidePage>
-      <rank-tab-today></rank-tab-today>
-    </ion-slide>
-    
-    <!--评级-->
-    <ion-slide #ratingSlidePage style="background: #f4f4f4">
-      <rank-tab-rating *ngIf="showSlides[1]"></rank-tab-rating>
+    <ion-slide>
+      <rank-tab-today *ngIf="showSlides[0]; else loading"></rank-tab-today>
     </ion-slide>
     
     <!--比赛-->
-    <ion-slide #matchSlidePage style="background: #f4f4f4">
-      <rank-tab-match *ngIf="showSlides[2]"></rank-tab-match>
+    <ion-slide>
+      <rank-tab-match *ngIf="showSlides[1]; else loading"></rank-tab-match>
     </ion-slide>
     
     <!--奖励-->
-    <ion-slide #awardSlidePage style="background: #f4f4f4">
-      <rank-tab-award *ngIf="showSlides[3]"></rank-tab-award>
+    <ion-slide>
+      <rank-tab-award *ngIf="showSlides[2]; else loading"></rank-tab-award>
     </ion-slide>
 
   </ion-slides>
 </ion-content>
 
-
+<ng-template #loading>
+  <div id="loading">
+    Loading...
+  </div>
+</ng-template>

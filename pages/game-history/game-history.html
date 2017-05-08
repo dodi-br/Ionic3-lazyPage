@@ -26,19 +26,62 @@
   <!--</ion-item>-->
   <!--</ion-list>-->
 
-  <ion-card *ngFor="let item of gameHistorys">
-  <button ion-item style="padding-left: 0" (click)="this.navCtrl.push('GameHistoryDetail', { item: item })">
-    <ion-card-header>
+  <!--<ion-card *ngFor="let item of gameHistorys">-->
+  <!--<button ion-item style="padding-left: 0" (click)="this.navCtrl.push('GameHistoryDetail', { item: item })">-->
+  <!--  <ion-card-header>-->
       <!--{{ item.result }}-->
-      <div style="color: #505050; float: right; font-size: small">{{ item.time }}</div>
-    </ion-card-header>
-    <ion-card-content>
+  <!--    <div style="color: #505050; float: right; font-size: small">{{ item.time }}</div>-->
+  <!--  </ion-card-header>-->
+  <!--  <ion-card-content>-->
       <!--<div>{{ item.type }}</div>-->
-      <ion-label stacked>Username</ion-label>
-      <ion-item>{{ item.scoreType + ":" + item.score }}</ion-item>
-    </ion-card-content>
-  </button>
+  <!--    <ion-label stacked>Username</ion-label>-->
+  <!--    <ion-item>{{ item.scoreType + ":" + item.score }}</ion-item>-->
+  <!--  </ion-card-content>-->
+  <!--</button>-->
 
-  </ion-card>
+  <!--</ion-card>-->
     
+    <ion-card>
+  <ion-card-header>
+    <!--<button ion-button detail-none>-->
+    <span style="float: left">2017-05-08</span>
+    <button style="float: right; background: transparent; font-size: large">
+    <ion-icon name="ios-arrow-down" style="color: black;"></ion-icon>
+    </button>
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="close" item-left></ion-icon>
+      Shopping
+    </button>
+
+    <button ion-item>
+      <ion-icon name="trophy" item-left color=primary></ion-icon>
+      Hospital
+    </button>
+
+    <button ion-item>
+      <ion-icon name="cafe" item-left></ion-icon>
+      Cafe
+    </button>
+
+    <button ion-item>
+      <ion-icon name="paw" item-left></ion-icon>
+      Dog Park
+    </button>
+
+    <button ion-item>
+      <ion-icon name="beer" item-left></ion-icon>
+      Pub
+    </button>
+
+    <button ion-item>
+      <ion-icon name="planet" item-left></ion-icon>
+      Space
+    </button>
+
+  </ion-list>
+</ion-card>
+
 </ion-content>

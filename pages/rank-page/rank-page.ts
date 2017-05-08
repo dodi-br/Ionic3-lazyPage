@@ -16,12 +16,13 @@ import { ModalController } from 'ionic-angular';
 export class RankPage {
   topSegment = [
     { value: 'today', title: '今日' },
-    { value: 'level', title: '评级' },
+    // { value: 'level', title: '评级' },
     { value: 'game', title: '比赛' },
     { value: 'award', title: '奖励' }
   ];
   
-  showSlides = [true, false, false, false];
+  showSlides = [true, false, false];
+  showSlider = false;
   
   @ViewChild('rankSlider') slider: Slides;
 
@@ -33,6 +34,9 @@ export class RankPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RankPage');
+    setTimeout(() => {
+      this.showSlider = true;
+    }, 50);
   }
   
   onSegmentChanged(segmentButton) {
@@ -45,13 +49,22 @@ export class RankPage {
     console.log(selectedIndex);
   }
 
-  onSlideChanged(slider) {
-    console.log('Slide changed');
+  onSlideChangStart(slider) {
     const currentIndex = slider.getActiveIndex();
-    if (currentIndex > 3) { return; }
-    this.showSlides[currentIndex] = true;
+    console.log('slide' + currentIndex + 'start');
+    if (currentIndex > 2) { return; }
     this.rankSegment = this.topSegment[currentIndex].value;
-    console.log(currentIndex);
+  }
+  onSlideChangEnd(slider) {
+    const currentIndex = slider.getActiveIndex();
+    console.log('slide' + currentIndex + 'end');
+    if (currentIndex > 2) { return; }
+    this.showSlides[currentIndex] = true;
+    // this.rankSegment = this.topSegment[currentIndex].value;
+  }
+  onSlideDrag(slider) {
+    let wong = document.getElementById('wong');
+    console.log(wong);
   }
   btnPlayer() {
     let modal = this.modalCtrl.create('PlayerInfoPage');
@@ -60,5 +73,10 @@ export class RankPage {
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
   }
-
+  panEvent($e) {
+    const direction = $e.direction;
+    // if (direction === 'right') {
+    console.log(direction);
+    // }
+  }
 }

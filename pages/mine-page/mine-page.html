@@ -14,7 +14,7 @@
 
 
 <ion-content style="background: #f4f4f4">
-
+<div *ngIf="showContent; else loading">
   <ion-list>
     <ion-item (click)="btnPerson()" style="padding: 10px">
       <ion-avatar item-left style="font-size: 30px">
@@ -58,4 +58,11 @@
       设置
     </button>
   </ion-list>
+</div> <!-- showContent -->
 </ion-content>
+
+<ng-template #loading>
+  <div id="loading">
+    Loading...
+  </div>
+</ng-template>

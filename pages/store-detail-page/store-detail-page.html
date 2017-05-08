@@ -15,7 +15,7 @@
       </ion-buttons>
   </ion-navbar>
   
-    <ion-segment [(ngModel)]="storeDetailSegment" 
+    <ion-segment [(ngModel)]="storeDetailSegment"
     (ionChange)="onStoreDetailSegmentChanged($event)">
     <ion-segment-button value="detail">
       详情
@@ -31,13 +31,13 @@
 </ion-header>
 
 <ion-content>
-  <!--<ion-slides #storeDetailSlider>-->
-  <ion-slides #storeDetailSlider (ionSlideWillChange)="onStoreDetailSlideChanged($event)">
+  <ion-slides #storeDetailSlider (ionSlideWillChange)="onStoreDetailSlideChanged($event)"
+  *ngIf="showContent; else loading">
 
     <!--详情-->
     <ion-slide style="padding-top: 10px">
       <ion-item style="margin-top: 30px;">
-        <b>{{ store.label }} </b>
+        <b> {{ storeName }} </b>
       </ion-item>
       <button ion-item (click)="navPush('MapNavPage')">
         <ion-icon small item-right name="md-navigate" style="color:gray"></ion-icon>
@@ -138,3 +138,8 @@
   </ion-slides>
 </ion-content>
 
+<ng-template #loading>
+  <div id="loading">
+    Loading...
+  </div>
+</ng-template>

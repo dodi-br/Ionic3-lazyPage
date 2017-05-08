@@ -22,3 +22,27 @@ ion-popover {
 ion-segment-button {
     font-size: medium !important;
 }
+
+#loading {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    color: dimgray;
+}
+
+// #loading::before {
+//     background-image: url("../assets/loading.gif");
+//     content: "";
+//     background-size: 100%;
+//     position: absolute;
+//     width: 50px;
+//     height: 50px;
+//     left: -40px;
+//     top: -23px;
+// }
+
+ion-thumbnail img {
+    height: 65px !important;
+}

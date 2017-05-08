@@ -14,6 +14,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'mine-page.html',
 })
 export class MinePage {
+  showContent = false;
 	childPage = {
   	personInformationPage: { title: '个人资料', page: 'LoginSignupPage' },
   	cardInformationPage : { title: '我的点卡', page: 'CardInformationPage' },
@@ -24,21 +25,7 @@ export class MinePage {
   	idCardPage: { title: '我的身份卡', page: 'IdCardPage' },
   	mainStorePage: { title: '我的主店', page: 'StoreDetailPage' }
   };
-  mainStore = {
-    label: "理想咖啡店",
-    address: "东兴路228号",
-    latitude: "234.22",
-    longtitude: "28.2",
-    distance: 318,
-    averageCost: 8.6,
-    phone: '15988152673',
-    email: '123899696@qq.com',
-    room: false,
-    parking: true,
-    credit: false,
-    operationTime: '9:00 - 18:00',
-    picture: "assets/shop1.jpg"
-  };
+  mainStore = "理想咖啡店";
   portrait = "";
   personName = "";
   isLogin = true;
@@ -58,6 +45,7 @@ export class MinePage {
   }
 
   ionViewDidEnter() {
+      this.showContent = true;
       this.storage.get('isLogin').then((val) => {
         // console.log('Your age is', val);
         if (!val) {
@@ -93,7 +81,7 @@ export class MinePage {
   }
   
   btnMainStore() {
-    this.navCtrl.push('StoreDetailPage', { store: this.mainStore, title: '我的主店' } );
+    this.navCtrl.push('StoreDetailPage', { storeName: this.mainStore, title: '我的主店' } );
   }
 
 }
