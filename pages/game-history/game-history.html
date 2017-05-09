@@ -44,7 +44,7 @@
   <ion-card *ngFor="let daysData of gameWeekData; let i = index" [attr.data-index]="i">
   <ion-card-header>
     <!--<button ion-button detail-none>-->
-    <span style="float: left">2017-05-08</span>
+    <span style="float: left">2017-05-0{{ 8 - i }}</span>
     <button style="float: right; background: transparent; font-size: large"
       (click)="showList[i] = (showList[i] === 'none' ? 'block' : 'none')">
     <ion-icon name="ios-arrow-down" style="color: black;"></ion-icon>
@@ -54,10 +54,10 @@
   <ion-list [style.display]="showList[i]">
     <button (click)="this.navCtrl.push('GameHistoryDetail')"
       ion-item *ngFor="let item of daysData">
-      <ion-icon [name]="item.result ? 'close' : 'trophy'"
-        [style.color]="item.result ? 'black' : 'darkred'"
-      item-left></ion-icon>
-      {{ item.type + ": " + item.score }}
+        <ion-icon [name]="item.result ? 'close' : 'trophy'"
+          [style.color]="item.result ? 'black' : 'darkred'"
+        item-left></ion-icon>
+      <span style="float:left"> {{ item.type + ": " + item.score }} </span>
       <span style="float:right; color: gray; font-size: small">{{ item.date }}</span>
     </button>
 

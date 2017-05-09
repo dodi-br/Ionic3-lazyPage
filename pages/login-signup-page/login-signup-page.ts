@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, ToastController, NavController } from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { URI, HttpHeader } from '../../app/myGlobal';
 
@@ -32,9 +32,6 @@ export class LoginSignupPage {
   }
   
   btnLoginClick(event) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-
   	let jLogin = JSON.stringify(this.oLogin);
     let dstUrl = URI.get('login');
   	this.http.post(dstUrl, jLogin, HttpHeader.jsonContentType()).subscribe(res => {

@@ -70,34 +70,25 @@
       </div>
     </ion-segment-button>
   </ion-segment>
+  <ion-segment class="smallSegment">
+    <ion-segment-button value="day30">最近一个月</ion-segment-button>
+    <ion-segment-button value="game30">最近30场</ion-segment-button>
+  </ion-segment>
   
   <img src="assets/zhexian.png" style="padding: 10px; padding-bottom: 0" />
   <div style="text-align: center; font-size: small">近30天游戏记录</div>
   <ion-card>
     <ion-list>
-      <button ion-item (click)="this.navCtrl.push('DayGameData')">
-        <span style="padding-right: 14px">1</span> 2017-05-08 14:51
-        <ion-icon style="float: right" color=primary >3.00</ion-icon>
-      </button>
-      <button ion-item>
-        <span style="padding-right: 14px">2</span> 2017-05-08 14:51
-        <ion-icon style="float: right" >2.70</ion-icon>
-      </button>
-      <button ion-item>
-        <span style="padding-right: 14px">3</span> 2017-05-08 14:51
-        <ion-icon style="float: right" >2.50</ion-icon>
-      </button>
-      <button ion-item>
-        <span style="padding-right: 14px">4</span> 2017-05-08 14:51
-        <ion-icon style="float: right" >1.00</ion-icon>
-      </button>
-      <button ion-item>
-        <span style="padding-right: 14px">5</span> 2017-05-08 14:51
-        <ion-icon style="float: right" >3.00</ion-icon>
-      </button>
-      <button ion-item>
-        <span style="padding-right: 14px">6</span> 2017-05-08 14:51
-        <ion-icon style="float: right" >3.00</ion-icon>
+      <button *ngFor="let item of itemList; let i = index" [attr.data-index]="i"
+        ion-item (click)="this.navCtrl.push('DayGameData')">
+        <span style="float: left">
+          <span style="padding-right: 14px">{{ i+1 }}</span>{{ item.date }}
+        </span>
+        <span style="float: right;">
+          <span style="font-size: small">{{ item.tag }}</span>
+          <ion-icon [color]="item.tag != null? 'primary' : ''">
+            {{ item.score }}</ion-icon>
+       </span>
       </button>
     </ion-list>
   </ion-card>

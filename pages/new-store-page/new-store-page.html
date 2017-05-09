@@ -15,12 +15,12 @@
 
 <ion-content padding>
     <div style="padding-top: 10px">
-        <button ion-item style="padding:0"  *ngFor="let storeList of store"
-         (click)="this.navCtrl.push('StoreDetailPage', { store: storeList })">
-            <ion-img item-left style="width:80px; height: 60px" src="{{ storeList.picture }}" ></ion-img>
-          <h2 style="margin:0">{{ storeList.label }}</h2>
-          <h3>{{ storeList.distance }}m</h3>
-          <p>{{ storeList.address }}</p>
+        <button ion-item style="padding:0"  *ngFor="let item of stores"
+         (click)="this.navCtrl.push('StoreDetailPage', { storeName: item.label })">
+            <ion-img item-left style="width:80px; height: 60px" src="{{ item.picture }}" ></ion-img>
+          <h2 style="margin:0">{{ item.label }}</h2>
+          <h3>{{ item.distance }}m</h3>
+          <p>{{ item.address }}</p>
         </button>
     </div>
 </ion-content>

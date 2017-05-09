@@ -12,15 +12,9 @@
 </ion-header>
 
 <ion-content>
-  <!--<ion-slides #rankSlider -->
-  <!--  (ionSlideWillChange)="onSlideChangStart($event)"-->
-  <!--  (ionSlideDidChange)="onSlideChangEnd($event)"-->
-  <!--  (ionSlideDrag)="onSlideDrag($event)"-->
-  <!--  (pan)="panEvent($event)">-->
   <ion-slides #rankSlider *ngIf="showSlider; else loading"
     (ionSlideDidChange)="onSlideChangEnd($event)" 
-    (ionSlideWillChange)="onSlideChangStart($event)"
-    >
+    (ionSlideWillChange)="onSlideChangStart($event)">
     <!--今日-->
     <ion-slide>
       <rank-tab-today *ngIf="showSlides[0]; else loading"></rank-tab-today>

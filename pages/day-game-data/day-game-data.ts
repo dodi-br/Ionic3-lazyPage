@@ -28,9 +28,14 @@ export class DayGameData {
     { type: 'LOWTON', count: 1 },
     { type: 'HIGHTON', count: 0 },
     { type: 'TON80' , count: 0 }
-  ]
-
-
+  ];
+  itemList = [
+    { title: 'GAME01', display:'none', type: 'PPD' },
+    { title: 'CRICKET', display: 'block', type: 'MPR' },
+    { title: 'COUNT-UP', display: 'none', type: ''},
+  ];
+  awardDisp = 'block';
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

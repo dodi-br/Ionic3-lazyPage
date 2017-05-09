@@ -44,7 +44,7 @@ export class RankPage {
     const selectedIndex = this.topSegment.findIndex((slide) => {
       return slide.value === segmentButton.value;
     });
-    this.showSlides[selectedIndex] = true;
+    // this.showSlides[selectedIndex] = true;
     this.slider.slideTo(selectedIndex);
     console.log(selectedIndex);
   }
@@ -53,7 +53,7 @@ export class RankPage {
     const currentIndex = slider.getActiveIndex();
     console.log('slide' + currentIndex + 'start');
     if (currentIndex > 2) { return; }
-    this.rankSegment = this.topSegment[currentIndex].value;
+    // this.rankSegment = this.topSegment[currentIndex].value;
   }
   onSlideChangEnd(slider) {
     const currentIndex = slider.getActiveIndex();
@@ -62,21 +62,11 @@ export class RankPage {
     this.showSlides[currentIndex] = true;
     // this.rankSegment = this.topSegment[currentIndex].value;
   }
-  onSlideDrag(slider) {
-    let wong = document.getElementById('wong');
-    console.log(wong);
-  }
   btnPlayer() {
     let modal = this.modalCtrl.create('PlayerInfoPage');
     modal.present();
   }
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
-  }
-  panEvent($e) {
-    const direction = $e.direction;
-    // if (direction === 'right') {
-    console.log(direction);
-    // }
   }
 }
