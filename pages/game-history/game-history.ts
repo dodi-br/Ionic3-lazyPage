@@ -20,55 +20,63 @@ export class GameHistory {
     [
     {
       result: 0,
-      type: 'PDD',
+      scoreType: 'PDD',
       score: 12.5,
-      date: '2017-05-08 10:29'
+      time: '10:29',
+      type: '501GAME'
     },
     {
       result: 0,
-      type: 'MPR',
+      scoreType: 'MPR',
       score: 10.5,
-      date: '2017-05-08 10:10'
+      time: '10:10',
+      type: 'MATCH'
     },
     {
       result: 1,
-      type: 'MPR',
+      scoreType: 'MPR',
       score: 7.5,
-      date: '2017-05-08 09:29'
+      time: '09:29',
+      type: 'CRICKET'
     },
   
     {
       result: 1,
-      type: 'PDD',
+      scoreType: 'PDD',
       score: 2.5,
-      date: '2017-05-08 08:05'
+      time: '08:05',
+      type: '01GAME'
     },
     {
       result: 0,
-      type: 'PDD',
+      scoreType: 'PDD',
       score: 12.5,
       MPR: null,
-      date: '2017-05-08 07:29'
+      time: '07:29',
+      type: '01GAME'
     }
     ],
     [
     {
       result: 0,
-      type: 'PDD',
+      scoreType: 'PDD',
       score: 12.5,
-      date: '2017-05-08 10:29'
+      time: '10:29',
+      type: '01GAME'
     },
     {
       result: 0,
-      type: 'MPR',
+      scoreType: 'MPR',
       score: 10.5,
-      date: '2017-05-08 10:10'
+      time: '10:10',
+      type: 'CRICKET'
     },
     {
       result: 1,
-      type: 'MPR',
+      scoreType: 'MPR',
       score: 7.5,
-      date: '2017-05-08 09:29'
+      time: '09:29',
+      type: 'CRICKET'
     },
     ],
     [],

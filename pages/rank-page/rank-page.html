@@ -4,7 +4,7 @@
       榜单
     </ion-title>
   </ion-navbar>
-  <ion-segment [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)">
+  <ion-segment mode="md" [(ngModel)]="rankSegment" (ionChange)="onSegmentChanged($event)">
     <ion-segment-button *ngFor="let item of topSegment" [value]="item.value">
       {{ item.title }}
     </ion-segment-button>

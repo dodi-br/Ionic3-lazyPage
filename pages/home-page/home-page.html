@@ -9,13 +9,12 @@
   <ion-navbar>
     <!--<ion-icon name="title-logo" style="margin: 0 10px"></ion-icon>-->
     <ion-title>Asia Darts Association</ion-title>
-    
-      <ion-buttons end>
+    <ion-buttons end>
       <button ion-button icon-only (click)="btnCountry($event)">
-        <ion-icon name="more"></ion-icon>
+        <ion-icon name="more" style="position: relative">
+        </ion-icon>
       </button>
     </ion-buttons>
-
   </ion-navbar>
 </ion-header>
 
@@ -79,7 +78,7 @@
       <!--<p>个人中心:详细，编辑...</p>-->
     </ion-item>
     <ion-item (click)="this.navCtrl.push('GameDataPage')"
-      style="text-align: center">
+      style="text-align: center; line-height: 1.5">
       <ion-label>11.27<br /><span style="font-size: small">01GAME</span></ion-label>
       <ion-label>2.32 <br /><span style="font-size: small">CRICKET</span></ion-label>
       <ion-label>0 <br /><span style="font-size: small">COUNT-UP</span></ion-label>
@@ -112,7 +111,7 @@
   <!-- 新店铺 -->
   <ion-list>
     <ion-item class="border-bottom-none">
-      <ion-icon class="title" item-left name="map" style="float:left"></ion-icon>
+      <ion-icon class="title" item-left name="store" style="float:left"></ion-icon>
       <span class="title" style="float:left;">新店铺</span>
       <h3 style="float:right" (click)="this.navPush(childPage.newStorePage)">更多</h3>
     </ion-item>
@@ -187,3 +186,4 @@
   </ion-list>
 
 </ion-content>
+

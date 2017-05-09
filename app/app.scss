@@ -15,10 +15,6 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-ion-popover {
-    background: rgba(0,0,0, 0.5);
-}
-
 ion-segment-button {
     font-size: medium !important;
 }
@@ -45,4 +41,13 @@ ion-segment-button {
 
 ion-thumbnail img {
     height: 65px !important;
+}
+
+.ion-md-store, .ion-ios-store {
+    background: url(../assets/icon-store.svg);
+    background-repeat: no-repeat;
+}
+.ion-md-game-history, .ion-ios-game-history {
+    background: url(../assets/icon-history.svg);
+    background-repeat: no-repeat;
 }

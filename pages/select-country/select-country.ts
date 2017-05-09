@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the SelectCountry page.
@@ -12,21 +12,27 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 @Component({
   selector: 'page-select-country',
-  templateUrl: 'select-country.html',
-  // template: `
-  //     <ion-item>
-  //     <ion-label style="color: black">更改语言</ion-label>
-  //       <ion-select [(ngModel)]="Country" selectedText=" ">
-  //       <ion-option *ngFor="let item of language" value="f" selected="true">{{ item.name }}</ion-option>
-  //       </ion-select>
-  //     </ion-item>
-  //     <ion-item>
-  //     <ion-label style="color: black">选择国家</ion-label>
-  //       <ion-select [(ngModel)]="Country" selectedText=" ">
-  //       <ion-option *ngFor="let item of country" value="f" selected="true">{{ item.name }}</ion-option>
-  //       </ion-select>
-  //     </ion-item>
-  // `
+  // templateUrl: 'select-country.html',
+  template: `
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      中国 
+      </button> 
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      美国 
+      </button>
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      澳大利亚 
+      </button>
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      加拿大
+      </button>
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      日本
+      </button>
+      <button ion-item (click)="this.viewCtrl.dismiss();">
+      韩国
+      </button>
+  `
 })
 export class SelectCountry {
   country = [{
@@ -49,8 +55,9 @@ export class SelectCountry {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, public viewCtrl: ViewController) {
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectCountry');

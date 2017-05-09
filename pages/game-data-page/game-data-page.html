@@ -50,7 +50,7 @@
   <!--    </div>-->
   <!--  </ion-item>-->
   <!--</ion-list>-->
-  <ion-segment style="fixed">
+  <ion-segment mode="md" [(ngModel)]="gameTypeSeg">
     <ion-segment-button value="game01">
       <div style="line-height: 25px">
         <span class="segment-title">01GAME PPD</span> <br />
@@ -70,16 +70,21 @@
       </div>
     </ion-segment-button>
   </ion-segment>
-  <ion-segment class="smallSegment">
+
+  <ion-segment class="smallSegment" [(ngModel)]="timeSeg">
     <ion-segment-button value="day30">最近一个月</ion-segment-button>
     <ion-segment-button value="game30">最近30场</ion-segment-button>
   </ion-segment>
   
-  <img src="assets/zhexian.png" style="padding: 10px; padding-bottom: 0" />
-  <div style="text-align: center; font-size: small">近30天游戏记录</div>
+  <div>
+  <img [src]="img[timeSeg]" style="padding: 10px; padding-bottom: 0" />
+  <!--<img src="assets/zhexian2.PNG" style="padding: 10px; padding-bottom: 0" />-->
+  <div style="text-align: center; font-size: small">
+    近30 {{ timeSeg === 'day30'? '天' : '场' }} 游戏记录 
+  </div>
   <ion-card>
     <ion-list>
-      <button *ngFor="let item of itemList; let i = index" [attr.data-index]="i"
+      <button *ngFor="let item of itemList[timeSeg]; let i = index" [attr.data-index]="i"
         ion-item (click)="this.navCtrl.push('DayGameData')">
         <span style="float: left">
           <span style="padding-right: 14px">{{ i+1 }}</span>{{ item.date }}
@@ -92,4 +97,5 @@
       </button>
     </ion-list>
   </ion-card>
+  </div>
 </ion-content>

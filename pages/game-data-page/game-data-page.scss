@@ -15,8 +15,10 @@ page-game-data-page {
         font-size: small !important;
         line-height: 15px !important;
         padding: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
-    .list-md .item-block .item-inner {
+    .item-block .item-inner {
         border-bottom: 1px solid #dedede !important;
     }
     .item-md[detail-push] .item-inner,

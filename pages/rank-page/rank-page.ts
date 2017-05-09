@@ -60,7 +60,7 @@ export class RankPage {
     console.log('slide' + currentIndex + 'end');
     if (currentIndex > 2) { return; }
     this.showSlides[currentIndex] = true;
-    // this.rankSegment = this.topSegment[currentIndex].value;
+    this.rankSegment = this.topSegment[currentIndex].value;
   }
   btnPlayer() {
     let modal = this.modalCtrl.create('PlayerInfoPage');

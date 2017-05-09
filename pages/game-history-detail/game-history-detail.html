@@ -54,19 +54,28 @@
     {{ gameDetailData[0].date + ' - ' + gameDetailData[0].store }}
     </ion-item-divider>
     <ion-item class="battle">
-      <div style="flex: 1; -webkit-flex: 1;border-right: solid lightgray 1px;" >
-        我是楚留香 <br />
-        PPD:  <ion-badge item-right style="background: lightBlue">20.56</ion-badge>
+      <div class="player">
+        <h1>
+          <ion-icon color="primary" name="flag" style="position: absolute; left: 20px"></ion-icon>
+          <ion-icon color="primary">WIN</ion-icon>
+        </h1>
+        <div style="display: inline-block; text-align: left">
+          中原一点红 <br />
+          PPD:  <ion-badge item-right>22.46</ion-badge>
+        </div>
       </div>
-      <div style="flex: 1; -webkit-flex: 1;">
-        中原一点红 <br />
-        PPD: <ion-badge item-right>22.46</ion-badge>
+      <div class="player" style="border-left: solid 1px lightgray">
+        <h1><ion-icon style="color: lightBlue">LOSE</ion-icon></h1>
+        <div style="display: inline-block; text-align: left">
+          我是楚留香 <br />
+          PPD:  <ion-badge item-right style="background: lightBlue">20.56</ion-badge>
+        </div>
       </div>
     </ion-item>
   </ion-item-group>
   
   <ion-item-group>
-    <ion-item-divider color="light" [style.fontSize]="'medium'">奖励</ion-item-divider>
+    <ion-item-divider color="light" [style.fontSize]="'medium'">获得奖励</ion-item-divider>
     
     <ion-slides pager>
       <ion-slide>
@@ -84,5 +93,5 @@
     </ion-slides>
     
   </ion-item-group>
-  <img src="assets/win.png" style="z-index: 999; position: absolute; top: 0; right: 0" />
+  <!--<img src="assets/win.png" style="z-index: 999; position: absolute; top: 0; right: 0" />-->
 </ion-content>

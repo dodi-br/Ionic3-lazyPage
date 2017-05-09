@@ -41,8 +41,8 @@ export class LoginSignupPage {
   		this.notice("请检查您的网络");
   	}); 
     // isLogin = false => 代表登录, true 是未登录
-    // this.storage.set('isLogin', false);
-    // this.navCtrl.pop();
+    this.storage.set('isLogin', false);
+    this.navCtrl.pop();
   }
   btnSignUpClick() {
     let jSignUP = JSON.stringify(this.oSignUp);

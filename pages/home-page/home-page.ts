@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, PopoverController } from 'ionic-angular';
-import { Tabs, ActionSheetController, ModalController } from 'ionic-angular';
+import { Tabs, ActionSheetController, ModalController, Select } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -39,6 +39,7 @@ export class HomePage {
   
   @ViewChild('rankSlider') rankSlider: Slides;
   @ViewChild('gameSlider') gamedataslide: Slides;
+  @ViewChild('selectCountry') selectCountry: Select;
 
   rankSegment: string;
   gameSegment: string;
@@ -180,35 +181,35 @@ export class HomePage {
   }
 
   btnCountry(myEvent) {
-    // let popover = this.popoverCtrl.create('SelectCountry');
-    // popover.present({
-    //   ev: myEvent
-    // });
-    let actionSheet = this.actionSheetCtrl.create({
-      buttons: [
-        {
+    let popover = this.popoverCtrl.create('SelectCountry');
+    popover.present({
+      ev: myEvent
+    });
+    // let actionSheet = this.actionSheetCtrl.create({
+    //   buttons: [
+    //     {
         //   text: '收藏',
         //   role: 'destructive',
         //   handler: () => {
         //     console.log('Destructive clicked');
         //   }
         // },{
-          text: '选择国家',
-          handler: () => {
-            // console.log('Archive clicked');
-            let modal = this.modalCtrl.create('SelectCountry');
-            modal.present();
-          }
-        },{
-          text: '选择语言',
-          handler: () => {
-            let modal = this.modalCtrl.create('SelectLanguagePage');
-            modal.present();
-          }
-        }
-      ]
-    });
-    actionSheet.present();
+    //       text: '选择国家',
+    //       handler: () => {
+    //         // console.log('Archive clicked');
+    //         let modal = this.modalCtrl.create('SelectCountry');
+    //         modal.present();
+    //       }
+    //     },{
+    //       text: '选择语言',
+    //       handler: () => {
+    //         let modal = this.modalCtrl.create('SelectLanguagePage');
+    //         modal.present();
+    //       }
+    //     }
+    //   ]
+    // });
+    // actionSheet.present();
   }
   btnPlayer() {
     let modal = this.modalCtrl.create('PlayerInfoPage');

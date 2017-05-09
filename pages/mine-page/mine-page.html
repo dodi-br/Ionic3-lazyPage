@@ -27,9 +27,11 @@
 
   <ion-list class="mainGroup">
     <button ion-item (click)="navPush(childPage.cardInformationPage)">
+      <ion-icon item-left name="card"></ion-icon>
       我的点卡
     </button>
     <button ion-item (click)="navPush(childPage.idCardPage)">
+      <ion-icon item-left name="ios-card-outline"></ion-icon>
       我的身份卡
     </button>
 
@@ -37,24 +39,29 @@
   
   <ion-list>
     <button ion-item (click)="navPush(childPage.gameDataPage)">
+      <ion-icon item-left name="game-controller-a"></ion-icon>
       游戏数据
     </button>
     <button ion-item (click)="navPush(childPage.gameHistoryPage)">
+      <ion-icon item-left name="game-history"></ion-icon>
       游戏历史
     </button>
   </ion-list>
 
   <ion-list>
     <button ion-item (click)="navPush(childPage.myRankPage)">
+      <ion-icon item-left name="flag"></ion-icon>
       我的排名
     </button>
     <button ion-item (click)="btnMainStore()">
+      <ion-icon item-left name="store"></ion-icon>
       主店
     </button>
   </ion-list>
 
   <ion-list>
     <button ion-item (click)="navPush(childPage.settingPage)">
+      <ion-icon item-left name="settings"></ion-icon>
       设置
     </button>
   </ion-list>

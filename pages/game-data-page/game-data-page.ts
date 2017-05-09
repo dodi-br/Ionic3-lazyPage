@@ -13,19 +13,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'game-data-page.html',
 })
 export class GameDataPage {
-  
-  itemList = [
-    { date: "2017-05-01 14:51", score: "3.00" },
-    { date: "2017-05-01 15:21", tag: "最高得分", score: "3.70" },
-    { date: "2017-05-01 16:00", score: "2.00" },
-    { date: "2017-05-02 09:51", score: "2.05" },
-    { date: "2017-05-03 12:00", score: "1.00" },
-    { date: "2017-05-03 12:10", score: "2.22" },
-    { date: "2017-05-03 13:51", score: "3.00" },
-    { date: "2017-05-04 10:10", score: "1.00" },
-    { date: "2017-05-04 11:50", score: "3.00" },
-    { date: "2017-05-05 14:00", score: "3.10" }
-  ];
+  gameTypeSeg = 'cricket';
+  timeSeg = 'day30';
+  itemList = {
+    game30: [
+      { date: "2017-05-01 14:51", score: "3.00" },
+      { date: "2017-05-01 15:21", tag: "最高得分", score: "3.70" },
+      { date: "2017-05-01 16:00", score: "2.00" },
+      { date: "2017-05-02 09:51", score: "2.05" },
+      { date: "2017-05-03 12:00", score: "1.00" },
+      { date: "2017-05-03 12:10", score: "2.22" },
+      { date: "2017-05-03 13:51", score: "3.00" },
+      { date: "2017-05-04 10:10", score: "1.00" },
+      { date: "2017-05-04 11:50", score: "3.00" },
+      { date: "2017-05-05 14:00", score: "3.10" }
+    ],
+    day30: [
+      { date: "2017-05-01", score: "3.00" },
+      { date: "2017-05-02", score: "3.70" },
+      { date: "2017-05-03", tag: "最高得分", score: "5.00" },
+      { date: "2017-05-04", score: "2.05" },
+      { date: "2017-05-05", score: "1.00" },
+      { date: "2017-05-06", score: "2.22" },
+      { date: "2017-05-07", score: "3.00" },
+      { date: "2017-05-08", score: "1.00" },
+      { date: "2017-05-09", score: "3.00" },
+      { date: "2017-05-10", score: "3.10" }
+    ] 
+  };
+  img = {
+    game30: "assets/zhexian2.PNG",
+    day30: "assets/zhexian1.PNG"
+  }
   
 
   // gameDatas= [
