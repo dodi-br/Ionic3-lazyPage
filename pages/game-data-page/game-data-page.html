@@ -85,7 +85,7 @@
   <ion-card>
     <ion-list>
       <button *ngFor="let item of itemList[timeSeg]; let i = index" [attr.data-index]="i"
-        ion-item (click)="this.navCtrl.push('DayGameData')">
+        ion-item (click)="this.navCtrl.push(btnItem[timeSeg])">
         <span style="float: left">
           <span style="padding-right: 14px">{{ i+1 }}</span>{{ item.date }}
         </span>

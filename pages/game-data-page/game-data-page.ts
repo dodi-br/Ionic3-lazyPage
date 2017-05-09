@@ -44,6 +44,10 @@ export class GameDataPage {
   img = {
     game30: "assets/zhexian2.PNG",
     day30: "assets/zhexian1.PNG"
+  };
+  btnItem = {
+    game30: "GameHistoryDetail",
+    day30: "DayGameData"
   }
   
 
