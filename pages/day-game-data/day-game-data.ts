@@ -29,14 +29,18 @@ export class DayGameData {
     { type: 'HIGHTON', count: 0 },
     { type: 'TON80' , count: 0 }
   ];
-  itemList = [
-    { title: 'GAME01', display:'none', type: 'PPD' },
-    { title: 'CRICKET', display: 'block', type: 'MPR' },
-    { title: 'COUNT-UP', display: 'none', type: ''},
-  ];
+  itemList = {
+    game01: { title: 'GAME01', display:'none', type: 'PPD' },
+    cricket: { title: 'CRICKET', display: 'none', type: 'MPR' },
+    countUp: { title: 'COUNT-UP', display: 'none', type: ''},
+  };
+  itemListKeys = [];
   awardDisp = 'block';
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.itemListKeys = Object.keys(this.itemList);
+    const gameType = navParams.data.gameType;
+    this.itemList[gameType].display = 'block';
   }
 
   ionViewDidLoad() {

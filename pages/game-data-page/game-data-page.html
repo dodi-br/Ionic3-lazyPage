@@ -63,7 +63,7 @@
         <span class="segment-num">2.32</span>
       </div>
     </ion-segment-button>
-    <ion-segment-button value="count-up">
+    <ion-segment-button value="countUp">
       <div style="line-height: 25px">
         <span class="segment-title">COUNT-UP avg</span> <br />
         <span class="segment-num">0</span>
@@ -85,7 +85,7 @@
   <ion-card>
     <ion-list>
       <button *ngFor="let item of itemList[timeSeg]; let i = index" [attr.data-index]="i"
-        ion-item (click)="this.navCtrl.push(btnItem[timeSeg])">
+        ion-item (click)="this.navCtrl.push(btnItem[timeSeg], { gameType: gameTypeSeg })">
         <span style="float: left">
           <span style="padding-right: 14px">{{ i+1 }}</span>{{ item.date }}
         </span>

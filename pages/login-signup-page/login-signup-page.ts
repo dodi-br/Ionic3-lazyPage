@@ -4,8 +4,7 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { URI, HttpHeader } from '../../app/myGlobal';
 
-@IonicPage({
-})
+@IonicPage()
 @Component({
   templateUrl: 'login-signup-page.html'
 })
@@ -16,10 +15,25 @@ export class LoginSignupPage {
 		password: ''
 	};
 	oSignUp = {
-		account:'',
-		password:'',
-    phone: ''
+	  account: '',
+	  password: '',
+	  phone: ''
 	}
+	varJudge = {
+		account: { 
+		  format: /^[a-zA-Z_][a-zA-Z0-9_]*$/,
+		  notice: { login: 'none', signUp: 'none' }
+	  },
+		password: { 
+		  format: /^.{6,}/, 
+		  notice: { login: 'none', signUp: 'none' }
+		},
+    phone: { 
+      format: /^\d{11}$/,
+      notice: { login: 'none', signUp: 'none' }
+    }
+	};
+	
 	getVerificationCodeStatus: boolean;
 	token: string;
 	selectedTab: any;
@@ -31,40 +45,52 @@ export class LoginSignupPage {
   	  this.selectedTab = "Login";
   }
   
-  btnLoginClick(event) {
+  btnLoginClick() {
   	let jLogin = JSON.stringify(this.oLogin);
     let dstUrl = URI.get('login');
   	this.http.post(dstUrl, jLogin, HttpHeader.jsonContentType()).subscribe(res => {
 		  this.token = res["_body"];
   		console.log(this.token);
+  		this.alertNotice(this.token);
+      // isLogin = false => 代表登录, true 是未登录
+      this.storage.set('isLogin', false);
+      this.navCtrl.pop();
   	}, error => {
-  		this.notice("请检查您的网络");
+  		this.alertNotice("错误的账号或密码");
   	}); 
-    // isLogin = false => 代表登录, true 是未登录
-    this.storage.set('isLogin', false);
-    this.navCtrl.pop();
   }
   btnSignUpClick() {
+    for (let i in this.oSignUp) {
+      if (!this.judge(i, 'signUp')) {
+        return 
+      }
+    } 
     let jSignUP = JSON.stringify(this.oSignUp);
     let dstUrl = URI.get('signUp');
     this.http.post(dstUrl, jSignUP, HttpHeader.jsonContentType()).subscribe(res => {
-  		this.getVerificationCodeStatus = JSON.parse(res["_body"]).verificateStatus;
-  		console.log(this.getVerificationCodeStatus);
-  		if (this.getVerificationCodeStatus) {
-        this.navCtrl.push('PhoneVerification');
-  		} 
-  		else {
-  		  this.notice("获取验证码失败");
-  		}
+  		console.log(JSON.parse(res["_body"]));
+  		this.navCtrl.push('PhoneVerification');
   	}, error => {
-  		this.notice("请检查您的网络");
+  		this.alertNotice("获取前验证码失败,请检查格式");
   	}); 
   }
   
+  // label is account\password..
+  // status is login or signUp
+  judge(label, status) {
+    const foo = this.varJudge[label];
+    const value = 'login' === status ? this.oLogin[label] : this.oSignUp[label];
+    if (foo.format.test(value)) {
+      foo.notice[status] = 'none';
+      return 1;
+    }
+    else {
+      foo.notice[status] = 'block';
+      return 0;
+    }
+  }
 
-
-
-  notice(message) {
+  alertNotice(message) {
     let toast = this.toastCtrl.create({
       message: message,
       duration: 3000,

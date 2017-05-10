@@ -6,7 +6,8 @@ export class URI {
         signUp: '/rest/sd/member/register'
     };
     // static ip = 'http://115.159.75.162:8998';
-    static ip = 'http://192.168.1.83:8080';
+    // static ip = 'http://192.168.1.83:8080';
+    static ip = 'http://127.0.0.1:8080/api';
 
     public static get(event) {
         return this.ip + this.pathList[event];

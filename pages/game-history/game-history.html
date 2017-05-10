@@ -43,28 +43,60 @@
     
   <ion-card *ngFor="let daysData of gameWeekData; let i = index" [attr.data-index]="i">
   <ion-card-header (click)="showList[i] = (showList[i] === 'none' ? 'block' : 'none')">
-    <!--<button ion-button detail-none>-->
     <span style="float: left">2017-05-0{{ 8 - i }}</span>
     <button style="float: right; background: transparent; font-size: large">
     <ion-icon name="ios-arrow-down" style="color: black;"></ion-icon>
     </button>
   </ion-card-header>
-
-  <ion-list [style.display]="showList[i]">
+  
+  <div [style.display]="showList[i]">
+  <ion-list class="day-outline">
+    <ion-item-divider color="light">概要</ion-item-divider>
+    <ion-item>
+    <div class="row header">
+      <div class="col"></div>
+      <div class="col">01GAME</div>
+      <div class="col">CRICKET</div>
+      <div class="col">COUNT-UP</div>
+    </div>
+    </ion-item>
+    <ion-item>
+    <div class="row">
+      <div class="col">最高</div>
+      <div class="col">29</div>
+      <div class="col">22</div>
+      <div class="col">0</div>
+    </div>
+    </ion-item>
+    <ion-item>
+    <div class="row">
+      <div class="col">平均</div>
+      <div class="col">25</div>
+      <div class="col">20</div>
+      <div class="col">0</div>
+    </div>
+    </ion-item>
+    <ion-item>
+    <div class="row">
+      <div class="col">最低</div>
+      <div class="col">15</div>
+      <div class="col">13</div>
+      <div class="col">0</div>
+    </div>
+    </ion-item>
+  </ion-list>
+  
+  <ion-list >
+    <ion-item-divider color="light">明细</ion-item-divider>
     <button (click)="this.navCtrl.push('GameHistoryDetail')"
       ion-item *ngFor="let item of daysData">
-        <ion-icon [style.color]="item.result ? 'black' : 'darkred'"
-        item-left>
-          {{ item.result? '败' : '胜' }}
-        </ion-icon>
-      <span style="float:left"> {{ item.scoreType + ": " + item.score }} </span>
-      <span style="float: right; color: gray; position: relative">
-      <span style="font-size: medium; padding-right: 10px">{{ item.type }}</span>
+      <span [style.color]="item.result ? 'darkred' : 'green'">
+        {{ item.result? '失败' : '胜利' }} 
       </span>
+      <span style="color: gray">{{ '(' + item.type + ')' }}</span>
+      <span style="float:right"> {{ item.scoreType + ": " + item.score }} </span>
     </button>
-
-
   </ion-list>
+  </div>
 </ion-card>
-
 </ion-content>

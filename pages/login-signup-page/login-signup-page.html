@@ -29,12 +29,14 @@
   </ion-segment>
 
 <div [ngSwitch]="selectedTab">
+  <!-- login -->
   <ion-list *ngSwitchCase="'Login'" style="text-align: center">
       <ion-item>
         <ion-label color="primary">
           <ion-icon name="person" color="primary"></ion-icon>
         </ion-label>
-        <ion-input placeholder="账号/手机/邮箱"  [(ngModel)]="oLogin.account"></ion-input>
+        <ion-input placeholder="账号/手机/邮箱"
+        [(ngModel)]="oLogin.account"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary">
@@ -46,25 +48,47 @@
     <a (click)="this.navCtrl.push('ForgetPassword')">忘记密码</a>
   </ion-list>
 
+  <!--Sign up-->
   <ion-list *ngSwitchCase="'SignUp'">
     <ion-item>
       <ion-label color="primary">
         <ion-icon name="person"></ion-icon>
       </ion-label>
-      <ion-input placeholder="Username" [(ngModel)]="oSignUp.account"></ion-input>
+      <ion-input placeholder="账号"
+        (blur)="judge('account', 'signUp')"
+        [(ngModel)]="oSignUp.account">
+      </ion-input>
     </ion-item>
+    <div style="color: red" [style.display]="varJudge.account.notice.signUp">
+      *字母、数字、下划线组成,字母或下划线开头
+    </div>
+
     <ion-item>
       <ion-label color="primary">
         <ion-icon name="md-lock"></ion-icon>
       </ion-label>
-      <ion-input type="password" placeholder="Password" [(ngModel)]="oSignUp.password"></ion-input>
+      <ion-input type="password" placeholder="密码" 
+        (blur)="judge('password', 'signUp')"
+        [(ngModel)]="oSignUp.password">
+      </ion-input>
     </ion-item>
+    <div style="color: red" [style.display]="varJudge.password.notice.signUp">
+      *至少6位密码
+    </div>
+
     <ion-item>
     	<ion-label color="primary">
     		<ion-icon name="md-phone-portrait"></ion-icon>
     	</ion-label>
-    	<ion-input type="tel" placeholder="Phone number" [(ngModel)]="oSignUp.phone"></ion-input>
+    	<ion-input type="tel" placeholder="手机号"
+    	  (blur)="judge('phone', 'signUp')"
+      	[(ngModel)]="oSignUp.phone">
+    	</ion-input>
     </ion-item>
+    <div style="color: red" [style.display]="varJudge.phone.notice.signUp">
+      *手机号格式有误
+    </div>
+
     <button ion-button class="btn-login" (click)="btnSignUpClick($event)">注册</button>
   </ion-list>
 </div>

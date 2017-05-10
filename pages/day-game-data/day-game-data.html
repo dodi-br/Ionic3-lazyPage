@@ -16,18 +16,18 @@
 <ion-content>
   <ion-item-divider>2017-05-08</ion-item-divider>
     
-  <ion-item-group class="panel" *ngFor="let item of itemList">
+  <ion-item-group class="panel" *ngFor="let key of itemListKeys">
     <ion-item-divider color="light"
-    (click)="item.display = (item.display == 'none' ? 'block' : 'none')">
-      <span style="float:left">{{ item.title }}</span>
+    (click)="itemList[key].display = (itemList[key].display == 'none' ? 'block' : 'none')">
+      <span style="float:left">{{ itemList[key].title }}</span>
       <ion-icon name="ios-arrow-down" style="color: black; float:right"></ion-icon>
     </ion-item-divider>
-    <div [style.display]="item.display">
+    <div [style.display]="itemList[key].display">
     <ion-item>
-      当日最高{{ item.type }}: 29
+      当日最高{{ itemList[key].type }}: 29
     </ion-item>
     <ion-item>
-      当日平均{{ item.type }}: 29
+      当日平均{{ itemList[key].type }}: 29
     </ion-item>
     <ion-item>
       游戏总轮数: 1

@@ -45,7 +45,7 @@ export class GameHistory {
       scoreType: 'PDD',
       score: 2.5,
       time: '08:05',
-      type: '01GAME'
+      type: '301GAME'
     },
     {
       result: 0,
@@ -53,7 +53,7 @@ export class GameHistory {
       score: 12.5,
       MPR: null,
       time: '07:29',
-      type: '01GAME'
+      type: '201GAME'
     }
     ],
     [

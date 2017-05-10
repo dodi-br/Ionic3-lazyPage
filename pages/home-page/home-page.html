@@ -74,7 +74,8 @@
       <ion-avatar item-left (click)="this.navCtrl.push('PersonDetailPage')">
         <img src="assets/portrait.png">
       </ion-avatar>
-      <h2 class="title">Zhangsan</h2>
+      <h2 class="title" style="float:left">Zhangsan</h2>
+      <h3 style="float:right" (click)="this.navCtrl.push('GameHistory')">近期结果</h3>
       <!--<p>个人中心:详细，编辑...</p>-->
     </ion-item>
     <ion-item (click)="this.navCtrl.push('GameDataPage')"
@@ -86,27 +87,27 @@
   </ion-list>
   
     <!-- 今日游戏数据(登录后) -->
-  <ion-list class="today-game">
-    <ion-item class="border-bottom-none">
-      <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>
-      <h2 class="title" style="float:left">今日游戏数据</h2>
-      <h3 style="float:right" (click)="this.navCtrl.push('GameHistory')">更多</h3>
-    </ion-item>
+  <!--<ion-list class="today-game">-->
+  <!--  <ion-item class="border-bottom-none">-->
+  <!--    <ion-icon class="title" item-left name="ios-game-controller-b" style="float:left"></ion-icon>-->
+  <!--    <h2 class="title" style="float:left">今日游戏数据</h2>-->
+  <!--    <h3 style="float:right" (click)="this.navCtrl.push('GameHistory')">更多</h3>-->
+  <!--  </ion-item>-->
 
-    <ion-item>
-      <span style="float: left">Count-up</span>
-      <span style="float: right">232</span>
-    </ion-item>
-    <ion-item>
-      <span style="float: left">PPD</span>
-      <span style="float: right">32</span>
-    </ion-item>
-    <ion-item>
-      <span style="float: left">MPR</span>
-      <span style="float: right">15</span>
-    </ion-item>
+  <!--  <ion-item>-->
+  <!--    <span style="float: left">Count-up</span>-->
+  <!--    <span style="float: right">232</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    <span style="float: left">PPD</span>-->
+  <!--    <span style="float: right">32</span>-->
+  <!--  </ion-item>-->
+  <!--  <ion-item>-->
+  <!--    <span style="float: left">MPR</span>-->
+  <!--    <span style="float: right">15</span>-->
+  <!--  </ion-item>-->
 
-  </ion-list>
+  <!--</ion-list>-->
 
   <!-- 新店铺 -->
   <ion-list>
