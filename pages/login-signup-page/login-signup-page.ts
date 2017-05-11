@@ -54,9 +54,14 @@ export class LoginSignupPage {
   		this.alertNotice(this.token);
       // isLogin = false => 代表登录, true 是未登录
       this.storage.set('isLogin', false);
+      
       this.navCtrl.pop();
+      
   	}, error => {
   		this.alertNotice("错误的账号或密码");
+      this.storage.set('isLogin', false);
+
+      this.navCtrl.pop();
   	}); 
   }
   btnSignUpClick() {

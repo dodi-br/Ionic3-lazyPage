@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ActionSheetController } from 'ionic-angular';
 
+import { Http } from '@angular/http';
+import { URI, HttpHeader } from '../../app/myGlobal';
+
+
 /**
  * Generated class for the PersonDetailPage page.
  *
@@ -23,67 +27,84 @@ export class PersonDetailPage {
 		settingPage: { title: '设置', page: 'SettingPage' },
 		personDetailEditPage: { title: '修改信息', page: 'PersonDetailEditPage' }
 	}
-	personObj = {
-		account: [ '账号', 'wawnw1'],
-		label: ['昵称', 'Hybird'],
-		area: ['地区', '杭州'],
-		birth: ['出生日期', '2017/4/11'],
-		gender: ['性别', '男'],
-		email: ['邮箱', '123899696@qq.com'],
-		mobile: ['手机', '159383299'],
-		registerTime: ['注册日期', '2017/04/11'],
+	class oPerson {
+		portrait: '',
+		account: '',
+		nickname: '',
+		area: 0,
+		birth: '',
+		gender: 0,
+		email: '',
+		mobile: '',
+		registerTime: '',
 	}
-	styleObj = {
-		account: { modified: false, fontColor: 'gray' },
-		label: { modified: true, fontColor: 'black' },
-		area: { modified: true, fontColor: 'black' },
-		birth: { modified: true, fontColor: 'black' },
-		gender: { modified: false, fontColor: 'gray' },
-		email: { modified: true, fontColor: 'black' },
-		mobile: { modified: true, fontColor: 'black' },
-		registerTime: { modified: false, fontColor: 'gray' },
+	person: oPerson;
+	
+	
+	isModified = {
+		account: false,
+		nickname: true,
+		area: true,
+		birth: true,
+		gender: true,
+		email: true,
+		mobile: true,
+		registerTime: false,
 	}
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-  	public actionSheetCtrl: ActionSheetController) {
-    this.keys = Object.keys(this.personObj);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PersonDetailPage');
-  }
-  btnPersonInfor(title) {
-		if (this.styleObj[title].modified) {
-			this.navCtrl.push('PersonDetailEditPage', { title: this.personObj[title][0] });
-		}
-		else {
-			this.arrow = "detail-none";
-		}
+	constructor(public navCtrl: NavController, public navParams: NavParams,
+	public actionSheetCtrl: ActionSheetController,
+	public http: Http) {
+		this.keys = Object.keys(this.oPerson);
 	}
+	
+	ionViewDidLoad() {
+	console.log('ionViewDidLoad PersonDetailPage');
+	this.getInfo();
+	}
+ // btnPersonInfor(title) {
+	// 	if (this.styleObj[title].modified) {
+	// 		this.navCtrl.push('PersonDetailEditPage', { title: this.oPerson[title][0] });
+	// 	}
+	// 	else {
+	// 		this.arrow = "detail-none";
+	// 	}
+	// }
 	
 	navPush(target) {
 		this.navCtrl.push(target.page, { title: target.title });
 	}
 	
 	btnPortrait() {
-     let actionSheet = this.actionSheetCtrl.create({
-     	title: "更换头像",
-     buttons: [
-       {
-         text: '从相册',
-         role: 'zhifubao',
-         handler: () => {
-           console.log('Destructive clicked');
-         }
-       },
-       {
-         text: '拍照',
-         role: 'zhifubao',
-         handler: () => {
-           console.log('Destructive clicked');
-         }
-       }
-     ]
-   });
-   actionSheet.present();
+		let actionSheet = this.actionSheetCtrl.create({
+		 title: "更换头像",
+		buttons: [
+		{
+		 text: '从相册',
+		 role: 'zhifubao',
+		 handler: () => {
+		   console.log('Destructive clicked');
+		 }
+		},
+		{
+		 text: '拍照',
+		 role: 'zhifubao',
+		 handler: () => {
+		   console.log('Destructive clicked');
+		 }
+		}
+		]
+		});
+		actionSheet.present();
+	}
+	
+	getInfo() {
+		const dstUrl = URI.get('personInfo');
+		this.http.post(dstUrl, {}, HttpHeader.jsonContentType()).subscribe(res => {
+			console.log(res["_body"]);
+			this.person = JSON.parse(res["_body"]);
+			console.log(this.person);
+		}, error => {
+			console.log("error");
+		}); 
 	}
 }

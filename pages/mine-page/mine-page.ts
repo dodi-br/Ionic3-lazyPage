@@ -31,6 +31,7 @@ export class MinePage {
   isLogin = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController, public storage: Storage) {
+      console.log(navParams.data.me);
     // storage.ready().then(() => {
 
     //   // set a key/value

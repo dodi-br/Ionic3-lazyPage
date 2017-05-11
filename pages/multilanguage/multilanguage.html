@@ -14,8 +14,8 @@
 
 <ion-content>
 <ion-list>
-  <button ion-item *ngFor="let item of languages" (click)="this.navCtrl.pop()">
-    {{ item.name }}
+  <button ion-item *ngFor="let item of languages" (click)="btn(item)">
+    {{ 'cn' | translate }}
   </button>
 </ion-list>
 </ion-content>

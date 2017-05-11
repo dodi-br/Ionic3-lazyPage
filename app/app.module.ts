@@ -5,10 +5,6 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { HTTP } from '@ionic-native/http';
-// import { Http } from '@angular/http';
-
-
 
 // Storage
 import { IonicStorageModule } from '@ionic/storage';
@@ -24,7 +20,15 @@ import { RankTabRating } from '../components/rank-tab-rating/rank-tab-rating';
 import { RankTabMatch } from '../components/rank-tab-match/rank-tab-match';
 import { RankTabAward } from '../components/rank-tab-award/rank-tab-award';
 
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Http } from '@angular/http';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 @NgModule({
   declarations: [
@@ -42,6 +46,13 @@ import {HttpModule} from '@angular/http';
   imports: [
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
     }),
     BrowserModule,
     HttpModule,
@@ -67,4 +78,6 @@ import {HttpModule} from '@angular/http';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
+
 export class AppModule {}
+

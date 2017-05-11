@@ -3,7 +3,8 @@ import { Headers, RequestOptions } from '@angular/http';
 export class URI {
     static pathList = {
         login: '/rest/sd/member/login',
-        signUp: '/rest/sd/member/register'
+        signUp: '/rest/sd/member/register',
+        personInfo: '/sd/member/info'
     };
     // static ip = 'http://115.159.75.162:8998';
     // static ip = 'http://192.168.1.83:8080';

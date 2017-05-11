@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>个人资料</ion-title>
+    <ion-title>{{ 'PersonalInformation' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="navPush(childPage.settingPage)">
         <ion-icon name="settings"></ion-icon>
@@ -18,12 +18,12 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-item (click)="btnPortrait()" [style.color]="black" detail-none>
-    <ion-label>头像</ion-label>
-      <img item-right src="assets/portrait.png" />
-  </button>
-  <button ion-item *ngFor="let item of keys" (click)="btnPersonInfor(item)" icon-left [style.color]='this.styleObj[item].fontColor' detail-none>
-    <span style="text-align: left"> {{ personObj[item][0] }} </span>
-    <span style="text-align: right; float: right;"> {{ personObj[item][1] }} </span>
-  </button>
+  <!--<button ion-item (click)="btnPortrait()" [style.color]="black" detail-none>-->
+  <!--  <ion-label>{{ 'Portrait' | translate }}</ion-label>-->
+  <!--    <img item-right [src]="oPerson.portrait" />-->
+  <!--</button>-->
+  <!--<button ion-item *ngFor="let item of keys" (click)="btnPersonInfor(item)" icon-left [style.color]='this.styleObj[item].fontColor' detail-none>-->
+  <!--  <span style="text-align: left"> {{ personObj[item][0] }} </span>-->
+  <!--  <span style="text-align: right; float: right;"> {{ personObj[item][1] }} </span>-->
+  <!--</button>-->
 </ion-content>

@@ -3,7 +3,6 @@ import { NavController, NavParams, Slides, PopoverController } from 'ionic-angul
 import { Tabs, ActionSheetController, ModalController, Select } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-
 /**
  * Generated class for the HomePage page.
  *
@@ -51,85 +50,65 @@ export class HomePage {
     public storage: Storage, public actionSheetCtrl: ActionSheetController,
     public modalCtrl: ModalController) {
       
-
-      
-    // storage.ready().then(() => {
-
-    //   // set a key/value
-    //   // storage.set('name', 'Max');
-
-    //   // Or to get a key/value pair
-    //   storage.get('isLogin').then((val) => {
-    //     // console.log('Your age is', val);
-    //     if (val) {
-    //       this.isLogin = "";
-    //     }
-    //     else {
-    //       this.isLogin = "none";
-    //     }
-    //   });
-    // });
-
-    // this.rankTab = 'game1';
-    this.rankSegment = 'rank1';
-    this.rankSlides = [
-      {
-        id: "rank1",
-        evaluate: "SCORE",
-        player: { name: 'Ruby', score: 1500 },
-        img: 'assets/No1.jpeg',
-        players: [
-          { name: 'Because of you', score: 1200, num: 2 },
-          { name: '丁听', score: 1000, num: 3 },
-          { name: '阿菲', score: 1000, num: 4 }
-        ]
-      },
-      {
-        id: "rank2",
-        evaluate: "PPD",
-        player: { name: 'Jessie', score: 29 },
-        img: 'assets/member1.jpeg',
-        players: [
-          { name: 'Because of you', score: 25, num: 2 },
-          { name: 'Month', score: 20, num: 3 },
-          { name: '阿菲', score: 11, num: 4 }
-        ]
-      },
-      {
-        id: "rank3",
-        evaluate: "MPR",
-        player : { name: '林医生', score: 20 },
-        img: 'assets/member2.jpeg',
-        players: [
-          { name: '丁听', score: 19, num: 2 },
-          { name: 'Year', score: 15, num: 3 },
-          { name: 'Son', score: 9, num: 4 }
-        ]
-      }
-    ];
-    this.gameSegment = 'game1';
-    this.gameSlides = [
-      {
-        id: "game1",
-        average: [ "平均分", "232"],
-        highest: [ "最高分", 34],
-        lowest: [ "最低分", 23]
-      },
-      {
-        id: "game2",
-        title: "First Slide",
-        average: [ "平均PDD", "38"],
-        highest: [ "最高PPD", "60"],
-        lowest: [ "最低PPD", "20"]
-      },
-      {
-        id: "game3",
-        title: "Second Slide",
-        average: [ "平均MPR", "60"],
-        highest: [ "最高MPR", "80"],
-        lowest: [ "最低MPR", "40"]
-      }
-    ]; 
+      this.rankSegment = 'rank1';
+      this.rankSlides = [
+        {
+          id: "rank1",
+          evaluate: "SCORE",
+          player: { name: 'Ruby', score: 1500 },
+          img: 'assets/No1.jpeg',
+          players: [
+            { name: 'Because of you', score: 1200, num: 2 },
+            { name: '丁听', score: 1000, num: 3 },
+            { name: '阿菲', score: 1000, num: 4 }
+          ]
+        },
+        {
+          id: "rank2",
+          evaluate: "PPD",
+          player: { name: 'Jessie', score: 29 },
+          img: 'assets/member1.jpeg',
+          players: [
+            { name: 'Because of you', score: 25, num: 2 },
+            { name: 'Month', score: 20, num: 3 },
+            { name: '阿菲', score: 11, num: 4 }
+          ]
+        },
+        {
+          id: "rank3",
+          evaluate: "MPR",
+          player : { name: '林医生', score: 20 },
+          img: 'assets/member2.jpeg',
+          players: [
+            { name: '丁听', score: 19, num: 2 },
+            { name: 'Year', score: 15, num: 3 },
+            { name: 'Son', score: 9, num: 4 }
+          ]
+        }
+      ];
+      this.gameSegment = 'game1';
+      this.gameSlides = [
+        {
+          id: "game1",
+          average: [ "平均分", "232"],
+          highest: [ "最高分", 34],
+          lowest: [ "最低分", 23]
+        },
+        {
+          id: "game2",
+          title: "First Slide",
+          average: [ "平均PDD", "38"],
+          highest: [ "最高PPD", "60"],
+          lowest: [ "最低PPD", "20"]
+        },
+        {
+          id: "game3",
+          title: "Second Slide",
+          average: [ "平均MPR", "60"],
+          highest: [ "最高MPR", "80"],
+          lowest: [ "最低MPR", "40"]
+        }
+      ]; 
   }
     
 

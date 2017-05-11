@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { Multilanguage } from './multilanguage';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { Multilanguage } from './multilanguage';
   ],
   imports: [
     IonicPageModule.forChild(Multilanguage),
+    TranslateModule.forChild()
   ],
   exports: [
     Multilanguage
